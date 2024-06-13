@@ -21,6 +21,10 @@ return new class extends Migration
             $table->foreignId('category_id')->nullable()->index();
             $table->timestamp('created_at')->nullable();
         });
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('category');
+        });
     }
 
     /**
@@ -29,5 +33,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('artikel');
+        Schema::dropIfExists('categories');
     }
 };

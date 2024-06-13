@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('perangkat_desa', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('image')->nullable();
             $table->string('nip')->nullable();
             $table->text('alamat')->nullable();

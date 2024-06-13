@@ -39,5 +39,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('profile_kelurahan');
         Schema::dropIfExists('social_media');
+        Schema::dropIfExists('image_landing_page');
     }
 };
