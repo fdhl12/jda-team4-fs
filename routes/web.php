@@ -10,3 +10,20 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/admin', function (){
+   return view('admin.dashboard');
+})->name('admin.dashboard');
+
+Route::get('/admin/form', function (){
+    return view('admin.form');
+})->name('admin.form');
+
+Route::get('/admin/table', function (){
+    return view('admin.table');
+})->name('admin.table');
+
+Route::get('/admin/tabs', function (){
+    return view('admin.tabs');
+})->name('admin.tabs');
