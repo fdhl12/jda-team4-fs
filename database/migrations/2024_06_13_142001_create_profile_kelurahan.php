@@ -11,24 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profile_kelurahan', function (Blueprint $table) {
+        Schema::create('profile_kelurahans', function (Blueprint $table) {
             $table->id();
             $table->string('email');
             $table->text('alamat');
             $table->string('no_telp');
             $table->timestamps();
         });
-        Schema::create('social_media', function (Blueprint $table) {
+        Schema::create('social_medias', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('link');
             $table->text('icon');
             $table->timestamps();
         });
-        Schema::create('image_landing_page', function (Blueprint $table) {
+        Schema::create('image_landing_pages', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 
@@ -37,7 +37,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profile_kelurahan');
-        Schema::dropIfExists('social_media');
+        Schema::dropIfExists('profile_kelurahans');
+        Schema::dropIfExists('social_medias');
+        Schema::dropIfExists('image_landing_pages');
     }
 };

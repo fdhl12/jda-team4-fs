@@ -11,8 +11,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-
 Route::middleware([])->group(function (){
 
     Route::get('/admin', function (){
@@ -36,4 +34,3 @@ Route::middleware([])->group(function (){
     })->name('admin.wysiwyg');
 
 });
-

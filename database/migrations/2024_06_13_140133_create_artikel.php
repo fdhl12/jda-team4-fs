@@ -11,15 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('artikel', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('category');
+            $table->timestamps();
+        });
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->text('description');
             $table->string('image')->nullable();
             $table->string('slug');
-            $table->foreignId('user_id')->nullable()->index();
-            $table->foreignId('category_id')->nullable()->index();
-            $table->timestamp('created_at')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +35,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('categories');
         Schema::dropIfExists('artikel');
     }
 };
