@@ -27,3 +27,7 @@ Route::get('/admin/table', function (){
 Route::get('/admin/tabs', function (){
     return view('admin.tabs');
 })->name('admin.tabs');
+
+Route::get('/admin/wysiwyg', function (){
+    return view('admin.wysiwyg');
+})->name('admin.wysiwyg');

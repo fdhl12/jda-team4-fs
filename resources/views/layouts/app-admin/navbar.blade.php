@@ -24,6 +24,10 @@
             <i class="fas fa-tablet-alt mr-3"></i>
             Tabbed Content
         </a>
+        <a href="{{ route('admin.wysiwyg') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item @if(request()->routeIs('admin.wysiwyg')) active-nav-link @endif">
+            <i class="fas fa-tablet-alt mr-3"></i>
+            Wysiwyg
+        </a>
     </nav>
 {{--    <a href="{{ route('admin.dashboard') }}" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">--}}
 {{--        <i class="fas fa-arrow-circle-up mr-3"></i>--}}
