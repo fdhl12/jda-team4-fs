@@ -11,6 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('jabatan', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamp('created_at')->nullable();
+        });
         Schema::create('perangkat_desa', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -18,13 +23,9 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('nip')->nullable();
             $table->text('alamat')->nullable();
-            $table->foreignId('jabatan_id')->nullable()->index();
+            $table->unsignedBigInteger('jabatan_id');
+            $table->foreign('jabatan_id')->references('id')->on('jabatan');
             $table->timestamps();
-        });
-        Schema::create('jabatan', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -33,7 +34,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('perangkat_desa');
         Schema::dropIfExists('jabatan');
+        Schema::dropIfExists('perangkat_desa');
     }
 };

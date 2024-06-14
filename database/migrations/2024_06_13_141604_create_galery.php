@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('image');
             $table->string('desciption')->nullable();
-            $table->foreignId('user_id')->nullable()->index();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
