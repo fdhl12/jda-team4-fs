@@ -13,8 +13,8 @@ class JabatanSeeder extends Seeder
      */
     public function run(): void
     {
-        Jabatan::factory()->create([
-            'name' => 'Lurah',
+        Jabatan::create([
+            'name' => 'Lurah'
         ]);
     }
 }

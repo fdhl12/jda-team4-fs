@@ -13,7 +13,7 @@ class ProfileKelurahanSeeder extends Seeder
      */
     public function run(): void
     {
-        ProfileKelurahan::factory()->create([
+        ProfileKelurahan::create([
             'alamat' => 'Jl. Ibu Ganirah No. 41 Cibeber Cimahi',
             'no_telp' => '022- 6672994 / 022- 6672994',
             'email' => 'cibeber@cimahikota.go.id'
