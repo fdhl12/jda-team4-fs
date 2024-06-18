@@ -4,6 +4,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController as WebArticleController;
 
+Auth::routes([
+    'register' => false,
+]);
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
