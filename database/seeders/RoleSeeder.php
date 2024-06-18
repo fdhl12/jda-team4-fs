@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Role;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class RoleSeeder extends Seeder
@@ -13,11 +14,9 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        Role::create([
-            'name' => 'super_admin'
-        ]);
-        Role::create([
-            'name' => 'admin'
+        DB::table('roles')->insert([
+            ['name' => 'super admin', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'admin', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }
