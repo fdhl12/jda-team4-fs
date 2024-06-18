@@ -4,21 +4,27 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController as WebArticleController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
-Route::get('/articles', [WebArticleController::class, 'index']);
-Route::get('/admin/articles', [WebArticleController::class, 'indexAdmin'])->name('admin.articles.index');
-
 Auth::routes([
     'register' => false,
 ]);
 
-
-
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+
+Route::get('/berita', function () {
+    return view('berita');
+})->name('berita');
+
+Route::get('/galeri', function () {
+    return view('galeri');
+})->name('galeri');
+
+Route::get('/kontak', function () {
+    return view('kontak');
+})->name('kontak');
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function (){
 
