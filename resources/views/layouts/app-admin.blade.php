@@ -36,37 +36,25 @@
 </head>
 <body class="bg-gray-100 font-family-karla flex">
 
-    @hasSection('content')
+    @include('layouts.app-admin.navbar')
 
-        @include('layouts.app-admin.navbar')
+    <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
 
-        <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
+        @include('layouts.app-admin.header')
+        @include('layouts.app-admin.navbar-mobile')
 
-            @include('layouts.app-admin.header')
-            @include('layouts.app-admin.navbar-mobile')
+        <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+            <main class="w-full flex-grow p-6">
 
-            <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
-                <main class="w-full flex-grow p-6">
+                @yield('content')
 
-                    @yield('content')
+            </main>
 
-                </main>
-
-                @include('layouts.app-admin.footer')
-
-            </div>
+            @include('layouts.app-admin.footer')
 
         </div>
 
-    @endif
-
-    @hasSection('auth')
-
-        <main class="w-full">
-            @yield('auth')
-        </main>
-
-    @endif
+    </div>
 
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
