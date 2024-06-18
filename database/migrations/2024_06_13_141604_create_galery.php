@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('galeries', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->string('desciption')->nullable();
+            $table->string('image')->nullable();
+            $table->string('video')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
