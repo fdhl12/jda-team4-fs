@@ -1,8 +1,11 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="h-full" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- icon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/logo.png') }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -20,58 +23,78 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite([
+        'resources/css/app.css',
+        'resources/js/app.js'
+    ])
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-        .font-family-karla { font-family: karla; }
-        .bg-sidebar { background: #3d68ff; }
-        .cta-btn { color: #3d68ff; }
-        .upgrade-btn { background: #1947ee; }
-        .upgrade-btn:hover { background: #0038fd; }
-        .active-nav-link { background: #1947ee; }
-        .nav-item:hover { background: #1947ee; }
-        .account-link:hover { background: #3d68ff; }
+
+        .font-family-karla {
+            font-family: karla;
+        }
+
+        .bg-sidebar {
+            background: #3d68ff;
+        }
+
+        .cta-btn {
+            color: #3d68ff;
+        }
+
+        .upgrade-btn {
+            background: #1947ee;
+        }
+
+        .upgrade-btn:hover {
+            background: #0038fd;
+        }
+
+        .active-nav-link {
+            background: #1947ee;
+        }
+
+        .nav-item:hover {
+            background: #1947ee;
+        }
+
+        .account-link:hover {
+            background: #3d68ff;
+        }
+
+        .z-35 {
+            z-index: 35
+        }
     </style>
 </head>
-<body class="bg-gray-100 font-family-karla flex">
+<body class="bg-gray-50 dark:bg-gray-700 font-family-karla flex flex-col">
 
-    @hasSection('content')
+@hasSection('content')
 
-        @include('layouts.app-admin.navbar')
+    @include('layouts.partials.header')
+    @include('layouts.partials.navbar')
 
-        <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
+    <div class="sm:ml-64 mt-16 h-screen flex flex-col">
 
-            @include('layouts.app-admin.header')
-            @include('layouts.app-admin.navbar-mobile')
-
-            <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
-                <main class="w-full flex-grow p-6">
-
-                    @yield('content')
-
-                </main>
-
-                @include('layouts.app-admin.footer')
-
-            </div>
-
+        <div class="mb-auto">
+            @yield('content')
         </div>
 
-    @endif
+        @include('layouts.partials.footer')
 
-    @hasSection('auth')
+    </div>
+@endif
 
-        <main class="w-full">
-            @yield('auth')
-        </main>
+@hasSection('auth')
 
-    @endif
+    <main class="w-full">
+        @yield('auth')
+    </main>
 
-    <!-- AlpineJS -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+@endif
+
+@stack('scripts')
 
 </body>
 </html>

@@ -1,2 +1,4 @@
 import './bootstrap';
-import 'flowbite'
+import 'flowbite';
+
+import './admin/dark-mode.js';
