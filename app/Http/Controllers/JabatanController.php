@@ -16,7 +16,7 @@ class JabatanController extends Controller
 
     public function show($id)
     {
-        $jabatan = Jabatan::with(['contents.user'])->findOrFail($id);
+        $jabatan = Jabatan::with(['jabatan'])->findOrFail($id);
 
         return view('jabatan', compact('jabatan'));
     }
@@ -36,7 +36,7 @@ class JabatanController extends Controller
     public function showAdmin($id)
     {
 
-        $jabatan = Jabatan::with('perangkat_desas.user')->findOrFail($id); // Memuat kategori beserta konten dan pengguna
+        $jabatan = Jabatan::with('perangkat_desas.user')->findOrFail($id);
         $perangkat_desas = $jabatan->perangkat_desas;
 
         return view('admin.show.jabatan', compact('jabatan', 'perangkat_desas'));
