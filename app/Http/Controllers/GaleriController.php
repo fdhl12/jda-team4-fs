@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Galery;
+use App\Models\Galeri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class GaleryController extends Controller
+class GaleriController extends Controller
 {
     public function index(Request $request)
     {
@@ -32,27 +32,26 @@ class GaleryController extends Controller
             $imagePath = $request->file('image')->store('category_images', 'public');
         }
 
-        Galery::create([
+        Galeri::create([
             'image' => $imagePath,
             'video' => $request->video,
             'user_id' => Auth::id(),
         ]);
 
-        return redirect()->route('galeries.index')->with('success', 'Galery created successfully.');
+        return redirect()->route('galeries.index')->with('success', 'Galeri created successfully.');
     }
 
     public function show($id)
     {
-        $Galery = Galery::findOrFail($id);
-        $Galery->increment('views');
-        $category = $Galery->category;
-        return view('galeries.show', compact('galery'));
+        $galeri = Galeri::findOrFail($id);
+        $galeri->increment('views');
+        return view('galeries.show', compact('galeri'));
     }
 
-    public function destroy(Galery $Galery)
+    public function destroy(Galeri $Galeri)
     {
 
-        $Galery->delete();
-        return redirect()->route('admin.galeries.index')->with('success', 'Galery deleted successfully.');
+        $Galeri->delete();
+        return redirect()->route('admin.galeries.index')->with('success', 'Galeri deleted successfully.');
     }
 }
