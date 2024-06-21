@@ -51,6 +51,13 @@
                     <span class="ms-3">Gallery</span>
                 </a>
             </li>
+            @auth
+
+            @if(Auth::user()->role_id === 1)
+
+            
+
+            
             <li>
                 <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-profile-desa" data-collapse-toggle="dropdown-profile-desa">
                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -104,7 +111,7 @@
                 @if(
                     !request()->routeIs('admin.struktur-organisasi*')
                     and
-                    !request()->routeIs('admin.perangkat-desa*')
+                    !request()->routeIs('admin.perangkat-desa.index*')
                     and
                     !request()->routeIs('admin.lembaga-desa*')
                     and
@@ -112,15 +119,15 @@
                 ) hidden @endif
                 ">
                     <li>
-                        <a href="{{ route('admin.struktur-organisasi') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
+                        <a href="/admin/struktur-organisasi" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
                         @if(request()->routeIs('admin.struktur-organisasi*')) bg-gray-100 dark:bg-gray-700 @endif
                         ">
                             Struktur Organisasi
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.perangkat-desa') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
-                        @if(request()->routeIs('admin.perangkat-desa*')) bg-gray-100 dark:bg-gray-700 @endif
+                        <a href="{{ route('admin.perangkat-desa.index') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
+                        @if(request()->routeIs('admin.perangkat-desa.index*')) bg-gray-100 dark:bg-gray-700 @endif
                         ">
                             Perangkat Desa
                         </a>
@@ -133,8 +140,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.jabatan') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
-                        @if(request()->routeIs('admin.jabatan*')) bg-gray-100 dark:bg-gray-700 @endif
+                        <a href="{{ route('admin.jabatan.index') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
+                        @if(request()->routeIs('admin.jabatan.index*')) bg-gray-100 dark:bg-gray-700 @endif
                         ">
                             Jabatan
                         </a>
@@ -142,8 +149,8 @@
                 </ul>
             </li>
             <li>
-                <a href="{{ route('admin.user') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group
-                @if(request()->routeIs('admin.user*')) bg-gray-100 dark:bg-gray-700 @endif
+                <a href="{{ route('admin.user.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group
+                @if(request()->routeIs('admin.user.index*')) bg-gray-100 dark:bg-gray-700 @endif
                 ">
 
                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -153,6 +160,10 @@
                     <span class="ms-3">Manajemen Pengguna</span>
                 </a>
             </li>
+            @else
+
+            @endif
+            @endauth
 
         </ul>
     </div>

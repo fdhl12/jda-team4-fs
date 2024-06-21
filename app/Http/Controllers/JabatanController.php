@@ -11,7 +11,7 @@ class JabatanController extends Controller
     {
 
         $jabatans = Jabatan::all();
-        return view('jabatans', compact('jabatans'));
+        return view('admin.jabatan.index', compact('jabatans'));
     }
 
     public function show($id)
@@ -21,17 +21,17 @@ class JabatanController extends Controller
         return view('jabatan', compact('jabatan'));
     }
 
-    public function indexAdmin(Request $request)
-    {
-        $query = $request->input('query');
+    // public function indexAdmin(Request $request)
+    // {
+    //     $query = $request->input('query');
 
-        if ($query) {
-            $jabatans = Jabatan::where('name', 'LIKE', "%{$query}%")->get();
-        } else {
-            $jabatans = Jabatan::all();
-        }
-        return view('admin.jabatans', compact('jabatans', 'query'));
-    }
+    //     if ($query) {
+    //         $jabatans = Jabatan::where('name', 'LIKE', "%{$query}%")->get();
+    //     } else {
+    //         $jabatans = Jabatan::all();
+    //     }
+    //     return view('admin.jabatan.index', compact('jabatans', 'query'));
+    // }
 
     public function showAdmin($id)
     {
@@ -56,7 +56,7 @@ class JabatanController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect()->route('jabatans.index')->with('success', 'Content created successfully.');
+        return redirect()->route('admin.jabatan.index')->with('success', 'Content created successfully.');
     }
 
     public function edit($id)
@@ -78,12 +78,12 @@ class JabatanController extends Controller
 
         $jabatan->update($request->all());
 
-        return redirect()->route('jabatans.index')->with('success', 'jabatan updated successfully.');
+        return redirect()->route('admin.jabatan.index')->with('success', 'jabatan updated successfully.');
     }
 
     public function destroy(Jabatan $jabatan)
     {
         $jabatan->delete();
-        return redirect()->route('jabatans.index')->with('success', 'jabatan deleted successfully.');
+        return redirect()->route('admin.jabatan.index')->with('success', 'jabatan deleted successfully.');
     }
 }

@@ -39,7 +39,7 @@ class ArticleController extends Controller
 
 
 
-        return view('admin.articles', compact('articles', 'query'));
+        return view('admin.berita.index', compact('articles', 'query'));
     }
 
     public function create()
