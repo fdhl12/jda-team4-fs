@@ -56,7 +56,7 @@ class JabatanController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect()->route('admin.jabatan.index')->with('success', 'Content created successfully.');
+        return redirect()->route('admin.jabatan.index')->with('update', 'Jabatan berhasil dibuat');
     }
 
     public function edit($id)
@@ -78,12 +78,12 @@ class JabatanController extends Controller
 
         $jabatan->update($request->all());
 
-        return redirect()->route('admin.jabatan.index')->with('success', 'jabatan updated successfully.');
+        return redirect()->route('admin.jabatan.index')->with('store', 'Jabatan berhasil diubah');
     }
 
     public function destroy(Jabatan $jabatan)
     {
         $jabatan->delete();
-        return redirect()->route('admin.jabatan.index')->with('success', 'jabatan deleted successfully.');
+        return redirect()->route('admin.jabatan.index')->with('destroy', 'Jabatan berhasil dihapus');
     }
 }

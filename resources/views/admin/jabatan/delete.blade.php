@@ -1,4 +1,4 @@
-<!-- Delete User Modal -->
+<!-- Delete Modal -->
 <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full" id="delete-modal-{{ $jabatan->id }}">
     <div class="relative w-full h-full max-w-md px-4 md:h-auto">
         <!-- Modal content -->
@@ -12,17 +12,23 @@
             <!-- Modal body -->
             <div class="p-6 pt-0 text-center">
                 <svg class="w-16 h-16 mx-auto text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <h3 class="mt-5 mb-6 text-lg text-gray-500 dark:text-gray-400">Are you sure target want to delete this @yield('title')?</h3>
-                <form action="{{route('admin.jabatan.destroy',$jabatan->id)  }}" method="POST" class="block">
+                <h3 class="mt-5 mb-6 font-medium text-wrap text-lg text-black-500 dark:text-black-400">
+                    Akan menghapus @yield('title') <br/>
+                    <b>{{ $jabatan->name }}</b> ?
+                </h3>
+
+                <form id="delete" action="{{ route('admin.jabatan.destroy',$jabatan->id) }}" method="POST">
                     @csrf
-                    @method('DELETE')
-                    <button class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-base inline-flex items-center px-3 py-2.5 text-center mr-2 dark:focus:ring-red-800"> Yes, I'm sure </button>
+                    @method('delete')
+                    <button class="text-white font-semibold bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-base inline-flex items-center px-3 py-2.5 text-center mr-2 dark:focus:ring-red-800">
+                        Ya
+                    </button>
+                    <button type="button" class="text-black-900 font-semibold bg-white hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 border border-gray-200 font-medium inline-flex items-center rounded-lg text-base px-3 py-2.5 text-center dark:bg-gray-800 dark:text-black-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700" data-modal-toggle="delete-modal-{{$jabatan->id}}">
+                        Tidak
+                    </button>
                 </form>
-                <button type="button" class="text-gray-900 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 border border-gray-200 font-medium inline-flex items-center rounded-lg text-base px-3 py-2.5 text-center dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700" data-modal-toggle="delete-modal-{{$jabatan->id}}">
-                    No, cancel
-                </button>
-   
             </div>
+
         </div>
     </div>
 </div>

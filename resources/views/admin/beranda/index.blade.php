@@ -8,8 +8,13 @@
 
         <div class="w-full mb-1">
             <div class="mb-4">
-                @include('layouts.partials.breadcrumbs')
-                <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">Dashboard</h1>
+
+                <x-admin.breadcrumbs :data="[
+                'Beranda' => route('admin.beranda'),
+                'Index' => false
+                ]"/>
+
+                <h1 class="text-xl font-semibold text-black-900 sm:text-2xl dark:text-white">Dashboard</h1>
             </div>
         </div>
 

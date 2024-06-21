@@ -43,5 +43,19 @@ class ArticleSeeder extends Seeder
                 'created_at' => now(),
             ]
         ]);
+
+        for ($i = 0; $i < 50 ; $i++) {
+            Article::insert([
+                [
+                    'title' => 'Juara Koding',
+                    'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ut debitis impedit, praesentium quam molestias quaerat laboriosam velit',
+                    'image' => 'https://teachyourkidscode.com/wp-content/uploads/2022/02/best-coding-language-for-games.jpg',
+                    'slug' => 'juara-coding',
+                    'user_id' => 1,
+                    'category_id' => 1,
+                    'created_at' => now(),
+                ]
+            ]);
+        }
     }
 }
