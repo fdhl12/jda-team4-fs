@@ -51,30 +51,24 @@
                     <span class="ms-3">Galeri</span>
                 </a>
             </li>
-<<<<<<< HEAD:resources/views/layouts/partials-admin/navbar.blade.php
 
-=======
             @auth
 
-            @if(Auth::user()->role_id === 1)
+                @if(Auth::user()->role_id === 1)
 
-            
-
-            
->>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20:resources/views/layouts/partials/navbar.blade.php
-            <li>
-                <button type="button" class="flex items-center w-full p-2 text-base text-black font-medium transition duration-75 rounded-lg group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700" aria-controls="dropdown-informasi-desa" data-collapse-toggle="dropdown-informasi-desa">
-                    <svg class="w-6 h-6 text-black font-medium dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 9h3m-3 3h3m-3 3h3m-6 1c-.306-.613-.933-1-1.618-1H7.618c-.685 0-1.312.387-1.618 1M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm7 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>
-                    </svg>
-                    <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
+                    <li>
+                        <button type="button" class="flex items-center w-full p-2 text-base text-black font-medium transition duration-75 rounded-lg group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700" aria-controls="dropdown-informasi-desa" data-collapse-toggle="dropdown-informasi-desa">
+                            <svg class="w-6 h-6 text-black font-medium dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 9h3m-3 3h3m-3 3h3m-6 1c-.306-.613-.933-1-1.618-1H7.618c-.685 0-1.312.387-1.618 1M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm7 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>
+                            </svg>
+                            <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
                         Informasi Desa
                     </span>
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                    </svg>
-                </button>
-                <ul id="dropdown-informasi-desa" class="py-2 space-y-2
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                        </button>
+                        <ul id="dropdown-informasi-desa" class="py-2 space-y-2
                 @if(
                     !request()->routeIs('admin.profile-desa*')
                     and
@@ -83,118 +77,110 @@
                     !request()->routeIs('admin.demografi*')
                 ) hidden @endif
                 ">
-                    <li>
-                        <a href="{{ route('admin.profile-desa') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                            <li>
+                                <a href="{{ route('admin.profile-desa') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
                         @if(request()->routeIs('admin.profile-desa*')) bg-blue-100 dark:bg-blue-700 @endif
                         ">
-                            Profil
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.geografis') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                                    Profil
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.geografis') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
                         @if(request()->routeIs('admin.geografis*')) bg-blue-100 dark:bg-blue-700 @endif
                         ">
-                            Geografis
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.demografi') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                                    Geografis
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.demografi') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
                         @if(request()->routeIs('admin.demografi*')) bg-blue-100 dark:bg-blue-700 @endif
                         ">
-                            Demografi
-                        </a>
+                                    Demografi
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                </ul>
-            </li>
 
-            <li>
-                <button type="button" class="flex items-center w-full p-2 text-base text-black font-medium transition duration-75 rounded-lg group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700" aria-controls="dropdown-pemerintahan" data-collapse-toggle="dropdown-pemerintahan">
-                    <svg class="w-6 h-6 text-black font-medium dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 4h12M6 4v16M6 4H5m13 0v16m0-16h1m-1 16H6m12 0h1M6 20H5M9 7h1v1H9V7Zm5 0h1v1h-1V7Zm-5 4h1v1H9v-1Zm5 0h1v1h-1v-1Zm-3 4h2a1 1 0 0 1 1 1v4h-4v-4a1 1 0 0 1 1-1Z"/>
-                    </svg>
-                    <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
-                        Pemerintahan
-                    </span>
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                    </svg>
-                </button>
-                <ul id="dropdown-pemerintahan" class="py-2 space-y-2
-                @if(
-                    !request()->routeIs('admin.struktur-organisasi*')
-                    and
-                    !request()->routeIs('admin.perangkat-desa.index*')
-                    and
-                    !request()->routeIs('admin.lembaga-desa*')
-                    and
-                    !request()->routeIs('admin.jabatan*')
-                ) hidden @endif
-                ">
-                    <li>
-<<<<<<< HEAD:resources/views/layouts/partials-admin/navbar.blade.php
-                        <a href="{{ route('admin.struktur-organisasi') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
-                        @if(request()->routeIs('admin.struktur-organisasi*')) bg-blue-100 dark:bg-blue-700 @endif
-=======
-                        <a href="/admin/struktur-organisasi" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
-                        @if(request()->routeIs('admin.struktur-organisasi*')) bg-gray-100 dark:bg-gray-700 @endif
->>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20:resources/views/layouts/partials/navbar.blade.php
-                        ">
-                            Struktur Organisasi
-                        </a>
-                    </li>
-                    <li>
-<<<<<<< HEAD:resources/views/layouts/partials-admin/navbar.blade.php
-                        <a href="{{ route('admin.perangkat-desa') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
-                        @if(request()->routeIs('admin.perangkat-desa*')) bg-blue-100 dark:bg-blue-700 @endif
-=======
-                        <a href="{{ route('admin.perangkat-desa.index') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
-                        @if(request()->routeIs('admin.perangkat-desa.index*')) bg-gray-100 dark:bg-gray-700 @endif
->>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20:resources/views/layouts/partials/navbar.blade.php
-                        ">
-                            Perangkat Desa
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.lembaga-desa') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
-                        @if(request()->routeIs('admin.lembaga-desa*')) bg-blue-100 dark:bg-blue-700 @endif
-                        ">
-                            Lembaga Desa
-                        </a>
-                    </li>
-                    <li>
-<<<<<<< HEAD:resources/views/layouts/partials-admin/navbar.blade.php
-                        <a href="{{ route('admin.jabatan') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
-                        @if(request()->routeIs('admin.jabatan*')) bg-blue-100 dark:bg-blue-700 @endif
-=======
-                        <a href="{{ route('admin.jabatan.index') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
-                        @if(request()->routeIs('admin.jabatan.index*')) bg-gray-100 dark:bg-gray-700 @endif
->>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20:resources/views/layouts/partials/navbar.blade.php
-                        ">
-                            Jabatan
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-<<<<<<< HEAD:resources/views/layouts/partials-admin/navbar.blade.php
-                <a href="{{ route('admin.user') }}" class="flex items-center p-2 text-black font-medium rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group
-                @if(request()->routeIs('admin.user*')) bg-blue-100 dark:bg-blue-700 @endif
-=======
-                <a href="{{ route('admin.user.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group
-                @if(request()->routeIs('admin.user.index*')) bg-gray-100 dark:bg-gray-700 @endif
->>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20:resources/views/layouts/partials/navbar.blade.php
-                ">
 
-                    <svg class="w-6 h-6 text-black font-medium dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                    </svg>
+                    <li>
+                        <button type="button" class="flex items-center w-full p-2 text-base text-black font-medium transition duration-75 rounded-lg group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700" aria-controls="dropdown-pemerintahan" data-collapse-toggle="dropdown-pemerintahan">
+                            <svg class="w-6 h-6 text-black font-medium dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 4h12M6 4v16M6 4H5m13 0v16m0-16h1m-1 16H6m12 0h1M6 20H5M9 7h1v1H9V7Zm5 0h1v1h-1V7Zm-5 4h1v1H9v-1Zm5 0h1v1h-1v-1Zm-3 4h2a1 1 0 0 1 1 1v4h-4v-4a1 1 0 0 1 1-1Z"/>
+                            </svg>
+                            <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
+                                Pemerintahan
+                            </span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                        </button>
+                        <ul id="dropdown-pemerintahan" class="py-2 space-y-2
+                        @if(
+                            !request()->routeIs('admin.struktur-organisasi*')
+                            and
+                            !request()->routeIs('admin.perangkat-desa.index*')
+                            and
+                            !request()->routeIs('admin.lembaga-desa*')
+                            and
+                            !request()->routeIs('admin.jabatan*')
+                        ) hidden @endif
+                        ">
+                            <li>
+                                <a href="{{ route('admin.struktur-organisasi') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                                @if(request()->routeIs('admin.struktur-organisasi*')) bg-blue-100 dark:bg-blue-700 @endif
+                                ">
+                                Struktur Organisasi
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.perangkat-desa.index') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                                @if(request()->routeIs('admin.perangkat-desa*')) bg-blue-100 dark:bg-blue-700 @endif
+                                ">
+                                Perangkat Desa
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.lembaga-desa') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                                @if(request()->routeIs('admin.lembaga-desa*')) bg-blue-100 dark:bg-blue-700 @endif
+                                ">
+                                    Lembaga Desa
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.jabatan.index') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                                @if(request()->routeIs('admin.jabatan*')) bg-blue-100 dark:bg-blue-700 @endif
+                                ">
+                                    Jabatan
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
-                    <span class="ms-3">Manajemen Pengguna</span>
-                </a>
-            </li>
-            @else
+                    <li>
+                        <a href="{{ route('admin.user.index') }}" class="flex items-center p-2 text-black-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group
+                        @if(request()->routeIs('admin.user.index*')) bg-blue-100 dark:bg-blue-700 @endif
+                        ">
+                            <svg class="w-6 h-6 text-black font-medium dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                            </svg>
+                            <span class="ms-3">Pengguna</span>
+                        </a>
+                    </li>
 
-            @endif
+                    <li>
+                        <a href="{{ route('admin.pengaturan') }}" class="flex items-center p-2 text-black-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group
+                        @if(request()->routeIs('admin.pengaturan*')) bg-blue-100 dark:bg-blue-700 @endif
+                        ">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13v-2a1 1 0 0 0-1-1h-.757l-.707-1.707.535-.536a1 1 0 0 0 0-1.414l-1.414-1.414a1 1 0 0 0-1.414 0l-.536.535L14 4.757V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v.757l-1.707.707-.536-.535a1 1 0 0 0-1.414 0L4.929 6.343a1 1 0 0 0 0 1.414l.536.536L4.757 10H4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h.757l.707 1.707-.535.536a1 1 0 0 0 0 1.414l1.414 1.414a1 1 0 0 0 1.414 0l.536-.535 1.707.707V20a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-.757l1.707-.708.536.536a1 1 0 0 0 1.414 0l1.414-1.414a1 1 0 0 0 0-1.414l-.535-.536.707-1.707H20a1 1 0 0 0 1-1Z"/>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                            </svg>
+                            <span class="ms-3">Pengaturan</span>
+                        </a>
+                    </li>
+
+                @endif
+
             @endauth
 
         </ul>

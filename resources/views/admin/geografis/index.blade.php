@@ -19,6 +19,12 @@
 
             <div class="w-full mb-1 flex justify-between">
                 <div class="mb-4">
+
+                    <x-admin.breadcrumbs :data="[
+                        'Beranda' => route('admin.beranda'),
+                        'Geografis' => false,
+                    ]"/>
+
                     <h2 class="text-xl font-semibold text-black-900 sm:text-2xl dark:text-white">
                         Geografis
                     </h2>

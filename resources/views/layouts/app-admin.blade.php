@@ -27,6 +27,11 @@
         'resources/css/app.css',
         'resources/js/app.js'
     ])
+    <style>
+        .z-35 {
+            z-index: 35;
+        }
+    </style>
 
     @hasSection('content')
         {{--@vite('resources/js/admin/dark-mode.js')--}}

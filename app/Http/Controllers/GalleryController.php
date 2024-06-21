@@ -6,11 +6,7 @@ use App\Models\Galeri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-<<<<<<<< HEAD:app/Http/Controllers/GalleryController.php
 class GalleryController extends Controller
-========
-class GaleriController extends Controller
->>>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20:app/Http/Controllers/GaleriController.php
 {
     public function index(Request $request)
     {

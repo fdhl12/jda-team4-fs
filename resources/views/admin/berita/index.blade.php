@@ -25,8 +25,7 @@
 
                 <x-admin.breadcrumbs :data="[
                     'Beranda' => route('admin.beranda'),
-                    'Berita' => route('admin.berita'),
-                    'Index' => false
+                    'Berita' => false,
                 ]"/>
 
                 <h1 class="text-xl font-semibold text-black-900 sm:text-2xl dark:text-white">@yield('title')</h1>
@@ -68,20 +67,20 @@
                     <div class="overflow-hidden shadow">
                         <table id="table" class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
                             <thead class="bg-blue-100 dark:bg-blue-700">
-                            <tr>
-                                <th scope="col" class="p-4 font-semibold text-left whitespace-nowrap text-black-500 uppercase dark:text-black-400 w-80">
-                                    Judul
-                                </th>
-                                <th scope="col" class="p-4 font-semibold text-left whitespace-nowrap text-black-500 uppercase dark:text-black-400 w-10">
-                                    Terbit
-                                </th>
-                                <th scope="col" class="p-4 font-semibold text-left whitespace-nowrap text-black-500 uppercase dark:text-black-400 w-10">
-                                    Dibuat Oleh
-                                </th>
-                                <th scope="col" class="p-4 font-semibold text-end whitespace-nowrap text-black-500 uppercase dark:text-black-400 w-10">
-                                    Aksi
-                                </th>
-                            </tr>
+                                <tr>
+                                    <th scope="col" class="p-4 font-semibold text-left whitespace-nowrap text-black-500 uppercase dark:text-black-400 w-80">
+                                        Judul
+                                    </th>
+                                    <th scope="col" class="p-4 font-semibold text-left whitespace-nowrap text-black-500 uppercase dark:text-black-400 w-10">
+                                        Terbit
+                                    </th>
+                                    <th scope="col" class="p-4 font-semibold text-left whitespace-nowrap text-black-500 uppercase dark:text-black-400 w-10">
+                                        Dibuat Oleh
+                                    </th>
+                                    <th scope="col" class="p-4 font-semibold text-end whitespace-nowrap text-black-500 uppercase dark:text-black-400 w-10">
+                                        Aksi
+                                    </th>
+                                </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200 dark:bg-blue-800 dark:divide-gray-700">
 

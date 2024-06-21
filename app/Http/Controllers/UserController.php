@@ -65,7 +65,7 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
         }
         $user->save();
-       
+
         return redirect()->route('admin.user.index', $user->id)->with('success', 'User updated successfully');
     }
     public function destroy($id)
@@ -81,10 +81,11 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:100',
             'email' => 'required|string|email|max:50|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:1|confirmed',
         ]);
 
         if ($validator->fails()) {

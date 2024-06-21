@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -57,11 +56,6 @@ class ArticleController extends Controller
             $articles = $articles->latest()->paginate(10);
         }
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20
         return view('admin.berita.index', compact('articles', 'query'));
     }
 
@@ -166,8 +160,8 @@ class ArticleController extends Controller
     }
 
     /**
-     * Proses Admin
-     * ============
+     * Proses Pengumuman
+     * =================
      */
 
     public function indexAdminPengumuman(Request $request)
