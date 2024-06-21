@@ -57,6 +57,11 @@ class ArticleController extends Controller
             $articles = $articles->latest()->paginate(10);
         }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20
         return view('admin.berita.index', compact('articles', 'query'));
     }
 

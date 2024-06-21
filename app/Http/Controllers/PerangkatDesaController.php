@@ -19,15 +19,18 @@ class PerangkatDesaController extends Controller
                     $q->where('id', 'LIKE', "%{$query}%")
                         ->orWhere('name', 'LIKE', "%{$query}%");
                 })
-                ->orderBy('created_at', 'desc');
+                ->orderBy('created_at', 'desc')->get();
         } else {
-            $perangkatdesas = PerangkatDesa::with('perangkatdesa')->orderBy('created_at', 'desc');
+            $perangkatdesas = PerangkatDesa::with('jabatan')->orderBy('created_at', 'desc')->paginate(10);
         }
+        $totalPerangkatDesas = PerangkatDesa::count();
 
-        return view('perangkatdesas.index', compact('perangkatdesas', 'query'));
+
+
+        return view('admin.perangkat-desa.index', compact('perangkatdesas', 'query', 'totalPerangkatDesas'));
     }
 
-    public function indexAdmin(Request $request)
+    public function indexUser(Request $request)
     {
         $query = $request->input('query');
 
@@ -39,13 +42,13 @@ class PerangkatDesaController extends Controller
 
 
 
-        return view('admin.perangkatdesas', compact('perangkatdesas', 'query'));
+        return view('admin.perangkat-desa.index', compact('perangkatdesas', 'query'));
     }
 
     public function create()
     {
         $jabatans = Jabatan::all();
-        return view('perangkatdesas.create', compact('jabatans'));
+        return view('admin.perangkat-desa.create', compact('jabatans'));
     }
 
     public function store(Request $request)
@@ -54,10 +57,13 @@ class PerangkatDesaController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:255',
-            'jabatan_id' => 'required|exists:jabatans,id',
-            'alamat' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'nip' => 'nullable|string|max:55',
+            'alamat' => 'nullable',
+            'jabatan_id' => 'required|exists:jabatans,id',
         ]);
+
+
 
         // Simpan gambar jika ada
         $imagePath = null;
@@ -68,26 +74,28 @@ class PerangkatDesaController extends Controller
         PerangkatDesa::create([
             'name' => $request->name,
             'email' => $request->email,
-            'jabatan_id' => $request->jabatan_id,
-            'alamat' => $request->alamat,
             'image' => $imagePath,
+            'nip' => $request->nip,
+            'alamat' => $request->alamat,
+            'jabatan_id' => $request->jabatan_id,
+
         ]);
 
-        return redirect()->route('perangkatdesas.index')->with('success', 'PerangkatDesa created successfully.');
+        return redirect()->route('admin.perangkat-desa.index')->with('success', 'PerangkatDesa created successfully.');
     }
 
     public function show($id)
     {
         $perangkatdesa = PerangkatDesa::findOrFail($id);
-        $perangkatdesa->increment('views');
+
         $jabatan = $perangkatdesa->jabatan;
-        return view('perangkatdesas.show', compact('perangkatdesa', 'jabatan'));
+        return view('admin.perangkat-desa.show', compact('perangkatdesa', 'jabatan'));
     }
 
     public function edit(PerangkatDesa $PerangkatDesa)
     {
         $jabatans = Jabatan::all();
-        return view('perangkatdesas.edit', compact('perangkatdesa', 'jabatans'));
+        return view('admin.perangkat-desa.edit', compact('perangkatdesa', 'jabatans'));
     }
 
     public function update(Request $request, PerangkatDesa $PerangkatDesa)
@@ -112,13 +120,13 @@ class PerangkatDesaController extends Controller
             'image' => $imagePath,
         ]);
 
-        return redirect()->route('admin.perangkatdesas.index')->with('success', 'PerangkatDesa updated successfully.');
+        return redirect()->route('admin.perangkat-desa.index')->with('success', 'PerangkatDesa updated successfully.');
     }
 
     public function destroy(PerangkatDesa $PerangkatDesa)
     {
 
         $PerangkatDesa->delete();
-        return redirect()->route('admin.perangkatdesas.index')->with('success', 'PerangkatDesa deleted successfully.');
+        return redirect()->route('admin.perangkat-desa.index')->with('success', 'PerangkatDesa deleted successfully.');
     }
 }

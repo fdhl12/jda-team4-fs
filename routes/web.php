@@ -1,10 +1,21 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+=======
+use App\Models\Jabatan;
+use App\Models\PerangkatDesa;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\PerangkatDesaController;
+>>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20
 
 Auth::routes([
     'register' => false,
@@ -28,8 +39,9 @@ Route::get('/kontak', function () {
     return view('kontak');
 })->name('kontak');
 
-Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function (){
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
 
+<<<<<<< HEAD
     Route::get('/', function (){
        return view('admin.beranda.index');
     })->name('beranda');
@@ -80,35 +92,97 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function (){
         Route::patch('/demografi_kategori/{id}', 'updateDemografiKategori')->name('demografi.update');
         Route::delete('/demografi_kategori', 'destroyDemografiKategori')->name('demografi.destroy');
     });
+=======
+    Route::get('/', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
+
+    /* user */
+    // Route::get('/user', function () {
+    //     return view('admin.user.index');
+    // })->name('user');
+
+    /* berita */
+    Route::get('/berita', [ArticleController::class, 'indexAdmin'])->name('berita');
+
+    Route::get('/berita/create', function () {
+        return view('admin.berita.create');
+    })->name('berita.create');
+
+    Route::post('/berita', function () {
+        /*dd(request()->all());*/
+        return redirect()->route('admin.berita')->with('store', 'Berita berhasil dibuat...');
+    })->name('berita.store');
+
+    Route::get('/berita/{id}/edit', function () {
+        return view('admin.berita.edit');
+    })->name('berita.edit');
+
+    Route::patch('/berita/update', function () {
+        /*dd(request()->all());*/
+        return redirect()->route('admin.berita')->with('update', 'Berita berhasil diubah...');
+    })->name('berita.update');
+
+    Route::delete('/berita/destroy', function () {
+        /*dd(request()->post('id'));*/
+        return redirect()->back()->with('delete', 'Berita berhasil dihapus...');
+    })->name('berita.destroy');
+
+    /* pengumuman */
+    Route::get('/pengumuman', function () {
+        return view('admin.pengumuman.index');
+    })->name('pengumuman');
+
+    Route::get('/pengumuman/create', function () {
+        return view('admin.pengumuman.create');
+    })->name('pengumuman.create');
+
+    Route::get('/pengumuman/{id}/edit', function () {
+        return view('admin.pengumuman.edit');
+    })->name('pengumuman.edit');
+
+    /**
+     * user 
+     */
+    Route::resource('/user', UserController::class);
+>>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20
 
     /**
      * pemerintahan
      */
 
     /* struktur-organisasi */
-    Route::get('/struktur-organisasi', function (){
+    Route::get('/struktur-organisasi', function () {
         return view('admin.struktur-organisasi.index');
     })->name('struktur-organisasi');
 
     /* perangkat desa */
-    Route::get('/perangkat-desa', function (){
-        return view('admin.perangkat-desa.index');
-    })->name('perangkat-desa');
+    Route::resource('/perangkat-desa', PerangkatDesaController::class);
 
     /* lembaga desa */
-    Route::get('/lembaga-desa', function (){
+    Route::get('/lembaga-desa', function () {
         return view('admin.lembaga-desa.index');
     })->name('lembaga-desa');
 
     /* jabatan */
-    Route::get('/jabatan', function (){
-        return view('admin.jabatan.index');
-    })->name('jabatan');
+    Route::resource('/jabatan', JabatanController::class);
 
+<<<<<<< HEAD
 
     /* user */
     Route::get('/user', function (){
         return view('admin.user.index');
     })->name('user');
 
+=======
+    /* gallery*/
+    Route::get('gallery', function () {
+        return view('admin.gallery.index');
+    })->name('gallery');
+
+    /* profile desa */
+    Route::get('/profile-desa', function () {
+        return view('admin.profile-desa.index');
+    })->name('profile-desa');
+>>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20
 });

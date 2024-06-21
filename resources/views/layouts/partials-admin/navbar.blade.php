@@ -51,7 +51,17 @@
                     <span class="ms-3">Galeri</span>
                 </a>
             </li>
+<<<<<<< HEAD:resources/views/layouts/partials-admin/navbar.blade.php
 
+=======
+            @auth
+
+            @if(Auth::user()->role_id === 1)
+
+            
+
+            
+>>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20:resources/views/layouts/partials/navbar.blade.php
             <li>
                 <button type="button" class="flex items-center w-full p-2 text-base text-black font-medium transition duration-75 rounded-lg group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700" aria-controls="dropdown-informasi-desa" data-collapse-toggle="dropdown-informasi-desa">
                     <svg class="w-6 h-6 text-black font-medium dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -113,7 +123,7 @@
                 @if(
                     !request()->routeIs('admin.struktur-organisasi*')
                     and
-                    !request()->routeIs('admin.perangkat-desa*')
+                    !request()->routeIs('admin.perangkat-desa.index*')
                     and
                     !request()->routeIs('admin.lembaga-desa*')
                     and
@@ -121,15 +131,25 @@
                 ) hidden @endif
                 ">
                     <li>
+<<<<<<< HEAD:resources/views/layouts/partials-admin/navbar.blade.php
                         <a href="{{ route('admin.struktur-organisasi') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
                         @if(request()->routeIs('admin.struktur-organisasi*')) bg-blue-100 dark:bg-blue-700 @endif
+=======
+                        <a href="/admin/struktur-organisasi" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
+                        @if(request()->routeIs('admin.struktur-organisasi*')) bg-gray-100 dark:bg-gray-700 @endif
+>>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20:resources/views/layouts/partials/navbar.blade.php
                         ">
                             Struktur Organisasi
                         </a>
                     </li>
                     <li>
+<<<<<<< HEAD:resources/views/layouts/partials-admin/navbar.blade.php
                         <a href="{{ route('admin.perangkat-desa') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
                         @if(request()->routeIs('admin.perangkat-desa*')) bg-blue-100 dark:bg-blue-700 @endif
+=======
+                        <a href="{{ route('admin.perangkat-desa.index') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
+                        @if(request()->routeIs('admin.perangkat-desa.index*')) bg-gray-100 dark:bg-gray-700 @endif
+>>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20:resources/views/layouts/partials/navbar.blade.php
                         ">
                             Perangkat Desa
                         </a>
@@ -142,8 +162,13 @@
                         </a>
                     </li>
                     <li>
+<<<<<<< HEAD:resources/views/layouts/partials-admin/navbar.blade.php
                         <a href="{{ route('admin.jabatan') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
                         @if(request()->routeIs('admin.jabatan*')) bg-blue-100 dark:bg-blue-700 @endif
+=======
+                        <a href="{{ route('admin.jabatan.index') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700
+                        @if(request()->routeIs('admin.jabatan.index*')) bg-gray-100 dark:bg-gray-700 @endif
+>>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20:resources/views/layouts/partials/navbar.blade.php
                         ">
                             Jabatan
                         </a>
@@ -151,8 +176,13 @@
                 </ul>
             </li>
             <li>
+<<<<<<< HEAD:resources/views/layouts/partials-admin/navbar.blade.php
                 <a href="{{ route('admin.user') }}" class="flex items-center p-2 text-black font-medium rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group
                 @if(request()->routeIs('admin.user*')) bg-blue-100 dark:bg-blue-700 @endif
+=======
+                <a href="{{ route('admin.user.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group
+                @if(request()->routeIs('admin.user.index*')) bg-gray-100 dark:bg-gray-700 @endif
+>>>>>>> c9d26ba9df8dedf1fd243370c004ca8b338bad20:resources/views/layouts/partials/navbar.blade.php
                 ">
 
                     <svg class="w-6 h-6 text-black font-medium dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -162,6 +192,10 @@
                     <span class="ms-3">Manajemen Pengguna</span>
                 </a>
             </li>
+            @else
+
+            @endif
+            @endauth
 
         </ul>
     </div>

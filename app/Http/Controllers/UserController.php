@@ -23,7 +23,7 @@ class UserController extends Controller
             $users = User::orderBy('created_at', 'desc')->paginate(10);
         }
 
-        return view('admin.users', compact('users', 'query'));
+        return view('admin.user.index', compact('users', 'query'));
     }
 
     public function show($id)
@@ -38,7 +38,6 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         // Gunakan policy untuk otorisasi
-        $this->authorize('verif', $user);
 
         return view('admin.edit.user', compact('user'));
     }
@@ -49,8 +48,7 @@ class UserController extends Controller
         $user = User::where('id', $id)->firstOrFail();
 
         // Gunakan policy untuk otorisasi
-        $this->authorize('verif', $user);
-
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:100',
             'email' => 'required|string|email|max:50|unique:users,email,' . $user->id,
@@ -67,8 +65,8 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
         }
         $user->save();
-        dd($request->all());
-        return redirect()->route('admin.users.show', $user->id)->with('success', 'User updated successfully');
+       
+        return redirect()->route('admin.user.index', $user->id)->with('success', 'User updated successfully');
     }
     public function destroy($id)
     {
@@ -78,7 +76,7 @@ class UserController extends Controller
         $this->authorize('verif', $user);
 
         $user->delete();
-        return redirect()->route('admin.users.index')->with('success', 'Content deleted successfully.');
+        return redirect()->route('admin.user.index')->with('success', 'Content deleted successfully.');
     }
 
     public function store(Request $request)
@@ -100,7 +98,7 @@ class UserController extends Controller
             'role_id' => '2',
         ]);
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.user.index');
     }
 
     // Login function

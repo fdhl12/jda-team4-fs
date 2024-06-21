@@ -14,6 +14,8 @@ class PerangkatDesaSeeder extends Seeder
      */
     public function run(): void
     {
+        PerangkatDesa::factory(10)->create();
+
         DB::table('perangkat_desas')->insert([
             [
                 'name' => 'Kang Lurah',

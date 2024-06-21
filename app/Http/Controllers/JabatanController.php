@@ -11,32 +11,32 @@ class JabatanController extends Controller
     {
 
         $jabatans = Jabatan::all();
-        return view('jabatans', compact('jabatans'));
+        return view('admin.jabatan.index', compact('jabatans'));
     }
 
     public function show($id)
     {
-        $jabatan = Jabatan::with(['contents.user'])->findOrFail($id);
+        $jabatan = Jabatan::with(['jabatan'])->findOrFail($id);
 
         return view('jabatan', compact('jabatan'));
     }
 
-    public function indexAdmin(Request $request)
-    {
-        $query = $request->input('query');
+    // public function indexAdmin(Request $request)
+    // {
+    //     $query = $request->input('query');
 
-        if ($query) {
-            $jabatans = Jabatan::where('name', 'LIKE', "%{$query}%")->get();
-        } else {
-            $jabatans = Jabatan::all();
-        }
-        return view('admin.jabatans', compact('jabatans', 'query'));
-    }
+    //     if ($query) {
+    //         $jabatans = Jabatan::where('name', 'LIKE', "%{$query}%")->get();
+    //     } else {
+    //         $jabatans = Jabatan::all();
+    //     }
+    //     return view('admin.jabatan.index', compact('jabatans', 'query'));
+    // }
 
     public function showAdmin($id)
     {
 
-        $jabatan = Jabatan::with('perangkat_desas.user')->findOrFail($id); // Memuat kategori beserta konten dan pengguna
+        $jabatan = Jabatan::with('perangkat_desas.user')->findOrFail($id);
         $perangkat_desas = $jabatan->perangkat_desas;
 
         return view('admin.show.jabatan', compact('jabatan', 'perangkat_desas'));
@@ -56,7 +56,7 @@ class JabatanController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect()->route('jabatans.index')->with('success', 'Content created successfully.');
+        return redirect()->route('admin.jabatan.index')->with('success', 'Content created successfully.');
     }
 
     public function edit($id)
@@ -78,12 +78,12 @@ class JabatanController extends Controller
 
         $jabatan->update($request->all());
 
-        return redirect()->route('jabatans.index')->with('success', 'jabatan updated successfully.');
+        return redirect()->route('admin.jabatan.index')->with('success', 'jabatan updated successfully.');
     }
 
     public function destroy(Jabatan $jabatan)
     {
         $jabatan->delete();
-        return redirect()->route('jabatans.index')->with('success', 'jabatan deleted successfully.');
+        return redirect()->route('admin.jabatan.index')->with('success', 'jabatan deleted successfully.');
     }
 }
