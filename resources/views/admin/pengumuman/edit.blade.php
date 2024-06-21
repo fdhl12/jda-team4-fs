@@ -1,43 +1,75 @@
 @extends('layouts.app-admin')
 
-@section('title', 'Edit Pengumuman')
+@section('title', 'Ubah Pengumuman')
 
 @section('content')
 
-    <main class="bg-white p-5 m-3">
+    @if($errors->any())
+        <x-admin.alert-danger>
+            Terdapat data yang masih kosong, silahkan cek kembali
+        </x-admin.alert-danger>
+    @endif
+
+    <main class="bg-white dark:bg-gray-800 p-5 m-3 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
 
         <div class="mb-4">
-            <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">@yield('title')</h1>
+
+            <x-admin.breadcrumbs :data="[
+                'Beranda' => route('admin.beranda'),
+                'Pengumuman' => route('admin.pengumuman'),
+                'Ubah Pengumuman' => false
+            ]"/>
+
+            <h1 class="text-xl font-semibold text-black-900 sm:text-2xl dark:text-white">@yield('title')</h1>
         </div>
 
-        <form action="#">
+        <form action="{{ route('admin.pengumuman.update', $article['id']) }}" method="POST" enctype="multipart/form-data">
+
+            @csrf
+            @method('patch')
+
             <div class="grid grid-cols-6 gap-6">
-                <div class="col-span-6 sm:col-span-3">
-                    <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Title
+                <div class="col-span-6">
+                    <label for="title" class="block mb-2  font-medium text-black-900 dark:text-white">
+                        Judul
                     </label>
-                    <input type="text" name="first-name" id="first-name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Bonnie" required>
-                </div>
-                <div class="col-span-6 sm:col-span-3">
-                    <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Category
-                    </label>
-                    <select id="category-create" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        <option selected="">Select category</option>
-                        <option value="FL">Flowbite</option>
-                        <option value="RE">React</option>
-                        <option value="AN">Angular</option>
-                        <option value="VU">Vue</option>
-                    </select>
+                    <input type="text" name="title" id="title" class="shadow-sm bg-gray-50 border border-gray-300 text-black-900 sm: rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Tulis Judul @yield('title')" value="{{ $article['title'] ?: old('title') }}">
+                    @error('title')
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                        {{ $errors->first('title') }}
+                    </p>
+                    @enderror
                 </div>
                 <div class="col-span-6">
-                    <label for="content" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Content
+
+                    <label class="block mb-2  font-medium text-black-900 dark:text-white" for="image">
+                        Gambar
                     </label>
-                    <textarea id="content" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="👨‍💻Full-stack web developer. Open-source contributor."></textarea>
+                    <input class="block w-full  text-black-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-black-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file" name="image" value="{{ old('image') }}">
+                    @error('image')
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                        {{ $errors->first('image') }}
+                    </p>
+                    @enderror
                 </div>
                 <div class="col-span-6">
-                    <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit">Add Berita</button>
+                    <label for="description" class="block mb-2  font-medium text-black-900 dark:text-white">
+                        Konten
+                    </label>
+                    <textarea id="description" name="description" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="👨‍💻Tulis Konten...">{{ $article['description'] ?: old('content') }}</textarea>
+                    @error('description')
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                        {{ $errors->first('description') }}
+                    </p>
+                    @enderror
+                </div>
+                <div class="col-span-6">
+                    <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg  px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit">
+                        Simpan
+                    </button>
+                    <a href="{{ route('admin.pengumuman') }}" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg  px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-primary-800">
+                        Batal
+                    </a>
                 </div>
             </div>
         </form>
@@ -47,8 +79,5 @@
 @endsection
 
 @push('scripts')
-    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace('content');
-    </script>
+    <x-admin.ckeditor-js :route="route('admin.pengumuman.ckeditor', ['_token' => csrf_token()])"/>
 @endpush

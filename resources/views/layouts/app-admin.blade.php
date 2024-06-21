@@ -28,52 +28,17 @@
         'resources/js/app.js'
     ])
 
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+    @hasSection('content')
+        {{--@vite('resources/js/admin/dark-mode.js')--}}
+    @endif
 
-        .font-family-karla {
-            font-family: karla;
-        }
-
-        .bg-sidebar {
-            background: #3d68ff;
-        }
-
-        .cta-btn {
-            color: #3d68ff;
-        }
-
-        .upgrade-btn {
-            background: #1947ee;
-        }
-
-        .upgrade-btn:hover {
-            background: #0038fd;
-        }
-
-        .active-nav-link {
-            background: #1947ee;
-        }
-
-        .nav-item:hover {
-            background: #1947ee;
-        }
-
-        .account-link:hover {
-            background: #3d68ff;
-        }
-
-        .z-35 {
-            z-index: 35
-        }
-    </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-700 font-family-karla flex flex-col">
 
 @hasSection('content')
 
-    @include('layouts.partials.header')
-    @include('layouts.partials.navbar')
+    @include('layouts.partials-admin.header')
+    @include('layouts.partials-admin.navbar')
 
     <div class="sm:ml-64 mt-16 h-screen flex flex-col">
 
@@ -81,7 +46,7 @@
             @yield('content')
         </div>
 
-        @include('layouts.partials.footer')
+        @include('layouts.partials-admin.footer')
 
     </div>
 @endif

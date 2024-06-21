@@ -5,32 +5,107 @@ namespace App\Http\Controllers;
 use App\Models\ProfileKelurahan;
 use Illuminate\Http\Request;
 
-class ProfileKController extends Controller
+class ProfileController extends Controller
 {
-    public function edit($id)
-    {
-        // Mengambil data Profile dari database
-        $profile = ProfileKelurahan::findOrFail($id);
 
-        return view('admin.edit.profile', compact('profile'));
+    public function indexProfile(ProfileKelurahan $profileKelurahan)
+    {
+        $tentang = $profileKelurahan->where('type', 'tentang')->value('data');
+        $visimisi = $profileKelurahan->where('type', 'visimisi')->value('data');
+        $sejarah = $profileKelurahan->where('type', 'sejarah')->value('data');
+
+        return view('admin.profile-desa.index', [
+            'tentang' => $tentang,
+            'visimisi' => $visimisi,
+            'sejarah' => $sejarah,
+        ]);
     }
 
-    public function update(Request $request, $id)
+    public function updateProfile(ProfileKelurahan $profileKelurahan, Request $request)
     {
-        // Validasi data yang dikirim oleh form
         $request->validate([
-            'email' => 'required|string|max:255',
-            'alamat' => 'required|string|max:255',
-            'no_telp' => 'required|string|max:255',
+            'tentang' => 'required',
+            'visimisi' => 'required',
+            'sejarah' => 'required',
         ]);
 
-        // Mengambil data Profile dari database
-        $profile = ProfileKelurahan::findOrFail($id);
+        $profileKelurahan->query()->upsert([
+            ['type' => 'tentang', 'data' => $request->tentang],
+            ['type' => 'visimisi', 'data' => $request->visimisi],
+            ['type' => 'sejarah', 'data' => $request->sejarah],
+        ], 'type');
 
-        // Mengupdate data Profile dengan data baru dari request
-        $profile->update($request->all());
-
-        // Redirect ke halaman yang sesuai dengan pesan sukses
-        return redirect()->route('admin.dashboard')->with('success', 'Profile updated successfully.');
+        return redirect()->back()->with('update', 'Profil Berhasil Disimpan');
     }
+
+    /**
+     * Proses Geografis
+     * ================
+     */
+
+    public function indexGeografis(ProfileKelurahan $profileKelurahan)
+    {
+
+        $data = json_decode($profileKelurahan->where('type', 'geografis')->value('data'), true);
+
+        return view('admin.geografis.index', [
+            'map' => $data['map'],
+            'deskripsi' => $data['deskripsi']
+        ]);
+    }
+
+    public function updateGeografis(ProfileKelurahan $profileKelurahan, Request $request)
+    {
+        $request->validate([
+            'map' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        $profileKelurahan->where('type', 'geografis')->update([
+            'data' => json_encode($request->all(['map', 'deskripsi']))
+        ]);
+
+        return redirect()->back()->with('update', 'Geografis Berhasil Disimpan');
+    }
+
+    /**
+     * Proses Demografi
+     * ================
+     */
+    public function indexDemografi()
+    {
+        return view('admin.demografi.index', [
+        ]);
+    }
+
+    public function createDemografi()
+    {
+
+    }
+
+    public function updateDemografi()
+    {
+
+    }
+
+    public function destroyDemografi()
+    {
+
+    }
+
+    public function createDemografiKategori()
+    {
+
+    }
+
+    public function updateDemografiKategori()
+    {
+
+    }
+
+    public function destroyDemografiKategori()
+    {
+
+    }
+
 }

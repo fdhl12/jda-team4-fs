@@ -6,11 +6,16 @@ use App\Models\Galery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class GaleryController extends Controller
+class GalleryController extends Controller
 {
     public function index(Request $request)
     {
         return view('galeries.index', compact('galeries', 'query'));
+    }
+
+    public function indexAdmin()
+    {
+        return view('admin.galeri.index');
     }
 
     public function create()
