@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\PerangkatDesaController;
 
 Auth::routes([
@@ -33,33 +34,33 @@ Route::get('/kontak', function () {
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
 
-    Route::get('/', function (){
-       return view('admin.beranda.index');
+    Route::get('/', function () {
+        return view('admin.beranda.index');
     })->name('beranda');
 
     /* berita & pengumuman */
-    Route::controller(ArticleController::class)->group(function (){
-        Route::get('/berita', 'indexAdminBerita')->name('berita');
-        Route::get('/berita/create', 'createBerita')->name('berita.create');
+    Route::controller(NewsController::class)->group(function () {
+        Route::get('/berita', 'index')->name('berita');
+        Route::get('/berita/create', 'create')->name('berita.create');
         Route::post('/berita', 'store')->name('berita.store');
-        Route::get('/berita/{id}/edit', 'editBerita')->name('berita.edit');
+        Route::get('/berita/{id}/edit', 'edit')->name('berita.edit');
         Route::patch('/berita/{id}/update', 'update')->name('berita.update');
         Route::delete('/berita/destroy', 'destroy')->name('berita.destroy');
         Route::post('/berita/ckeditor', 'ckeditor')->name('berita.ckeditor');
-
+    });
+    Route::controller(AnnouncementController::class)->group(function () {
         /* pengumuman */
-        Route::get('/pengumuman', 'indexAdminPengumuman')->name('pengumuman');
-        Route::get('/pengumuman/create', 'createPengumuman')->name('pengumuman.create');
-        Route::post('/pengumuman', 'storePengumuman')->name('pengumuman.store');
-        Route::get('/pengumuman/{id}/edit', 'editPengumuman')->name('pengumuman.edit');
-        Route::patch('/pengumuman/{id}/update', 'updatePengumuman')->name('pengumuman.update');
-        Route::delete('/pengumuman/destroy', 'destroyPengumuman')->name('pengumuman.destroy');
+        Route::get('/pengumuman', 'index')->name('pengumuman');
+        Route::get('/pengumuman/create', 'create')->name('pengumuman.create');
+        Route::post('/pengumuman', 'store')->name('pengumuman.store');
+        Route::get('/pengumuman/{id}/edit', 'edit')->name('pengumuman.edit');
+        Route::patch('/pengumuman/{id}/update', 'update')->name('pengumuman.update');
+        Route::delete('/pengumuman/destroy', 'destroy')->name('pengumuman.destroy');
         Route::post('/pengumuman/ckeditor', 'ckeditor')->name('pengumuman.ckeditor');
-
     });
 
     /* gallery */
-    Route::controller(GalleryController::class)->group(function (){
+    Route::controller(GalleryController::class)->group(function () {
         Route::get('/galeri', 'indexAdmin')->name('galeri');
         Route::post('/galeri', 'store')->name('galeri.store');
         Route::patch('/galeri', 'update')->name('galeri.update');
@@ -67,7 +68,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     });
 
     /* informasi desa */
-    Route::controller(ProfileController::class)->group(function (){
+    Route::controller(ProfileController::class)->group(function () {
         Route::get('/profile-desa', 'indexProfile')->name('profile-desa');
         Route::patch('/profile-desa', 'updateProfile')->name('profile-desa.update');
 
@@ -110,7 +111,6 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('/user', UserController::class);
 
     /* pengaturan */
-    Route::get('/pengaturan', function (){
-
+    Route::get('/pengaturan', function () {
     })->name('pengaturan');
 });

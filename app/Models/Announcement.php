@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Article extends Model
+class Announcement extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -15,21 +15,16 @@ class Article extends Model
         'image',
         'slug',
         'user_id',
-        'category_id',
     ];
     protected function image(): Attribute
     {
         return Attribute::make(
-            get: fn ($image) => url('/storage/articles/' . $image),
+            get: fn ($image) => url('/storage/pengumuman/' . $image),
         );
     }
 
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
     }
 }
