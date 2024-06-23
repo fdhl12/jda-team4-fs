@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Article;
+use App\Models\News;
 use App\Models\PerangkatDesa;
 use App\Models\ProfileKelurahan;
 use App\Models\User;
@@ -23,9 +23,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
-            CategorySeeder::class,
-            ArticleSeeder::class,
+            NewsSeeder::class,
             JabatanSeeder::class,
+            AnnouncementSeeder::class,
             PerangkatDesaSeeder::class,
             ProfileKelurahanSeeder::class,
         ]);
