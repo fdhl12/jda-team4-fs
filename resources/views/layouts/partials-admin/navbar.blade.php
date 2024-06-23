@@ -74,7 +74,7 @@
                     and
                     !request()->routeIs('admin.geografis*')
                     and
-                    !request()->routeIs('admin.demografi*')
+                    !request()->routeIs('admin.*demografi*')
                 ) hidden @endif
                 ">
                             <li>
@@ -92,8 +92,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.demografi') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
-                        @if(request()->routeIs('admin.demografi*')) bg-blue-100 dark:bg-blue-700 @endif
+                                <a href="{{ route('admin.demografi.index') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                        @if(request()->routeIs('admin.*demografi*')) bg-blue-100 dark:bg-blue-700 @endif
                         ">
                                     Demografi
                                 </a>
@@ -168,7 +168,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('admin.pengaturan') }}" class="flex items-center p-2 text-black-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group
+                        <a href="{{ route('admin.pengaturan.index') }}" class="flex items-center p-2 text-black-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group
                         @if(request()->routeIs('admin.pengaturan*')) bg-blue-100 dark:bg-blue-700 @endif
                         ">
                             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">

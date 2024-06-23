@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Demografi;
+use App\Models\DemografiCategories;
 use App\Models\ProfileKelurahan;
 use Illuminate\Http\Request;
 
@@ -66,46 +68,6 @@ class ProfileController extends Controller
         ]);
 
         return redirect()->back()->with('update', 'Geografis Berhasil Disimpan');
-    }
-
-    /**
-     * Proses Demografi
-     * ================
-     */
-    public function indexDemografi()
-    {
-        return view('admin.demografi.index', [
-        ]);
-    }
-
-    public function createDemografi()
-    {
-
-    }
-
-    public function updateDemografi()
-    {
-
-    }
-
-    public function destroyDemografi()
-    {
-
-    }
-
-    public function createDemografiKategori()
-    {
-
-    }
-
-    public function updateDemografiKategori()
-    {
-
-    }
-
-    public function destroyDemografiKategori()
-    {
-
     }
 
 }

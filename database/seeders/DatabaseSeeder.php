@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             JabatanSeeder::class,
             PerangkatDesaSeeder::class,
             ProfileKelurahanSeeder::class,
+            PengaturanSeeder::class
         ]);
     }
 }

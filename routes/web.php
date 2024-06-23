@@ -1,13 +1,17 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\BerandaController;
+use App\Http\Controllers\Admin\DemografiController;
+use App\Http\Controllers\Admin\KategoriDemografiController;
+use App\Http\Controllers\Admin\PengaturanController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\PerangkatDesaController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Auth::routes([
     'register' => false,
@@ -33,9 +37,7 @@ Route::get('/kontak', function () {
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
 
-    Route::get('/', function (){
-       return view('admin.beranda.index');
-    })->name('beranda');
+    Route::get('/', [BerandaController::class, 'index'])->name('beranda');
 
     /* berita & pengumuman */
     Route::controller(ArticleController::class)->group(function (){
@@ -73,15 +75,22 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
         Route::get('/geografis', 'indexGeografis')->name('geografis');
         Route::patch('/geografis', 'updateGeografis')->name('geografis.update');
+    });
 
-        Route::get('/demografi', 'indexDemografi')->name('demografi');
-        Route::post('/demografi', 'createDemografi')->name('demografi.store');
-        Route::patch('/demografi/{id}', 'updateDemografi')->name('demografi.update');
-        Route::delete('/demografi', 'destroyDemografi')->name('demografi.destroy');
+    /* demografi */
+    Route::controller(DemografiController::class)->group(function (){
+        Route::get('/demografi', 'index')->name('demografi.index');
+        Route::post('/demografi', 'store')->name('demografi.store');
+        Route::patch('/demografi/{id}', 'update')->name('demografi.update');
+        Route::delete('/demografi/{id}', 'destroy')->name('demografi.destroy');
+    });
 
-        Route::post('/demografi_kategori/{id}', 'createDemografiKategori')->name('demografi.store');
-        Route::patch('/demografi_kategori/{id}', 'updateDemografiKategori')->name('demografi.update');
-        Route::delete('/demografi_kategori', 'destroyDemografiKategori')->name('demografi.destroy');
+    /* kategori demografi */
+    Route::controller(KategoriDemografiController::class)->group(function (){
+        Route::get('/kategori-demografi', 'index')->name('kategori-demografi.index');
+        Route::post('/kategori-demografi', 'store')->name('kategori-demografi.store');
+        Route::patch('/kategori-demografi/{id}', 'update')->name('kategori-demografi.update');
+        Route::delete('/kategori-demografi/{id}', 'destroy')->name('kategori-demografi.destroy');
     });
 
     /**
@@ -110,7 +119,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('/user', UserController::class);
 
     /* pengaturan */
-    Route::get('/pengaturan', function (){
-
-    })->name('pengaturan');
+    Route::controller(PengaturanController::class)->group(function (){
+        Route::get('/pengaturan', 'index')->name('pengaturan.index');
+        Route::patch('/pengaturan', 'update')->name('pengaturan.update');
+    });
 });
