@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\LembagaDesa;
+use App\Models\LembagaKelurahan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use function Laravel\Prompts\error;
 
-class LembagaDesaController extends Controller
+class LembagaKelurahanController extends Controller
 {
-    public function index(Request $request, LembagaDesa $lembagaDesa)
+    public function index(Request $request, LembagaKelurahan $lembagaDesa)
     {
 
         $query = $request->input('query');
@@ -18,15 +18,15 @@ class LembagaDesaController extends Controller
         if ($query) {
             $lembagaDesa = $lembagaDesa->where('nama', 'LIKE', "%{$query}%")->get();
         } elseif (request()->get('show') == 'all'){
-            $lembagaDesa = LembagaDesa::latest()->get();
+            $lembagaDesa = LembagaKelurahan::latest()->get();
         } else {
             $lembagaDesa = $lembagaDesa->latest()->paginate(10);
         }
 
-        return view('admin.lembaga-desa.index', compact('lembagaDesa', 'query'));
+        return view('admin.lembaga-kelurahan.index', compact('lembagaDesa', 'query'));
     }
 
-    public function store(Request $request, LembagaDesa $lembagaDesa)
+    public function store(Request $request, LembagaKelurahan $lembagaDesa)
     {
 
         $request->validate([
@@ -43,7 +43,7 @@ class LembagaDesaController extends Controller
         /* check if logo exist*/
         if ($request->hasFile('logo'))
         {
-            $imagePath = $request->file('logo')->store('images/lembaga-desa', 'public');
+            $imagePath = $request->file('logo')->store('images/lembaga-kelurahan', 'public');
             $lembaga = array_merge($lembaga, [
                 'logo' => $imagePath
             ]);
@@ -51,10 +51,10 @@ class LembagaDesaController extends Controller
 
         $lembagaDesa->create($lembaga);
 
-        return redirect()->back()->with('store', 'Lembaga Desa berhasil ditambah');
+        return redirect()->back()->with('store', 'Lembaga Kelurahan berhasil ditambah');
     }
 
-    public function update(Request $request, LembagaDesa $lembagaDesa, $id)
+    public function update(Request $request, LembagaKelurahan $lembagaDesa, $id)
     {
 
         $request->validate([
@@ -78,7 +78,7 @@ class LembagaDesaController extends Controller
                 $storage->delete($lembagaDesa->logo);
             }
 
-            $imagePath = $request->file('logo')->store('images/lembaga-desa', 'public');
+            $imagePath = $request->file('logo')->store('images/lembaga-kelurahan', 'public');
             $lembaga = array_merge($lembaga, [
                 'logo' => $imagePath
             ]);
@@ -87,10 +87,10 @@ class LembagaDesaController extends Controller
 
         $lembagaDesa->update($lembaga);
 
-        return redirect()->back()->with('update', 'Lembaga Desa berhasil diubah');
+        return redirect()->back()->with('update', 'Lembaga Kelurahan berhasil diubah');
     }
 
-    public function destroy(Request $request, LembagaDesa $lembagaDesa)
+    public function destroy(Request $request, LembagaKelurahan $lembagaDesa)
     {
 
         $lembagaDesa = $lembagaDesa->find($request->id);

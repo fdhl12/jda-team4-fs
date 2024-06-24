@@ -3,7 +3,7 @@
     <div class="relative w-full h-full max-w-2xl px-4 md:h-auto">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-800">
-            <form action="{{route('admin.perangkat-desa.update', $perangkatdesa->id)}}" method="POST" enctype="multipart/form-data" >
+            <form action="{{route('admin.perangkat-kelurahan.update', $perangkatdesa->id)}}" method="POST" enctype="multipart/form-data" >
                 @csrf
                 @method('PUT')
 

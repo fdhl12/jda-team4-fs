@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lembaga_desas', function (Blueprint $table) {
+        Schema::create('struktur_organisasis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('kode');
-            $table->string('hukum');
-            $table->string('alamat');
-            $table->string('logo')->nullable();
+            $table->unsignedBigInteger('perangkat_kelurahan_id');
+            $table->foreign('perangkat_kelurahan_id')->references('id')->on('perangkat_kelurahans');
+            $table->integer('parent_id');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lembaga_desas');
+        Schema::dropIfExists('struktur_organisasis');
     }
 };
