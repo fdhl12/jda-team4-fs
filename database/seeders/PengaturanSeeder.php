@@ -46,7 +46,7 @@ class PengaturanSeeder extends Seeder
             ],
             [
                 'type' => 'tags',
-                'data' => 'kelurahan, desa, cibeber',
+                'data' => 'kelurahan, cibeber',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

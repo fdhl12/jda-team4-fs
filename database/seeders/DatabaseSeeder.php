@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\News;
-use App\Models\PerangkatDesa;
+use App\Models\PerangkatKelurahan;
 use App\Models\ProfileKelurahan;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             NewsSeeder::class,
             JabatanSeeder::class,
             AnnouncementSeeder::class,
-            PerangkatDesaSeeder::class,
+            PerangkatKelurahanSeeder::class,
             ProfileKelurahanSeeder::class,
             PengaturanSeeder::class
         ]);

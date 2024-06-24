@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->timestamps();
         });
-        Schema::create('perangkat_desas', function (Blueprint $table) {
+        Schema::create('perangkat_kelurahans', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->nullable();
@@ -35,6 +35,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('jabatans');
-        Schema::dropIfExists('perangkat_desas');
+        Schema::dropIfExists('perangkat_kelurahans');
     }
 };

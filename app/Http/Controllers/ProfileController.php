@@ -16,7 +16,7 @@ class ProfileController extends Controller
         $visimisi = $profileKelurahan->where('type', 'visimisi')->value('data');
         $sejarah = $profileKelurahan->where('type', 'sejarah')->value('data');
 
-        return view('admin.profile-desa.index', [
+        return view('admin.profile-kelurahan.index', [
             'tentang' => $tentang,
             'visimisi' => $visimisi,
             'sejarah' => $sejarah,
