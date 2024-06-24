@@ -25,8 +25,7 @@ class AppServiceProvider extends ServiceProvider
         Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
 
         /* mendapatkan konfigurasi dari table pengaturan */
-        foreach (Pengaturan::all(['type', 'data']) as $read)
-        {
+        foreach (Pengaturan::all(['type', 'data']) as $read) {
             $pengaturan[$read['type']] = $read['data'];
         }
         view()->share('pengaturan', $pengaturan);
