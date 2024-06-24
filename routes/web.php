@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BerandaController;
 use App\Http\Controllers\Admin\DemografiController;
 use App\Http\Controllers\Admin\KategoriDemografiController;
+use App\Http\Controllers\Admin\LembagaDesaController;
 use App\Http\Controllers\Admin\PengaturanController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\GalleryController;
@@ -106,9 +107,12 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('/perangkat-desa', PerangkatDesaController::class);
 
     /* lembaga desa */
-    Route::get('/lembaga-desa', function () {
-        return view('admin.lembaga-desa.index');
-    })->name('lembaga-desa');
+    Route::controller(LembagaDesaController::class)->group(function (){
+        Route::get('/lembaga-desa', 'index')->name('lembaga-desa.index');
+        Route::post('/lembaga-desa', 'store')->name('lembaga-desa.store');
+        Route::patch('/lembaga-desa/{id}', 'update')->name('lembaga-desa.update');
+        Route::delete('/lembaga-desa/{id}', 'destroy')->name('lembaga-desa.destroy');
+    });
 
     /* jabatan */
     Route::resource('/jabatan', JabatanController::class);

@@ -62,39 +62,39 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 9h3m-3 3h3m-3 3h3m-6 1c-.306-.613-.933-1-1.618-1H7.618c-.685 0-1.312.387-1.618 1M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm7 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>
                             </svg>
                             <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
-                        Informasi Desa
-                    </span>
+                                Informasi Desa
+                            </span>
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                             </svg>
                         </button>
                         <ul id="dropdown-informasi-desa" class="py-2 space-y-2
-                @if(
-                    !request()->routeIs('admin.profile-desa*')
-                    and
-                    !request()->routeIs('admin.geografis*')
-                    and
-                    !request()->routeIs('admin.*demografi*')
-                ) hidden @endif
-                ">
+                        @if(
+                            !request()->routeIs('admin.profile-desa*')
+                            and
+                            !request()->routeIs('admin.geografis*')
+                            and
+                            !request()->routeIs('admin.*demografi*')
+                        ) hidden @endif
+                        ">
                             <li>
                                 <a href="{{ route('admin.profile-desa') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
-                        @if(request()->routeIs('admin.profile-desa*')) bg-blue-100 dark:bg-blue-700 @endif
-                        ">
+                                @if(request()->routeIs('admin.profile-desa*')) bg-blue-100 dark:bg-blue-700 @endif
+                                ">
                                     Profil
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('admin.geografis') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
-                        @if(request()->routeIs('admin.geografis*')) bg-blue-100 dark:bg-blue-700 @endif
-                        ">
+                                @if(request()->routeIs('admin.geografis*')) bg-blue-100 dark:bg-blue-700 @endif
+                                ">
                                     Geografis
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('admin.demografi.index') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
-                        @if(request()->routeIs('admin.*demografi*')) bg-blue-100 dark:bg-blue-700 @endif
-                        ">
+                                @if(request()->routeIs('admin.*demografi*')) bg-blue-100 dark:bg-blue-700 @endif
+                                ">
                                     Demografi
                                 </a>
                             </li>
@@ -140,7 +140,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.lembaga-desa') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                                <a href="{{ route('admin.lembaga-desa.index') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
                                 @if(request()->routeIs('admin.lembaga-desa*')) bg-blue-100 dark:bg-blue-700 @endif
                                 ">
                                     Lembaga Desa
