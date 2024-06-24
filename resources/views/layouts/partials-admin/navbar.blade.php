@@ -57,20 +57,20 @@
                 @if(Auth::user()->role_id === 1)
 
                     <li>
-                        <button type="button" class="flex items-center w-full p-2 text-base text-black font-medium transition duration-75 rounded-lg group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700" aria-controls="dropdown-informasi-desa" data-collapse-toggle="dropdown-informasi-desa">
+                        <button type="button" class="flex items-center w-full p-2 text-base text-black font-medium transition duration-75 rounded-lg group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700" aria-controls="dropdown-informasi-kelurahan" data-collapse-toggle="dropdown-informasi-kelurahan">
                             <svg class="w-6 h-6 text-black font-medium dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 9h3m-3 3h3m-3 3h3m-6 1c-.306-.613-.933-1-1.618-1H7.618c-.685 0-1.312.387-1.618 1M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm7 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>
                             </svg>
                             <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
-                                Informasi Desa
+                                Informasi Kelurahan
                             </span>
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                             </svg>
                         </button>
-                        <ul id="dropdown-informasi-desa" class="py-2 space-y-2
+                        <ul id="dropdown-informasi-kelurahan" class="py-2 space-y-2
                         @if(
-                            !request()->routeIs('admin.profile-desa*')
+                            !request()->routeIs('admin.profile-kelurahan*')
                             and
                             !request()->routeIs('admin.geografis*')
                             and
@@ -78,8 +78,8 @@
                         ) hidden @endif
                         ">
                             <li>
-                                <a href="{{ route('admin.profile-desa') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
-                                @if(request()->routeIs('admin.profile-desa*')) bg-blue-100 dark:bg-blue-700 @endif
+                                <a href="{{ route('admin.profile-kelurahan') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                                @if(request()->routeIs('admin.profile-kelurahan*')) bg-blue-100 dark:bg-blue-700 @endif
                                 ">
                                     Profil
                                 </a>
@@ -118,32 +118,32 @@
                         @if(
                             !request()->routeIs('admin.struktur-organisasi*')
                             and
-                            !request()->routeIs('admin.perangkat-desa.index*')
+                            !request()->routeIs('admin.perangkat-kelurahan.index*')
                             and
-                            !request()->routeIs('admin.lembaga-desa*')
+                            !request()->routeIs('admin.lembaga-kelurahan*')
                             and
                             !request()->routeIs('admin.jabatan*')
                         ) hidden @endif
                         ">
                             <li>
-                                <a href="{{ route('admin.struktur-organisasi') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                                <a href="{{ route('admin.struktur-organisasi.index') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
                                 @if(request()->routeIs('admin.struktur-organisasi*')) bg-blue-100 dark:bg-blue-700 @endif
                                 ">
                                 Struktur Organisasi
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.perangkat-desa.index') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
-                                @if(request()->routeIs('admin.perangkat-desa*')) bg-blue-100 dark:bg-blue-700 @endif
+                                <a href="{{ route('admin.perangkat-kelurahan.index') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                                @if(request()->routeIs('admin.perangkat-kelurahan*')) bg-blue-100 dark:bg-blue-700 @endif
                                 ">
-                                Perangkat Desa
+                                Perangkat
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.lembaga-desa.index') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
-                                @if(request()->routeIs('admin.lembaga-desa*')) bg-blue-100 dark:bg-blue-700 @endif
+                                <a href="{{ route('admin.lembaga-kelurahan.index') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                                @if(request()->routeIs('admin.lembaga-kelurahan*')) bg-blue-100 dark:bg-blue-700 @endif
                                 ">
-                                    Lembaga Desa
+                                    Lembaga
                                 </a>
                             </li>
                             <li>

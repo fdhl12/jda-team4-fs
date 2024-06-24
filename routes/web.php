@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\StrukturOrganisasiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
@@ -7,12 +8,12 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AnnouncementController;
-use App\Http\Controllers\PerangkatDesaController;
+use App\Http\Controllers\PerangkatKelurahanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\BerandaController;
 use App\Http\Controllers\Admin\DemografiController;
 use App\Http\Controllers\Admin\KategoriDemografiController;
-use App\Http\Controllers\Admin\LembagaDesaController;
+use App\Http\Controllers\Admin\LembagaKelurahanController;
 use App\Http\Controllers\Admin\PengaturanController;
 
 Auth::routes([
@@ -90,10 +91,10 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
         Route::delete('/galeri/destroy', 'update')->name('galeri.destroy');
     });
 
-    /* informasi desa */
+    /* informasi kelurahan */
     Route::controller(ProfileController::class)->group(function () {
-        Route::get('/profile-desa', 'indexProfile')->name('profile-desa');
-        Route::patch('/profile-desa', 'updateProfile')->name('profile-desa.update');
+        Route::get('/profile-kelurahan', 'indexProfile')->name('profile-kelurahan');
+        Route::patch('/profile-kelurahan', 'updateProfile')->name('profile-kelurahan.update');
 
         Route::get('/geografis', 'indexGeografis')->name('geografis');
         Route::patch('/geografis', 'updateGeografis')->name('geografis.update');
@@ -120,19 +121,19 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
      */
 
     /* struktur-organisasi */
-    Route::get('/struktur-organisasi', function () {
-        return view('admin.struktur-organisasi.index');
-    })->name('struktur-organisasi');
+    Route::controller(StrukturOrganisasiController::class)->group(function () {
+        Route::get('/struktur-organisasi', 'index')->name('struktur-organisasi.index');
+    });
 
-    /* perangkat desa */
-    Route::resource('/perangkat-desa', PerangkatDesaController::class);
+    /* perangkat kelurahan */
+    Route::resource('/perangkat-kelurahan', PerangkatKelurahanController::class);
 
-    /* lembaga desa */
-    Route::controller(LembagaDesaController::class)->group(function (){
-        Route::get('/lembaga-desa', 'index')->name('lembaga-desa.index');
-        Route::post('/lembaga-desa', 'store')->name('lembaga-desa.store');
-        Route::patch('/lembaga-desa/{id}', 'update')->name('lembaga-desa.update');
-        Route::delete('/lembaga-desa/{id}', 'destroy')->name('lembaga-desa.destroy');
+    /* lembaga kelurahan */
+    Route::controller(LembagaKelurahanController::class)->group(function (){
+        Route::get('/lembaga-kelurahan', 'index')->name('lembaga-kelurahan.index');
+        Route::post('/lembaga-kelurahan', 'store')->name('lembaga-kelurahan.store');
+        Route::patch('/lembaga-kelurahan/{id}', 'update')->name('lembaga-kelurahan.update');
+        Route::delete('/lembaga-kelurahan/{id}', 'destroy')->name('lembaga-kelurahan.destroy');
     });
 
     /* jabatan */

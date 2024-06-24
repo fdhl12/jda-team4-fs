@@ -16,7 +16,7 @@ class ProfileKelurahanSeeder extends Seeder
         ProfileKelurahan::insert([
             [
                 'type' => 'tentang',
-                'data' => 'tentang kecamatan cibeber',
+                'data' => 'tentang kelurahan cibeber',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
