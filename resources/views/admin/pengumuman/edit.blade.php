@@ -23,7 +23,7 @@
             <h1 class="text-xl font-semibold text-black-900 sm:text-2xl dark:text-white">@yield('title')</h1>
         </div>
 
-        <form action="{{ route('admin.pengumuman.update', $article['id']) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.pengumuman.update', $announcement['id']) }}" method="POST" enctype="multipart/form-data">
 
             @csrf
             @method('patch')
@@ -33,7 +33,7 @@
                     <label for="title" class="block mb-2  font-medium text-black-900 dark:text-white">
                         Judul
                     </label>
-                    <input type="text" name="title" id="title" class="shadow-sm bg-gray-50 border border-gray-300 text-black-900 sm: rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Tulis Judul @yield('title')" value="{{ $article['title'] ?: old('title') }}">
+                    <input type="text" name="title" id="title" class="shadow-sm bg-gray-50 border border-gray-300 text-black-900 sm: rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Tulis Judul @yield('title')" value="{{ $announcement['title'] ?: old('title') }}">
                     @error('title')
                     <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                         {{ $errors->first('title') }}
@@ -56,7 +56,7 @@
                     <label for="description" class="block mb-2  font-medium text-black-900 dark:text-white">
                         Konten
                     </label>
-                    <textarea id="description" name="description" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="👨‍💻Tulis Konten...">{{ $article['description'] ?: old('content') }}</textarea>
+                    <textarea id="description" name="description" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="👨‍💻Tulis Konten...">{{ $announcement['description'] ?: old('content') }}</textarea>
                     @error('description')
                     <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                         {{ $errors->first('description') }}
