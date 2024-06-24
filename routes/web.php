@@ -25,9 +25,9 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/berita', function () {
-    return view('berita');
-})->name('berita');
+// berita
+Route::get('/berita', [NewsController::class, 'indexUser'])->name('berita');
+Route::get('/berita/{slug}', [NewsController::class, 'show'])->name('show.berita');
 
 Route::get('/tentang', function () {
     return view('tentang');
@@ -100,7 +100,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     });
 
     /* demografi */
-    Route::controller(DemografiController::class)->group(function (){
+    Route::controller(DemografiController::class)->group(function () {
         Route::get('/demografi', 'index')->name('demografi.index');
         Route::post('/demografi', 'store')->name('demografi.store');
         Route::patch('/demografi/{id}', 'update')->name('demografi.update');
@@ -108,7 +108,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     });
 
     /* kategori demografi */
-    Route::controller(KategoriDemografiController::class)->group(function (){
+    Route::controller(KategoriDemografiController::class)->group(function () {
         Route::get('/kategori-demografi', 'index')->name('kategori-demografi.index');
         Route::post('/kategori-demografi', 'store')->name('kategori-demografi.store');
         Route::patch('/kategori-demografi/{id}', 'update')->name('kategori-demografi.update');
@@ -128,7 +128,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('/perangkat-desa', PerangkatDesaController::class);
 
     /* lembaga desa */
-    Route::controller(LembagaDesaController::class)->group(function (){
+    Route::controller(LembagaDesaController::class)->group(function () {
         Route::get('/lembaga-desa', 'index')->name('lembaga-desa.index');
         Route::post('/lembaga-desa', 'store')->name('lembaga-desa.store');
         Route::patch('/lembaga-desa/{id}', 'update')->name('lembaga-desa.update');
@@ -144,7 +144,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('/user', UserController::class);
 
     /* pengaturan */
-    Route::controller(PengaturanController::class)->group(function (){
+    Route::controller(PengaturanController::class)->group(function () {
         Route::get('/pengaturan', 'index')->name('pengaturan.index');
         Route::patch('/pengaturan', 'update')->name('pengaturan.update');
     });

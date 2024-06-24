@@ -39,7 +39,6 @@ class AnnouncementController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
-            'category_id' => 'required|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -55,7 +54,6 @@ class AnnouncementController extends Controller
             'slug' => Str::slug($request->title),
             'image' => $imagePath,
             'user_id' => Auth::id(),
-            'category_id' => $request->category_id,
         ]);
 
         return redirect()->route('admin.pengumuman')->with('store', "Pengumuman {$request->title} berhasil dibuat");

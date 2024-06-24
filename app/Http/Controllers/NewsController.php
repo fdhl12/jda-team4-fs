@@ -28,11 +28,29 @@ class NewsController extends Controller
         return view('admin.berita.index', compact('newss', 'query'));
     }
 
-    public function show($id)
+    public function indexUser(Request $request)
     {
-        $news = News::findOrFail($id);
-        $news->increment('views');
-        return view('newss.show', compact('news'));
+        $query = $request->input('query');
+
+        if ($query) {
+            $newss = News::where('title', 'LIKE', "%{$query}%")
+                ->orWhere('description', 'LIKE', "%{$query}%")
+                ->orWhereHas('user', function ($q) use ($query) {
+                    $q->Where('name', 'LIKE', "%{$query}%");
+                })
+                ->orderBy('created_at', 'desc')->paginate(6);
+        } else {
+            $newss = News::with('user')->orderBy('created_at', 'desc')->paginate(6);
+        }
+
+        return view('berita', compact('newss', 'query'));
+    }
+
+    public function show($slug)
+    {
+        $news = News::where('slug', $slug)->firstOrFail();
+        $newss = News::all();
+        return view('show.berita', compact('news', 'newss'));
     }
 
 
@@ -92,7 +110,9 @@ class NewsController extends Controller
         $news->update([
             'title' => $request->title,
             'description' => $request->description,
+            'image' => $imagePath
         ]);
+
 
         return redirect()->route('admin.berita')->with('update', "Berita {$request->title} berhasil diubah");
     }
