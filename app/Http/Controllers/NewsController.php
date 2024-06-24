@@ -36,29 +36,7 @@ class NewsController extends Controller
     }
 
 
-    /**
-     * Proses Admin
-     * ============
-     */
-
-    public function indexAdminBerita(Request $request)
-    {
-        $query = $request->input('query');
-
-        $newss = News::with('user')->where('category_id', 1);
-
-        if ($query) {
-            $newss = $newss->where('title', 'LIKE', "%{$query}%")->get();
-        } elseif (request()->get('show') == 'all') {
-            $newss = News::with('user')->latest()->get();
-        } else {
-            $newss = $newss->latest()->paginate(10);
-        }
-
-        return view('admin.berita.index', compact('newss', 'query'));
-    }
-
-    public function createBerita()
+    public function create()
     {
         return view('admin.berita.create');
     }
