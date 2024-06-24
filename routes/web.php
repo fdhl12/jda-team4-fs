@@ -18,6 +18,26 @@ Route::get('/berita', function () {
     return view('berita');
 })->name('berita');
 
+Route::get('/tentang', function () {
+    return view('tentang');
+})->name('tentang');
+
+Route::get('/visimisi', function () {
+    return view('visimisi');
+})->name('visimisi');
+
+Route::get('/sejarah', function () {
+    return view('sejarah');
+})->name('sejarah');
+
+Route::get('/geografi', function () {
+    return view('geografi');
+})->name('geografi');
+
+Route::get('/demografi', function () {
+    return view('demografi');
+})->name('demografi');
+
 Route::get('/galeri', function () {
     return view('galeri');
 })->name('galeri');
