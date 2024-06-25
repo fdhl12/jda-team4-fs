@@ -39,7 +39,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.galeri') }}" class="flex items-center p-2 text-black font-medium rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group
+                <a href="{{ route('admin.galeri.index') }}" class="flex items-center p-2 text-black font-medium rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group
                 @if(request()->routeIs('admin.galeri*')) bg-blue-100 dark:bg-blue-700 @endif
                 ">
 

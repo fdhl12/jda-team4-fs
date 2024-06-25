@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('galeries', function (Blueprint $table) {
+        Schema::create('galeris', function (Blueprint $table) {
             $table->id();
-            $table->string('image')->nullable();
-            $table->string('video')->nullable();
+            $table->string('image');
+            $table->string('description')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('galeries');
+        Schema::dropIfExists('galeris');
     }
 };
