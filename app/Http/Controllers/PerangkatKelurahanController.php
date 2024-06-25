@@ -8,7 +8,13 @@ use App\Models\PerangkatKelurahan;
 
 class PerangkatKelurahanController extends Controller
 {
-    public function index(Request $request)
+
+    public function index()
+    {
+        return view('perangkat-kelurahan');
+    }
+
+    public function admin(Request $request)
     {
         $query = $request->input('query');
 

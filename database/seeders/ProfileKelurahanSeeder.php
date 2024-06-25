@@ -40,7 +40,40 @@ class ProfileKelurahanSeeder extends Seeder
                 ]),
                 'created_at' => now(),
                 'updated_at' => now(),
-            ]
+            ],
+            [
+                'type' => 'demografi',
+                'data' => 'data demografi',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'type' => 'struktur_organisasi',
+                'data' => 'storage/struktur-organisasi.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'type' => 'kontak',
+                'data' => json_encode([
+                    'email' => 'cibeber@cimahikota.go.id',
+                    'no_telp' => '022- 6672994',
+                    'alamat' => 'Jl. Ibu Ganirah No. 41 Cibeber Cimahi',
+                ]),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'type' => 'sosial_media',
+                'data' => json_encode([
+                    'facebook' => 'https://facebook.com/',
+                    'twitter' => 'https://twitter.com/',
+                    'instagram' => 'https://instagram.com/',
+                    'youtube' => 'https://youtube.com/',
+                ]),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

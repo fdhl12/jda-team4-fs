@@ -1,31 +1,29 @@
 <?php
 
-use App\Http\Controllers\Admin\StrukturOrganisasiController;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\JabatanController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\AnnouncementController;
-use App\Http\Controllers\PerangkatKelurahanController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\BerandaController;
 use App\Http\Controllers\Admin\DemografiController;
 use App\Http\Controllers\Admin\KategoriDemografiController;
 use App\Http\Controllers\Admin\LembagaKelurahanController;
 use App\Http\Controllers\Admin\PengaturanController;
-use App\Models\Announcement;
+
+use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PerangkatKelurahanController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StrukturOrganisasiController;
+use App\Http\Controllers\UserController;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Auth::routes([
     'register' => false,
 ]);
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // berita
 Route::get('/berita', [NewsController::class, 'indexUser'])->name('berita');
@@ -35,34 +33,24 @@ Route::get('/berita/{slug}', [NewsController::class, 'show'])->name('show.berita
 Route::get('/pengumuman', [AnnouncementController::class, 'indexUser'])->name('pengumuman');
 Route::get('/pengumuman/{slug}', [AnnouncementController::class, 'show'])->name('show.pengumuman');
 
+Route::controller(ProfileController::class)->group(function () {
+    Route::get('/tentang', 'tentang')->name('tentang');
+    Route::get('/visimisi', 'visimisi')->name('visimisi');
+    Route::get('/sejarah', 'sejarah')->name('sejarah');
+    Route::get('/geografi', 'geografi')->name('geografi');
+    Route::get('/demografi', 'demografi')->name('demografi');
+    Route::get('/kontak', 'kontak')->name('kontak');
+});
 
-Route::get('/tentang', function () {
-    return view('tentang');
-})->name('tentang');
+Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 
-Route::get('/visimisi', function () {
-    return view('visimisi');
-})->name('visimisi');
+Route::get('/layanan', function (){
+    return view('layanan');
+})->name('layanan');
 
-Route::get('/sejarah', function () {
-    return view('sejarah');
-})->name('sejarah');
-
-Route::get('/geografi', function () {
-    return view('geografi');
-})->name('geografi');
-
-Route::get('/demografi', function () {
-    return view('demografi');
-})->name('demografi');
-
-Route::get('/galeri', function () {
-    return view('galeri');
-})->name('galeri');
-
-Route::get('/kontak', function () {
-    return view('kontak');
-})->name('kontak');
+Route::get('/lembaga-kelurahan', [\App\Http\Controllers\LembagaKelurahanController::class, 'index'])->name('lembaga-kelurahan.index');
+Route::get('/perangkat-kelurahan', [PerangkatKelurahanController::class, 'index'])->name('perangkat-kelurahan.index');
+Route::get('/struktur-organisasi', [StrukturOrganisasiController::class, 'index'])->name('perangkat-kelurahan.index');
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
 
@@ -90,11 +78,11 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     });
 
     /* gallery */
-    Route::controller(GalleryController::class)->group(function () {
-        Route::get('/galeri', 'indexAdmin')->name('galeri');
+    Route::controller(GaleriController::class)->group(function () {
+        Route::get('/galeri', 'admin')->name('galeri.index');
         Route::post('/galeri', 'store')->name('galeri.store');
-        Route::patch('/galeri', 'update')->name('galeri.update');
-        Route::delete('/galeri/destroy', 'update')->name('galeri.destroy');
+        Route::patch('/galeri/{id}', 'update')->name('galeri.update');
+        Route::delete('/galeri/destroy/{id}', 'destroy')->name('galeri.destroy');
     });
 
     /* informasi kelurahan */
@@ -128,7 +116,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     /* struktur-organisasi */
     Route::controller(StrukturOrganisasiController::class)->group(function () {
-        Route::get('/struktur-organisasi', 'index')->name('struktur-organisasi.index');
+        Route::get('/struktur-organisasi', 'admin')->name('struktur-organisasi.index');
+        Route::patch('/struktur-organisasi', 'update')->name('struktur-organisasi.update');
     });
 
     /* perangkat kelurahan */
