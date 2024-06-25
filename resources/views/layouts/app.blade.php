@@ -29,7 +29,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         .gradient {
-          background: linear-gradient(90deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.3));
+          background: linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0.3));
         }
         .gradient video {
           position: absolute;
@@ -52,26 +52,28 @@
           position: relative;
           z-index: 0;
           
-     }
+        }
+        .active {
+          @apply text-white bg-blue-900;
+        }
+       
+     
+     
      
        
     </style>
   </head>
-  <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+  <body class="leading-normal tracking-normal text-white" style="font-family: 'Source Sans Pro', sans-serif;">
      <!--Nav-->
      @include('partials.navbar')
 
      <!-- Video sebagai latar belakang -->
-     <div class="gradient">
-         <video autoplay muted loop poster="images/foto-1.jpeg" id="bgvid">
-             <source src="videos/profile.mp4" type="video/mp4">
-             <!-- Sisipkan sumber video sesuai format -->
-             Your browser does not support the video tag.
-         </video>
+  
+        
  
          <!-- Konten lain di atas video -->
          @yield('content')
-     </div>
+     
  
      <!--Footer-->
      @include('partials.footer')

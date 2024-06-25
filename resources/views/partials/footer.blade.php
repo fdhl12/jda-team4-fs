@@ -1,14 +1,16 @@
-<footer class="bg-gray-800 text-gray-300 py-12">
+<footer class="bg-gray-800 text-gray-300 py-12 text-xl">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Bagian 1: Logo atau Nama Perusahaan -->
       <div class="flex items-center justify-center md:justify-start">
-        <h2 class="text-2xl font-bold uppercase">Nama Perusahaan</h2>
+        <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="/">
+          <img src="{{ url('images/logo-footer.png') }}" alt="Example Image" class="w-15 h-20">
+        </a>
       </div>
       
       <!-- Bagian 2: Navigasi Footer -->
       <div class="md:flex md:flex-col md:items-start space-y-4">
-        <h3 class="text-lg font-semibold">Tautan</h3>
+        <h3 class="text-xl font-semibold">Tautan</h3>
         <ul class="space-y-2">
           <li><a href="#" class="hover:text-blue-500 transition-colors duration-300">Beranda</a></li>
           <li><a href="#" class="hover:text-blue-500 transition-colors duration-300">Tentang Kami</a></li>
@@ -19,7 +21,7 @@
       
       <!-- Bagian 3: Informasi Kontak dan Sosial Media -->
       <div class="md:flex md:flex-col md:items-start space-y-4">
-        <h3 class="text-lg font-semibold">Hubungi Kami</h3>
+        <h3 class="text-xl font-semibold">Hubungi Kami</h3>
         <p>Alamat: Jalan Contoh No. 123, Kota, Negara</p>
         <p>Email: info@example.com</p>
         <div class="flex space-x-4 mt-4">
@@ -35,35 +37,13 @@
   </div>
 </footer>
 
+
 <!-- Alpine.js -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2" defer></script>
 
 <script>
 
-    document.addEventListener("scroll", function () {
-      /*Apply classes for slide in bar*/
-      scrollpos = window.scrollY;
-
-      if (scrollpos > 10) {
-        header.classList.add("bg-white");
-        navcontent.classList.add("bg-white");
-      } else {
-        header.classList.remove("bg-white");
-        navaction.classList.remove("gradient");
-        navaction.classList.add("bg-white");
-        navaction.classList.remove("text-white");
-        n
-        //Use to switch toggleColour colours
-        for (var i = 0; i < toToggle.length; i++) {
-          toToggle[i].classList.add("text-white");
-          toToggle[i].classList.remove("text-gray-800");
-        }
-
-       
-        navcontent.classList.remove("bg-white");
-        navcontent.classList.add("bg-gray-100");
-      }
-    });
+   
   </script> <script>
       var scrollpos = window.scrollY;
       var header = document.getElementById("header");
