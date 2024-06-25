@@ -24,9 +24,13 @@ class ProfileController extends Controller
     {
         return view('sejarah');
     }
-    public function geografi()
+    public function geografi(ProfileKelurahan $profileKelurahan)
     {
-        return view('geografi');
+        $data = json_decode($profileKelurahan->where('type', 'geografis')->value('data'), true);
+        return view('geografi', [
+            'geografi' => $data
+        ]);
+
     }
 
     public function demografi()

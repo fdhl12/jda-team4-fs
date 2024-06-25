@@ -37,7 +37,7 @@
                          class="z-10 hidden font-normal bg-gray-100 divide-y divide-gray-300 rounded-lg shadow w-52 dark:bg-gray-700 dark:divide-gray-600">
                         <ul class="py-3 text-lg" aria-labelledby="dropdownLargeButton">
                             <li>
-                                <a href="{{ route("tentang") }}"
+                                <a href="{{ route("lembaga-kelurahan.index") }}"
                                    class="block px-4 py-3 lg:text-lg text-gray-700 dark:text-gray-300 font-bold hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">Lembaga</a>
                             </li>
                             <li>
