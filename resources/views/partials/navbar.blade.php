@@ -24,7 +24,7 @@
               </li>
               <li class="mr-3 dropdown relative" href="">
                   <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar-1"
-                          class="flex items-center py-6 px-6 text-lg lg:text-2xl font-bold no-underline hover:bg-blue-900 hover:text-white {{ request()->is('prangkat', 'lembaga','struktur') ? 'text-white bg-blue-900' : 'text-brown-500' }}">
+                          class="flex items-center py-6 px-6 text-lg lg:text-2xl font-bold no-underline hover:bg-blue-900 hover:text-white {{ request()->is('perangkat-kelurahan', 'lembaga-kelurahan"','struktur-organisasi') ? 'text-white bg-blue-900' : 'text-brown-500' }}">
                       <span>Pemerintahan</span>
                       <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                            fill="none" viewBox="0 0 10 6">
@@ -37,15 +37,15 @@
                        class="z-10 hidden font-normal bg-gray-100 divide-y divide-gray-300 rounded-lg shadow w-52 dark:bg-gray-700 dark:divide-gray-600">
                       <ul class="py-3 text-lg" aria-labelledby="dropdownLargeButton">
                           <li>
-                              <a href="{{ route("tentang") }}"
+                              <a href="{{ route("lembaga-kelurahan.index") }}"
                                  class="block px-4 py-3 lg:text-lg text-gray-700 dark:text-gray-300 font-bold hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">Lembaga</a>
                           </li>
                           <li>
-                              <a href="{{ route("visimisi") }}"
-                                 class="block px-4 py-3 lg:text-lg text-gray-700 dark:text-gray-300 font-bold hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">Prangkat</a>
+                              <a href="{{ route("perangkat-kelurahan.index") }}"
+                                 class="block px-4 py-3 lg:text-lg text-gray-700 dark:text-gray-300 font-bold hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">Perangkat</a>
                           </li>
                           <li>
-                              <a href="{{ route("visimisi") }}"
+                              <a href="{{ route("strucktur.index") }}"
                                  class="block px-4 py-3 lg:text-lg text-gray-700 dark:text-gray-300 font-bold hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">Struktur</a>
                           </li>
                       </ul>
@@ -93,7 +93,7 @@
               </li>
               <li class="mr-3 dropdown relative" href="">
                   <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar-2"
-                          class="flex items-center py-6 px-6 text-lg lg:text-2xl font-bold no-underline hover:bg-blue-900 hover:text-white {{ request()->is('berita','informasi') ? 'text-white bg-blue-900' : 'text-brown-500' }}">
+                          class="flex items-center py-6 px-6 text-lg lg:text-2xl font-bold no-underline hover:bg-blue-900 hover:text-white {{ request()->is('berita','pengumuman','galeri','informasi') ? 'text-white bg-blue-900' : 'text-brown-500' }}">
                       <span>Informasi</span>
                       <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                            fill="none" viewBox="0 0 10 6">
@@ -110,7 +110,7 @@
                                  class="block px-4 py-3 lg:text-lg text-gray-700 dark:text-gray-300 font-bold hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">Berita</a>
                           </li>
                           <li>
-                              <a href="{{ route("visimisi") }}"
+                              <a href="{{ route("pengumuman") }}"
                                  class="block px-4 py-3 lg:text-lg text-gray-700 dark:text-gray-300 font-bold hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">Pengumuman</a>
                           </li>
                           <li>

@@ -44,13 +44,13 @@ Route::controller(ProfileController::class)->group(function () {
 
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 
-Route::get('/layanan', function (){
+Route::get('/layanan', function () {
     return view('layanan');
 })->name('layanan');
 
-Route::get('/lembaga-kelurahan', [\App\Http\Controllers\LembagaKelurahanController::class, 'index'])->name('lembaga-kelurahan.index');
+Route::get('/lembaga-kelurahan', [LembagaKelurahanController::class, 'index'])->name('lembaga-kelurahan.index');
 Route::get('/perangkat-kelurahan', [PerangkatKelurahanController::class, 'index'])->name('perangkat-kelurahan.index');
-Route::get('/struktur-organisasi', [StrukturOrganisasiController::class, 'index'])->name('perangkat-kelurahan.index');
+Route::get('/struktur-organisasi', [StrukturOrganisasiController::class, 'index'])->name('strucktur.index');
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
 
