@@ -28,9 +28,33 @@ class AnnouncementController extends Controller
         return view('admin.pengumuman.index', compact('announcements', 'query'));
     }
 
+    public function indexUser(Request $request)
+    {
+        $query = $request->input('query');
+
+        $announcements = Announcement::with('user');
+
+        if ($query) {
+            $announcements = $announcements->where('title', 'LIKE', "%{$query}%")->get();
+        } elseif (request()->get('show') == 'all') {
+            $announcements = Announcement::with('user')->latest()->get();
+        } else {
+            $announcements = $announcements->latest()->paginate(10);
+        }
+
+        return view('pengumuman', compact('announcements', 'query'));
+    }
+
     public function create()
     {
         return view('admin.pengumuman.create');
+    }
+
+    public function show($slug)
+    {
+        $announcement = Announcement::where('slug', $slug)->firstOrFail();
+        $announcements = Announcement::all();
+        return view('show.pengumuman', compact('announcement', 'announcements'));
     }
 
     public function store(Request $request)

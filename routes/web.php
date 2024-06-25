@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\DemografiController;
 use App\Http\Controllers\Admin\KategoriDemografiController;
 use App\Http\Controllers\Admin\LembagaKelurahanController;
 use App\Http\Controllers\Admin\PengaturanController;
+use App\Models\Announcement;
 
 Auth::routes([
     'register' => false,
@@ -29,6 +30,11 @@ Route::get('/', function () {
 // berita
 Route::get('/berita', [NewsController::class, 'indexUser'])->name('berita');
 Route::get('/berita/{slug}', [NewsController::class, 'show'])->name('show.berita');
+
+// pengumuman
+Route::get('/pengumuman', [AnnouncementController::class, 'indexUser'])->name('pengumuman');
+Route::get('/pengumuman/{slug}', [AnnouncementController::class, 'show'])->name('show.pengumuman');
+
 
 Route::get('/tentang', function () {
     return view('tentang');

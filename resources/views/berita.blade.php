@@ -150,7 +150,7 @@
       
 
         <section class="bg-white border-b py-8">
-          <div class="container mx-auto  flex flex-wrap pt-4 pb-12">
+          <div class="container mx-auto flex flex-wrap justify-center pt-4 pb-12">
             <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
                 Berita
             </h2>
@@ -160,7 +160,7 @@
             
             @foreach ($newss as $news)
             <!-- Berita -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 mx-auto mb-6 transform transition-transform duration-300 hover:scale-105 ">
+            <div class="max-w-sm bg-white border xl:mx-6 md:mx-3 border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 mb-6 transform transition-transform duration-300 hover:scale-105 ">
                 <a href="{{route('show.berita',$news->slug)}}" class="block rounded-t-lg overflow-hidden">
                     <img class="w-full h-60 object-cover" src="{{ asset($news->image) }}" alt="">
                 </a>
