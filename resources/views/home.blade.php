@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Table')
+@section('title', $pengaturan['name'])
 
 @section('content')
     <div class="gradient">
@@ -9,7 +9,7 @@
             <!-- Sisipkan sumber video sesuai format -->
             Your browser does not support the video tag.
         </video>
-    
+
 
       <div class="flex justify-center items-end h-screen pb-10">
         <div class="container max-w-8xl px-6 mx-auto text-center">
@@ -24,13 +24,13 @@
                 <p class="drop-shadow-xl leading-normal text-xl md:text-2xl mb-8 font-extrabold text-white">
                   #CimahiCampernik #KotaHijau #KotaTentara
                 </p>
-              
+
               </div>
             </div>
           </div>
         </div>
       </div>
-    
+
     <section class="bg-white border-b py-8">
         <div class="container mx-auto px-1 relative">
             <!-- Pengumuman -->
@@ -66,7 +66,7 @@
                                     <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                                 </div>
                             </div>
-                            
+
                             <div class="max-w-lg">
                                 <div class="overflow-hidden">
                                     <a href="#" class="block relative overflow-hidden group">
@@ -84,7 +84,7 @@
                                     <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                                 </div>
                             </div>
-                            
+
                             <div class="max-w-lg">
                                 <div class="overflow-hidden">
                                     <a href="#" class="block relative overflow-hidden group">
@@ -104,7 +104,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Berita 1 -->
                     <div x-show="slide === 1" class="max-w-full mx-auto mb-6">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -125,7 +125,7 @@
                                     <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                                 </div>
                             </div>
-                            
+
                             <div class="max-w-lg">
                                 <div class="overflow-hidden">
                                     <a href="#" class="block relative overflow-hidden group">
@@ -143,7 +143,7 @@
                                     <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                                 </div>
                             </div>
-                            
+
                             <div class="max-w-lg">
                                 <div class="overflow-hidden">
                                     <a href="#" class="block relative overflow-hidden group">
@@ -182,7 +182,7 @@
                                     <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                                 </div>
                             </div>
-                            
+
                             <div class="max-w-lg">
                                 <div class="overflow-hidden">
                                     <a href="#" class="block relative overflow-hidden group">
@@ -200,7 +200,7 @@
                                     <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                                 </div>
                             </div>
-                            
+
                             <div class="max-w-lg">
                                 <div class="overflow-hidden">
                                     <a href="#" class="block relative overflow-hidden group">
@@ -227,14 +227,14 @@
                         <button class="flex items-center justify-center w-16 h-16 bg-blue-500 text-white rounded-full text-2xl font-bold leading-none shadow-lg focus:outline-none" :class="{ 'bg-blue-700': slide === 1 }" @click="slide = 1">2</button>
                         <button class="flex items-center justify-center w-16 h-16 bg-blue-500 text-white rounded-full text-2xl font-bold leading-none shadow-lg focus:outline-none" :class="{ 'bg-blue-700': slide === 2 }" @click="slide = 2">3</button>
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
         </div>
     </section>
 
-    
+
     <section id="kontak" class="bg-gray-300 py-16 bg-banner-1">
         <div class="container mx-auto px-4">
             <h2 class="text-5xl font-bold text-blue-900 text-center mb-8">Kontak</h2>
@@ -312,12 +312,12 @@
             </div>
         </div>
     </section>
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
       <section class="bg-white border-b py-8">
         <div class="container mx-auto px-1 relative">
            <!-- Berita -->
@@ -352,7 +352,7 @@
                                 <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                             </div>
                         </div>
-                        
+
                         <div class="max-w-lg">
                             <div class="overflow-hidden">
                                 <a href="#" class="block relative overflow-hidden group">
@@ -370,7 +370,7 @@
                                 <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                             </div>
                         </div>
-                        
+
                         <div class="max-w-lg">
                             <div class="overflow-hidden">
                                 <a href="#" class="block relative overflow-hidden group">
@@ -405,7 +405,7 @@
                                 <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                             </div>
                         </div>
-                        
+
                         <div class="max-w-lg">
                             <div class="overflow-hidden">
                                 <a href="#" class="block relative overflow-hidden group">
@@ -423,7 +423,7 @@
                                 <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                             </div>
                         </div>
-                        
+
                         <div class="max-w-lg">
                             <div class="overflow-hidden">
                                 <a href="#" class="block relative overflow-hidden group">
@@ -443,11 +443,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Berita 1 -->
                 <div x-show="slide === 1" class="max-w-full mx-auto mb-6">
 
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                         <div class="max-w-lg">
                             <div class="overflow-hidden">
@@ -466,7 +466,7 @@
                                 <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                             </div>
                         </div>
-                        
+
                         <div class="max-w-lg">
                             <div class="overflow-hidden">
                                 <a href="#" class="block relative overflow-hidden group">
@@ -484,7 +484,7 @@
                                 <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                             </div>
                         </div>
-                        
+
                         <div class="max-w-lg">
                             <div class="overflow-hidden">
                                 <a href="#" class="block relative overflow-hidden group">
@@ -519,7 +519,7 @@
                                 <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                             </div>
                         </div>
-                        
+
                         <div class="max-w-lg">
                             <div class="overflow-hidden">
                                 <a href="#" class="block relative overflow-hidden group">
@@ -537,7 +537,7 @@
                                 <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                             </div>
                         </div>
-                        
+
                         <div class="max-w-lg">
                             <div class="overflow-hidden">
                                 <a href="#" class="block relative overflow-hidden group">
@@ -576,7 +576,7 @@
                                 <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                             </div>
                         </div>
-                        
+
                         <div class="max-w-lg">
                             <div class="overflow-hidden">
                                 <a href="#" class="block relative overflow-hidden group">
@@ -594,7 +594,7 @@
                                 <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                             </div>
                         </div>
-                        
+
                         <div class="max-w-lg">
                             <div class="overflow-hidden">
                                 <a href="#" class="block relative overflow-hidden group">
@@ -629,7 +629,7 @@
                                 <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                             </div>
                         </div>
-                        
+
                         <div class="max-w-lg">
                             <div class="overflow-hidden">
                                 <a href="#" class="block relative overflow-hidden group">
@@ -647,7 +647,7 @@
                                 <p class="text-2xl text-gray-600">Ringkasan berita singkat dapat ditambahkan di sini, menjelaskan pokok-pokok utama dari artikel tersebut.</p>
                             </div>
                         </div>
-                        
+
                         <div class="max-w-lg">
                             <div class="overflow-hidden">
                                 <a href="#" class="block relative overflow-hidden group">
@@ -674,13 +674,13 @@
                     <button class="flex items-center justify-center w-16 h-16 bg-blue-500 text-white rounded-full text-2xl font-bold leading-none shadow-lg focus:outline-none" :class="{ 'bg-blue-700': slide === 1 }" @click="slide = 1">2</button>
                     <button class="flex items-center justify-center w-16 h-16 bg-blue-500 text-white rounded-full text-2xl font-bold leading-none shadow-lg focus:outline-none" :class="{ 'bg-blue-700': slide === 2 }" @click="slide = 2">3</button>
                 </div>
-                
-                
+
+
             </div>
         </div>
         </div>
       </section>
-    
+
       <section class="bg-gray-100 py-8 ">
         <div class="container mx-auto px-1 relative">
             <h2 class="text-5xl font-bold text-blue-950 text-center mb-4">Galeri</h2>
@@ -692,7 +692,7 @@
             <div class="flex justify-center md:justify-end mb-8">
                 <a href="#" class="border ease-in text-blue-700 font-bold py-4 px-8 text-2xl rounded-lg border-blue-700 hover:bg-blue-950 hover:text-white transition-transform duration-700 transform hover:scale-105">Selengkapnya</a>
             </div>
-            
+
             <div class="grid grid-cols-2 md:grid-cols-3 gap-12 mb-12">
                 <div class="relative overflow-hidden  hover:scale-105 transform transition duration-300">
                     <img class="object-cover object-center w-full h-full" src="images/berita-1.jpeg" alt="Berita 1">
@@ -713,16 +713,15 @@
                     <img class="object-cover object-center w-full h-full" src="images/berita-3.jpeg" alt="Berita 3">
                 </div>
             </div>
-            
-            
-            
+
+
+
         </div>
       </section>
-      
-      
+
+
         <!-- Change the colour #f8fafc to match the previous section colour -->
-       
-      
+
+
     </div>
 @endsection
-   

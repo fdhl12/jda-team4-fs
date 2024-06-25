@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PengaturanController;
 
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PerangkatKelurahanController;
@@ -22,11 +23,7 @@ Auth::routes([
     'register' => false,
 ]);
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // berita
 Route::get('/berita', [NewsController::class, 'indexUser'])->name('berita');
@@ -36,34 +33,20 @@ Route::get('/berita/{slug}', [NewsController::class, 'show'])->name('show.berita
 Route::get('/pengumuman', [AnnouncementController::class, 'indexUser'])->name('pengumuman');
 Route::get('/pengumuman/{slug}', [AnnouncementController::class, 'show'])->name('show.pengumuman');
 
+Route::controller(ProfileController::class)->group(function () {
+    Route::get('/tentang', 'tentang')->name('tentang');
+    Route::get('/visimisi', 'visimisi')->name('visimisi');
+    Route::get('/sejarah', 'sejarah')->name('sejarah');
+    Route::get('/geografi', 'geografi')->name('geografi');
+    Route::get('/demografi', 'demografi')->name('demografi');
+    Route::get('/kontak', 'kontak')->name('kontak');
+});
 
-Route::get('/tentang', function () {
-    return view('tentang');
-})->name('tentang');
+Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 
-Route::get('/visimisi', function () {
-    return view('visimisi');
-})->name('visimisi');
-
-Route::get('/sejarah', function () {
-    return view('sejarah');
-})->name('sejarah');
-
-Route::get('/geografi', function () {
-    return view('geografi');
-})->name('geografi');
-
-Route::get('/demografi', function () {
-    return view('demografi');
-})->name('demografi');
-
-Route::get('/galeri', function () {
-    return view('galeri');
-})->name('galeri');
-
-Route::get('/kontak', function () {
-    return view('kontak');
-})->name('kontak');
+Route::get('/layanan', function (){
+    return view('layanan');
+})->name('layanan');
 
 Route::get('/lembaga-kelurahan', [\App\Http\Controllers\LembagaKelurahanController::class, 'index'])->name('lembaga-kelurahan.index');
 Route::get('/perangkat-kelurahan', [PerangkatKelurahanController::class, 'index'])->name('perangkat-kelurahan.index');

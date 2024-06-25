@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Storage;
 
 class GaleriController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        return view('galeries.index', compact('galeries', 'query'));
+        return view('galeri');
     }
 
     public function admin(Request $request, Galeri $galeries)
