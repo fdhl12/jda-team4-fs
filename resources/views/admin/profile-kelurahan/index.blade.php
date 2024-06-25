@@ -24,8 +24,8 @@
         @include('admin.profile-kelurahan.tentang')
         @include('admin.profile-kelurahan.visi-misi')
         @include('admin.profile-kelurahan.sejarah')
-        {{--    @include('admin.profile-kelurahan.kontak')--}}
-        {{--    @include('admin.profile-kelurahan.sosial-media')--}}
+        @include('admin.profile-kelurahan.kontak')
+        @include('admin.profile-kelurahan.sosial-media')
 
         <div class="bg-white dark:bg-gray-800 p-5 m-3 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
             <div class="col-span-6">

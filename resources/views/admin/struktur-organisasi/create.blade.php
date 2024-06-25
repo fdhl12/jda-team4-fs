@@ -16,20 +16,24 @@
                 <!-- Modal body -->
                 <div class="p-6 space-y-6">
                     <div class="grid grid-cols-6 gap-6">
-                        <div class="col-span-6">
 
-                            <label class="block mb-2  font-medium text-black-900 dark:text-white" for="image">
-                                Pilih Gambar
-                            </label>
-                            <input class="block w-full  text-black-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-black-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file" name="image">
-
-                        </div>
                         <div class="col-span-6">
-                            <label for="description" class="block mb-2  font-medium text-black-900 dark:text-white">
-                                Deskripsi
+                            <label for="perangkat_desa" class="block mb-2  font-medium text-black-900 dark:text-white">
+                                Perangkat Desa
                             </label>
-                            <textarea id="description" name="description" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Keterangan Gambar."></textarea>
+                            <select id="perangkat_desa" name="perangkat_desa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required>
+                                <option value="" disabled selected>Pilih Perangkat Desa</option>
+                                @forelse($perangkatKelurahan as $data)
+                                    <option value="{{ $data->id }}">
+                                        {{ $data->name }} ({{ $data->jabatan->name }})
+                                    </option>
+                                @empty
+                                    <option disabled>Data Perangkat Desa masih kosong</option>
+                                @endforelse
+                            </select>
                         </div>
+
+
                     </div>
                 </div>
                 <!-- Modal footer -->

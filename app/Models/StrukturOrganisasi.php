@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class StrukturOrganisasi extends Model
 {
     use HasFactory;
+
+    public function perangkat_kelurahan()
+    {
+        return $this->belongsTo(PerangkatKelurahan::class, 'perangkat_kelurahan_id');
+    }
 }

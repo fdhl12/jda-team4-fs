@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 
 class DemografiController extends Controller
 {
-    public function index(Demografi $demografi, DemografiCategories $demografiCategories)
+    public function index()
     {
 
-        $demografis = $demografi->with('kategori')->latest()->paginate(10);
-        $categories = $demografiCategories->all();
+        $demografis = DemografiCategories::with('kategori')->latest()->paginate(10);
+        $categories = Demografi::all();
 
         return view('admin.demografi.index', [
             'demografis' => $demografis,
