@@ -17,7 +17,7 @@
                            class="hover:text-blue-500 transition-colors duration-300">Beranda</a></li>
                     <li><a href="{{ route('tentang') }}" class="hover:text-blue-500 transition-colors duration-300">Tentang
                             Kami</a></li>
-                    <li><a href="{{ route('home') }}"
+                    <li><a href="{{ route('layanan') }}"
                            class="hover:text-blue-500 transition-colors duration-300">Layanan</a></li>
                     <li><a href="{{ route('kontak') }}"
                            class="hover:text-blue-500 transition-colors duration-300">Kontak</a></li>
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="mt-8 border-t border-gray-700 pt-4 text-center">
-            <p>&copy; &copy; 2024 {{ $pengaturan['name'] }}. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p>&copy; 2024 {{ $pengaturan['name'] }}. Hak Cipta Dilindungi Undang-Undang.</p>
         </div>
     </div>
 </footer>

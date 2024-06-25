@@ -10,6 +10,35 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
 
+    public function tentang()
+    {
+        return view('tentang');
+    }
+
+    public function visimisi()
+    {
+        return view('visimisi');
+    }
+
+    public function sejarah()
+    {
+        return view('sejarah');
+    }
+    public function geografi()
+    {
+        return view('geografi');
+    }
+
+    public function demografi()
+    {
+        return view('demografi');
+    }
+
+    public function kontak()
+    {
+        return view('kontak');
+    }
+
     public function indexProfile(ProfileKelurahan $profileKelurahan)
     {
         $tentang = $profileKelurahan->where('type', 'tentang')->value('data');
