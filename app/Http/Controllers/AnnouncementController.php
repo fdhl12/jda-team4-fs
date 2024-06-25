@@ -28,9 +28,33 @@ class AnnouncementController extends Controller
         return view('admin.pengumuman.index', compact('announcements', 'query'));
     }
 
+    public function indexUser(Request $request)
+    {
+        $query = $request->input('query');
+
+        $announcements = Announcement::with('user');
+
+        if ($query) {
+            $announcements = $announcements->where('title', 'LIKE', "%{$query}%")->get();
+        } elseif (request()->get('show') == 'all') {
+            $announcements = Announcement::with('user')->latest()->get();
+        } else {
+            $announcements = $announcements->latest()->paginate(10);
+        }
+
+        return view('pengumuman', compact('announcements', 'query'));
+    }
+
     public function create()
     {
         return view('admin.pengumuman.create');
+    }
+
+    public function show($slug)
+    {
+        $announcement = Announcement::where('slug', $slug)->firstOrFail();
+        $announcements = Announcement::all();
+        return view('show.pengumuman', compact('announcement', 'announcements'));
     }
 
     public function store(Request $request)
@@ -39,7 +63,6 @@ class AnnouncementController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
-            'category_id' => 'required|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -55,7 +78,6 @@ class AnnouncementController extends Controller
             'slug' => Str::slug($request->title),
             'image' => $imagePath,
             'user_id' => Auth::id(),
-            'category_id' => $request->category_id,
         ]);
 
         return redirect()->route('admin.pengumuman')->with('store', "Pengumuman {$request->title} berhasil dibuat");

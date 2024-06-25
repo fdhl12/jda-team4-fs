@@ -62,33 +62,39 @@
         }
 
         .bg-banner-1 {
-            background-image: url('{{ asset('images/banner-1.svg') }}');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: bottom;
-            min-height: 100px; /* Adjust height as needed */
-            position: relative;
-            z-index: 0;
-
+          background-image: url('{{ asset('images/banner-1.svg') }}');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: bottom;
+          min-height: 100px; /* Adjust height as needed */
+          position: relative;
+          z-index: 0;
+          
         }
-
+        .active {
+          @apply text-white bg-blue-900;
+        }
+       
+     
+     
+     
+       
     </style>
-</head>
-<body class="flex flex-col h-full leading-normal tracking-normal gradient" style="font-family: 'Source Sans Pro', 'sans-serif';">
+  </head>
+  <body class="leading-normal tracking-normal text-white" style="font-family: 'Source Sans Pro', sans-serif;">
+     <!--Nav-->
+     @include('partials.navbar')
 
-    <main class="flex flex-col h-full">
-        <!--Nav-->
-        @include('partials.navbar')
-
-        <!-- Konten lain di atas video -->
-        @yield('content')
-
-        <!--Footer-->
-        @include('partials.footer')
-
-    </main>
-
-    @stack('scripts')
-
-</body>
+     <!-- Video sebagai latar belakang -->
+  
+        
+ 
+         <!-- Konten lain di atas video -->
+         @yield('content')
+     
+ 
+     <!--Footer-->
+     @include('partials.footer')
+    
+  </body>
 </html>
