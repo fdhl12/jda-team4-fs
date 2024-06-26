@@ -5,7 +5,7 @@
                 <img src="{{ asset($pengaturan['logo_text']) }}" alt="Example Image" class="w-15 h-20">
             </a>
         </div>
-        <div class="block lg:hidden pr-4">
+        <div class="block xl:hidden pr-4">
             <button id="nav-toggle"
                     class="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                 <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -15,9 +15,9 @@
             </button>
         </div>
         <div
-            class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
+            class="w-full flex-grow xl:items-center xl:w-auto hidden xl :block mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
             id="nav-content">
-            <ul class="list-reset lg:flex justify-end flex-1 items-center">
+            <ul class="list-reset xl:flex justify-end flex-1 items-center">
                 <li class="mr-3">
                     <a class="smooth-scroll inline-block py-6 px-6 text-2xl lg:text-2xl font-semibold no-underline hover:text-blue-900 hover:border-b-4 hover:border-blue-900 {{ request()->is('/') ? 'text-blue-900 border-b-4 border-blue-900' : '' }}" href="/">Beranda</a>
                 </li>

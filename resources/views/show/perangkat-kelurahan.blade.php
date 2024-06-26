@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="md:px-48 bg-white p-4">
+<div class="xl:px-48 sm:px-0 bg-white p-4">
     <div class="pt-24 flex justify-center">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <section class="border border-b py-8 md:col-span-2">
