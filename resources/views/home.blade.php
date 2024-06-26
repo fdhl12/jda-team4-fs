@@ -94,6 +94,7 @@
             </div>
             <p class="text-3xl font-medium text-blue-900 text-center mb-12" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="0">Kontak Layanan Seputar Kelurahan Cibeber</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                @foreach ($layanans as $layanan)         
                 <div class="bg-white rounded-lg p-8 md:p-10 shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center">
                     <div class="text-blue-900 bg-blue-100 rounded-full p-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -101,66 +102,15 @@
                         </svg>
                     </div>
                     <div class="ml-6">
-                        <h3 class="text-blue-900 font-semibold text-3xl md:text-3xl mb-4">Ambulan</h3>
-                        <p class="text-gray-800 text-2xl md:text-2xl">Nomor: 112</p>
+                        <h3 class="text-blue-900 font-semibold text-3xl md:text-3xl mb-4">{{$layanan->nama}}</h3>
+                        <p class="text-gray-800 text-2xl md:text-2xl">No.Telp : {{$layanan->telepon}}</p>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg p-8 md:p-10 shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center">
-                    <div class="text-blue-900 bg-blue-100 rounded-full p-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                        </svg>
-                    </div>
-                    <div class="ml-6">
-                        <h3 class="text-blue-900 font-semibold text-3xl md:text-3xl mb-4">Polsek Cimahi Selatan</h3>
-                        <p class="text-gray-800 text-2xl md:text-2xl">Nomor: (022) XXXXXXX</p>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg p-8 md:p-10 shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center">
-                    <div class="text-blue-900 bg-blue-100 rounded-full p-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                        </svg>
-                    </div>
-                    <div class="ml-6">
-                        <h3 class="text-blue-900 font-semibold text-3xl md:text-3xl mb-4">PLN Kota Cimahi</h3>
-                        <p class="text-gray-800 text-2xl md:text-2xl">Nomor: 12345678</p>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg p-8 md:p-10 shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center">
-                    <div class="text-blue-900 bg-blue-100 rounded-full p-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                        </svg>
-                    </div>
-                    <div class="ml-6">
-                        <h3 class="text-blue-900 font-semibold text-3xl md:text-3xl mb-4">Damkar Kota Cimahi</h3>
-                        <p class="text-gray-800 text-2xl md:text-2xl">Nomor: 119</p>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg p-8 md:p-10 shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center">
-                    <div class="text-blue-900 bg-blue-100 rounded-full p-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                        </svg>
-                    </div>
-                    <div class="ml-6">
-                        <h3 class="text-blue-900 font-semibold text-3xl md:text-3xl mb-4">BPBD Kota Cimahi</h3>
-                        <p class="text-gray-800 text-2xl md:text-2xl">Nomor: (022) YYYYYYY</p>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg p-8 md:p-10 shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center">
-                    <div class="text-blue-900 bg-blue-100 rounded-full p-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                        </svg>
-                    </div>
-                    <div class="ml-6">
-                        <h3 class="text-blue-900 font-semibold text-3xl md:text-3xl mb-4">Puskesmas Cibeber</h3>
-                        <p class="text-gray-800 text-2xl md:text-2xl">Nomor: 98765432</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
+            <div class="flex justify-center md:justify-center mb-8" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="0">
+                <a href="{{ route('layanan') }}" class="border ease-in text-blue-900 font-bold py-4 px-8  text-2xl rounded-lg border-blue-900 hover:bg-blue-950 hover:text-white transition-transform duration-700 transform hover:scale-105">Selengkapnya</a>
+            </div>   
         </div>
     </section>
 
