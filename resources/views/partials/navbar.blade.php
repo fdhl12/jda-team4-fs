@@ -15,9 +15,9 @@
             </button>
         </div>
         <div
-            class="w-full flex-grow xl:items-center xl:w-auto hidden xl :block mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
+            class="w-full flex-grow lg:items-center lg:w-auto hidden xl:block mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
             id="nav-content">
-            <ul class="list-reset xl:flex justify-end flex-1 items-center">
+            <ul class="list-reset lg:flex  justify-end flex-1 xl:items-center">
                 <li class="mr-3">
                     <a class="smooth-scroll inline-block py-6 px-6 text-2xl lg:text-2xl font-semibold no-underline hover:text-blue-900 hover:border-b-4 hover:border-blue-900 {{ request()->is('/') ? 'text-blue-900 border-b-4 border-blue-900' : '' }}" href="/">Beranda</a>
                 </li>
