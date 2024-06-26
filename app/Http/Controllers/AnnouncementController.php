@@ -75,7 +75,7 @@ class AnnouncementController extends Controller
         Announcement::create([
             'title' => $request->title,
             'description' => $request->description,
-            'slug' => Str::slug($request->title),
+            'slug' => Str::slug($request->input('title') . Str::random(20), '-'),
             'image' => $imagePath,
             'user_id' => Auth::id(),
         ]);
@@ -83,21 +83,21 @@ class AnnouncementController extends Controller
         return redirect()->route('admin.pengumuman')->with('store', "Pengumuman {$request->title} berhasil dibuat");
     }
 
-    public function edit(Announcement $announcement, $id)
+    public function edit(Announcement $announcement, $slug)
     {
-        $announcement = $announcement->find($id);
+        $announcement = $announcement->find($slug);
 
         return view('admin.pengumuman.edit', compact('announcement'));
     }
 
-    public function update(Request $request, Announcement $announcement, $id)
+    public function update(Request $request, Announcement $announcement, $slug)
     {
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
         ]);
 
-        $announcement = $announcement->find($id);
+        $announcement = $announcement->find($slug);
 
         // Simpan gambar jika ada
         $imagePath = null;
@@ -107,6 +107,8 @@ class AnnouncementController extends Controller
 
         $announcement->update([
             'title' => $request->title,
+            'slug' => Str::slug($request->input('title') . Str::random(20), '-'),
+            'image' => $imagePath,
             'description' => $request->description,
         ]);
 

@@ -5,7 +5,7 @@
             <div class="flex items-center justify-center md:justify-start">
                 <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
                    href="{{ route('home') }}">
-                    <img src="{{ asset($pengaturan['logo_text']) }}" alt="Example Image" class="w-15 h-20">
+                    <img src="{{ asset($pengaturan['logo_text']) }}" alt="Example Image" class="w-15 h-20 filter invert brightness-0">
                 </a>
             </div>
 

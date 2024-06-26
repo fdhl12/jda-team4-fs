@@ -10,12 +10,13 @@ use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\LembagaKelurahanController as LembagaKelurahanUser;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PerangkatKelurahanController;
 use App\Http\Controllers\ProfileController;
+
 use App\Http\Controllers\StrukturOrganisasiController;
 use App\Http\Controllers\UserController;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -48,8 +49,11 @@ Route::get('/layanan', function () {
     return view('layanan');
 })->name('layanan');
 
-Route::get('/lembaga-kelurahan', [LembagaKelurahanController::class, 'index'])->name('lembaga-kelurahan.index');
-Route::get('/perangkat-kelurahan', [PerangkatKelurahanController::class, 'index'])->name('perangkat-kelurahan.index');
+
+Route::get('/lembaga-kelurahan', [LembagaKelurahanUser::class, 'indexUser'])->name('lembaga-kelurahan.index');
+Route::get('/lembaga-kelurahan/{id}', [LembagaKelurahanUser::class, 'showUser'])->name('lembaga-kelurahan.show');
+Route::get('/perangkat-kelurahan', [PerangkatKelurahanController::class, 'indexUser'])->name('perangkat-kelurahan.index');
+Route::get('/perangkat-kelurahan/{id}', [PerangkatKelurahanController::class, 'showUser'])->name('perangkat-kelurahan.show');
 Route::get('/struktur-organisasi', [StrukturOrganisasiController::class, 'index'])->name('strucktur.index');
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {

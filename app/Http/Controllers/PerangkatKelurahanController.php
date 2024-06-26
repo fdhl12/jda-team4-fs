@@ -9,12 +9,13 @@ use App\Models\PerangkatKelurahan;
 class PerangkatKelurahanController extends Controller
 {
 
-    public function index()
+    public function indexUser()
     {
-        return view('perangkat-kelurahan');
+        $perangkats = PerangkatKelurahan::all();
+        return view('perangkat-kelurahan', compact('perangkats'));
     }
 
-    public function admin(Request $request)
+    public function index(Request $request)
     {
         $query = $request->input('query');
 
@@ -34,21 +35,6 @@ class PerangkatKelurahanController extends Controller
 
 
         return view('admin.perangkat-kelurahan.index', compact('perangkatdesas', 'query', 'totalPerangkatDesas'));
-    }
-
-    public function indexUser(Request $request)
-    {
-        $query = $request->input('query');
-
-        if ($query) {
-            $perangkatdesas = PerangkatKelurahan::where('name', 'LIKE', "%{$query}%")->get();
-        } else {
-            $perangkatdesas = PerangkatKelurahan::with('jabatan')->orderBy('created_at', 'desc');
-        }
-
-
-
-        return view('admin.perangkat-kelurahan.index', compact('perangkatdesas', 'query'));
     }
 
     public function create()
@@ -96,6 +82,16 @@ class PerangkatKelurahanController extends Controller
 
         $jabatan = $perangkatdesa->jabatan;
         return view('admin.perangkat-kelurahan.show', compact('perangkatdesa', 'jabatan'));
+    }
+
+    public function showUser($id)
+    {
+        $perangkatdesa = PerangkatKelurahan::findOrFail($id);
+        $perangkats = PerangkatKelurahan::all();
+        $perangkats = PerangkatKelurahan::with('jabatan')->orderBy('created_at', 'desc')->paginate(4);
+
+        $jabatan = $perangkatdesa->jabatan;
+        return view('show.perangkat-kelurahan', compact('perangkatdesa', 'perangkats', 'jabatan'));
     }
 
     public function edit(PerangkatKelurahan $PerangkatDesa)
