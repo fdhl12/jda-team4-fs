@@ -15,9 +15,14 @@ class JabatanSeeder extends Seeder
     public function run(): void
     {
         DB::table('jabatans')->insert([
-            ['name' => 'Kepala Desa', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Sekretaris Desa', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Kaur Keuangan', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Lurah', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Sekretasi', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Kepala Seksi', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Pengelola', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Pengadministrasi', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Operator', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Keamanan', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Petugas', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }

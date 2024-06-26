@@ -134,7 +134,7 @@
                             </li>
                             <li>
                                 <a href="{{ route('admin.perangkat-kelurahan.index') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
-                                @if(request()->routeIs('admin.perangkat-kelurahan*')) bg-blue-100 dark:bg-blue-700 @endif
+                                @if(request()->routeIs('admin.perangkat-kelurahan*') or request()->routeIs('admin.jabatan*')) bg-blue-100 dark:bg-blue-700 @endif
                                 ">
                                 Perangkat
                                 </a>
@@ -146,14 +146,19 @@
                                     Lembaga
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ route('admin.jabatan.index') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
-                                @if(request()->routeIs('admin.jabatan*')) bg-blue-100 dark:bg-blue-700 @endif
-                                ">
-                                    Jabatan
-                                </a>
-                            </li>
                         </ul>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('admin.layanan.index') }}" class="flex items-center p-2 text-black-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group
+                        @if(request()->routeIs('admin.layanan.index*')) bg-blue-100 dark:bg-blue-700 @endif
+                        ">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.079 6.839a3 3 0 0 0-4.255.1M13 20h1.083A3.916 3.916 0 0 0 18 16.083V9A6 6 0 1 0 6 9v7m7 4v-1a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Zm-7-4v-6H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1Zm12-6h1a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1v-6Z"/>
+                            </svg>
+
+                            <span class="ms-3">Layanan</span>
+                        </a>
                     </li>
 
                     <li>

@@ -40,3 +40,14 @@
     </form>
 
 @endsection
+
+@push('scripts')
+    <x-admin.ckeditor-js :route="route('admin.demografi.ckeditor', ['_token' => csrf_token()])"/>
+
+    <script>
+        ckeditorOptions.height = 300
+        CKEDITOR.replace('tentang', ckeditorOptions);
+        CKEDITOR.replace('visimisi', ckeditorOptions);
+        CKEDITOR.replace('sejarah', ckeditorOptions);
+    </script>
+@endpush

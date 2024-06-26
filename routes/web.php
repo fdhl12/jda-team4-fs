@@ -1,15 +1,15 @@
 <?php
 
 use App\Http\Controllers\Admin\BerandaController;
-use App\Http\Controllers\Admin\DemografiController;
 use App\Http\Controllers\Admin\KategoriDemografiController;
 use App\Http\Controllers\Admin\LembagaKelurahanController;
 use App\Http\Controllers\Admin\PengaturanController;
-
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\DemografiController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\LayananController;
 use App\Http\Controllers\LembagaKelurahanController as LembagaKelurahanUser;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PerangkatKelurahanController;
@@ -39,15 +39,14 @@ Route::controller(ProfileController::class)->group(function () {
     Route::get('/visimisi', 'visimisi')->name('visimisi');
     Route::get('/sejarah', 'sejarah')->name('sejarah');
     Route::get('/geografi', 'geografi')->name('geografi');
-    Route::get('/demografi', 'demografi')->name('demografi');
     Route::get('/kontak', 'kontak')->name('kontak');
 });
 
+Route::get('/demografi', [DemografiController::class, 'index'])->name('demografi');
+
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 
-Route::get('/layanan', function () {
-    return view('layanan');
-})->name('layanan');
+Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
 
 
 Route::get('/lembaga-kelurahan', [LembagaKelurahanUser::class, 'indexUser'])->name('lembaga-kelurahan.index');
@@ -100,18 +99,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     /* demografi */
     Route::controller(DemografiController::class)->group(function () {
-        Route::get('/demografi', 'index')->name('demografi.index');
-        Route::post('/demografi', 'store')->name('demografi.store');
-        Route::patch('/demografi/{id}', 'update')->name('demografi.update');
-        Route::delete('/demografi/{id}', 'destroy')->name('demografi.destroy');
-    });
-
-    /* kategori demografi */
-    Route::controller(KategoriDemografiController::class)->group(function () {
-        Route::get('/kategori-demografi', 'index')->name('kategori-demografi.index');
-        Route::post('/kategori-demografi', 'store')->name('kategori-demografi.store');
-        Route::patch('/kategori-demografi/{id}', 'update')->name('kategori-demografi.update');
-        Route::delete('/kategori-demografi/{id}', 'destroy')->name('kategori-demografi.destroy');
+        Route::get('/demografi', 'admin')->name('demografi.index');
+        Route::patch('/demografi', 'update')->name('demografi.update');
+        Route::post('/demografi/ckeditor', 'ckeditor')->name('demografi.ckeditor');
     });
 
     /**
@@ -138,6 +128,14 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     /* jabatan */
     Route::resource('/jabatan', JabatanController::class);
+
+    /* layanan */
+    Route::controller(LayananController::class)->group(function () {
+        Route::get('/layanan', 'admin')->name('layanan.index');
+        Route::post('/layanan', 'store')->name('layanan.store');
+        Route::patch('/layanan/{id}', 'update')->name('layanan.update');
+        Route::delete('/layanan/{id}', 'destroy')->name('layanan.destroy');
+    });
 
     /**
      * user

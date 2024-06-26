@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Jabatan;
 use Illuminate\Http\Request;
 use App\Models\PerangkatKelurahan;
+use Illuminate\Support\Facades\Storage;
 
 class PerangkatKelurahanController extends Controller
 {
+
 
     public function indexUser()
     {
@@ -15,12 +17,13 @@ class PerangkatKelurahanController extends Controller
         return view('perangkat-kelurahan', compact('perangkats'));
     }
 
+
     public function index(Request $request)
     {
         $query = $request->input('query');
 
         if ($query) {
-            $perangkatdesas = PerangkatKelurahan::where('name', 'LIKE', "%{$query}%")
+            $perangkatKelurahans = PerangkatKelurahan::where('name', 'LIKE', "%{$query}%")
                 ->orWhere('email', 'LIKE', "%{$query}%")
                 ->orWhereHas('jabatan', function ($q) use ($query) {
                     $q->where('id', 'LIKE', "%{$query}%")
@@ -28,13 +31,14 @@ class PerangkatKelurahanController extends Controller
                 })
                 ->orderBy('created_at', 'desc')->get();
         } else {
-            $perangkatdesas = PerangkatKelurahan::with('jabatan')->orderBy('created_at', 'desc')->paginate(10);
+            $perangkatKelurahans = PerangkatKelurahan::with('jabatan')->orderBy('created_at', 'desc')->paginate(10);
         }
-        $totalPerangkatDesas = PerangkatKelurahan::count();
+
+        $jabatan = Jabatan::all();
 
 
+        return view('admin.perangkat-kelurahan.index', compact('perangkatKelurahans', 'jabatan', 'query'));
 
-        return view('admin.perangkat-kelurahan.index', compact('perangkatdesas', 'query', 'totalPerangkatDesas'));
     }
 
     public function create()
@@ -48,11 +52,11 @@ class PerangkatKelurahanController extends Controller
         // Validasi data masukan
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'nip' => 'nullable|string|max:55',
-            'alamat' => 'nullable',
             'jabatan_id' => 'required|exists:jabatans,id',
+            'nip' => 'nullable|string|max:55',
+            'email' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'alamat' => 'nullable',
         ]);
 
 
@@ -60,20 +64,20 @@ class PerangkatKelurahanController extends Controller
         // Simpan gambar jika ada
         $imagePath = null;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('jabatan_images', 'public');
+            $imagePath = $request->file('image')->store('images/perangkat-kelurahan', 'public');
         }
 
         PerangkatKelurahan::create([
             'name' => $request->name,
+            'jabatan_id' => $request->jabatan_id,
+            'nip' => $request->nip,
             'email' => $request->email,
             'image' => $imagePath,
-            'nip' => $request->nip,
             'alamat' => $request->alamat,
-            'jabatan_id' => $request->jabatan_id,
 
         ]);
 
-        return redirect()->route('admin.perangkat-kelurahan.index')->with('success', 'PerangkatKelurahan created successfully.');
+        return redirect()->route('admin.perangkat-kelurahan.index')->with('store', 'Perangkat Kelurahan Berhasil ditambah');
     }
 
     public function show($id)
@@ -83,6 +87,7 @@ class PerangkatKelurahanController extends Controller
         $jabatan = $perangkatdesa->jabatan;
         return view('admin.perangkat-kelurahan.show', compact('perangkatdesa', 'jabatan'));
     }
+
 
     public function showUser($id)
     {
@@ -100,35 +105,55 @@ class PerangkatKelurahanController extends Controller
         return view('admin.perangkat-kelurahan.edit', compact('perangkatdesa', 'jabatans'));
     }
 
-    public function update(Request $request, PerangkatKelurahan $PerangkatDesa)
+    public function update(Request $request, PerangkatKelurahan $perangkatKelurahan)
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
             'jabatan_id' => 'required|exists:jabatans,id',
-            'alamat' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'nip' => 'nullable|string|max:55',
+            'email' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'alamat' => 'nullable',
         ]);
-        $imagePath = null;
+
+        $update = [
+            'name' => $request->name,
+            'jabatan_id' => $request->jabatan_id,
+            'nip' => $request->nip,
+            'email' => $request->email,
+            'alamat' => $request->alamat,
+        ];
+
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('jabatan_images', 'public');
+
+            /* delete previous photo */
+            $storage = Storage::disk('public');
+            if ($perangkatKelurahan->getRawOriginal('image') and $storage->exists($perangkatKelurahan->getRawOriginal('image'))) {
+                $storage->delete($perangkatKelurahan->getRawOriginal('image'));
+            }
+
+            $imagePath = $request->file('image')->store('images/perangkat-kelurahan', 'public');
+
+            $update = array_merge($update, [
+                'image' => $imagePath
+            ]);
         }
 
-        $PerangkatDesa->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'jabatan_id' => $request->jabatan_id,
-            'alamat' => $request->alamat,
-            'image' => $imagePath,
-        ]);
+        $perangkatKelurahan->update($update);
 
-        return redirect()->route('admin.perangkat-kelurahan.index')->with('success', 'PerangkatKelurahan updated successfully.');
+        return redirect()->route('admin.perangkat-kelurahan.index')->with('update', 'Perangkat Kelurahan Berhasil disimpan');
     }
 
-    public function destroy(PerangkatKelurahan $PerangkatDesa)
+    public function destroy(PerangkatKelurahan $perangkatKelurahan)
     {
 
-        $PerangkatDesa->delete();
-        return redirect()->route('admin.perangkat-kelurahan.index')->with('success', 'PerangkatKelurahan deleted successfully.');
+        /* delete image*/
+        $storage = Storage::disk('public');
+        if ($perangkatKelurahan->getRawOriginal('image') and $storage->exists($perangkatKelurahan->getRawOriginal('image'))) {
+            $storage->delete($perangkatKelurahan->getRawOriginal('image'));
+        }
+
+        $perangkatKelurahan->delete();
+        return redirect()->route('admin.perangkat-kelurahan.index')->with('destroy', 'Perangkat Kelurahan Berhasil dihapus.');
     }
 }
