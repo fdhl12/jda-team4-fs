@@ -12,10 +12,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $galeris = Galeri::latest()->paginate(6);
-        $announcements = Announcement::latest()->paginate(3);
-        $layanans = Layanan::latest()->paginate(6);
-        $newss = News::latest()->paginate(3);
+        $galeris = Galeri::latest()->limit(6)->get();
+        $announcements = Announcement::latest()->limit(3)->get();
+        $layanans = Layanan::latest()->limit(6)->get();
+        $newss = News::latest()->limit(3)->get();
         return view('home', compact('newss', 'announcements', 'galeris', 'layanans'));
     }
 }
