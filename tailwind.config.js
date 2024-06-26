@@ -50,5 +50,8 @@ export default {
             'Noto Color Emoji'
         ]
     },
-    plugins: [require("flowbite/plugin")],
+    plugins: [
+        require("flowbite/plugin"),
+        require('@tailwindcss/typography'),
+    ],
 };

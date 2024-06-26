@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Jabatan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,11 +19,11 @@ class PerangkatKelurahanFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'image' => 'https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg',
+            'image' => 'images/perangkat-kelurahan/no-image.png',
             'email' => fake()->unique()->safeEmail(),
-            'nip' => '-',
+            'nip' => fake()->numerify,
             'alamat' => fake()->address(),
-            'jabatan_id' => 3,
+            'jabatan_id' => Jabatan::get()->random(),
         ];
     }
 }

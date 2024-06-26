@@ -99,16 +99,28 @@ class AnnouncementController extends Controller
 
         $announcement = $announcement->find($id);
 
-        // Simpan gambar jika ada
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images/pengumuman', 'public');
-        }
-
-        $announcement->update([
+        $update = [
             'title' => $request->title,
             'description' => $request->description,
-        ]);
+        ];
+
+        // Simpan gambar jika ada
+        if ($request->hasFile('image')) {
+
+            /* delete image*/
+            $storage = Storage::disk('public');
+            if ($announcement->getRawOriginal('image') and $storage->exists($announcement->getRawOriginal('image'))) {
+                $storage->delete($announcement->getRawOriginal('image'));
+            }
+
+            $imagePath = $request->file('image')->store('images/pengumuman', 'public');
+
+            $update = array_merge($update, [
+                'image' => $imagePath
+            ]);
+        }
+
+        $announcement->update($update);
 
         return redirect()->route('admin.pengumuman')->with('update', "Pengumuman {$request->title} berhasil diubah");
     }

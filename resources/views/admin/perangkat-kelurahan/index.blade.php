@@ -4,6 +4,47 @@
 
 @section('content')
 
+    @if(session('destroy'))
+        <x-admin.alert-danger>
+            {{ session('destroy') }}
+        </x-admin.alert-danger>
+    @elseif(session('store'))
+        <x-admin.alert-success>
+            {{ session('store') }}
+        </x-admin.alert-success>
+    @elseif(session('update'))
+        <x-admin.alert-success>
+            {{ session('update') }}
+        </x-admin.alert-success>
+    @endif
+
+    <div class="bg-white dark:bg-gray-800 px-5 m-3 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
+
+        <div class="border-b border-gray-200 dark:border-gray-700">
+            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+                <li class="me-2">
+                    <a href="{{ route('admin.perangkat-kelurahan.index') }}" class="inline-flex items-center justify-center p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500 group" aria-current="page">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
+                        </svg>
+
+                        Perangkat
+                    </a>
+                </li>
+                <li class="me-2">
+                    <a href="{{ route('admin.jabatan.index') }}" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 0 0-2 2v4m5-6h8M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m0 0h3a2 2 0 0 1 2 2v4m0 0v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6m18 0s-4 2-9 2-9-2-9-2m9-2h.01"/>
+                        </svg>
+
+                        Jabatan
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
     <main class="bg-white dark:bg-gray-800 p-5 m-3 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
 
         <div class="w-full mb-3">
@@ -28,7 +69,7 @@
                                   d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                                   clip-rule="evenodd"></path>
                         </svg>
-                        Tambah @yield('title')
+                        Tambah
                     </button>
                 </div>
 
@@ -63,30 +104,30 @@
                             </thead>
                             <tbody class="bg-white divide-y divide-blue-200 dark:bg-blue-800 dark:divide-blue-700">
 
-                            @foreach ($perangkatdesas as $perangkatdesa)
+                            @foreach ($perangkatKelurahans as $perangkatKelurahan)
                                 <tr class="hover:bg-blue-100 dark:hover:bg-blue-700">
                                     <td class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap">
-                                        <img class="w-10 h-10 rounded-full" src="{{ $perangkatdesa->image }}"
-                                             alt="Robert Brown avatar">
+                                        <img class="w-10 h-10 rounded-full" src="{{ asset('storage/'.$perangkatKelurahan->image) }}"
+                                             alt="Foto">
                                         <div class="text-sm font-normal text-black-500 dark:text-black-400">
                                             <div class="text-base font-semibold text-black-900 dark:text-white">
-                                                <a href="{{route('admin.perangkat-kelurahan.show',$perangkatdesa->id)}}"
-                                                   class="hover:underline"> {{$perangkatdesa->name}} </a>
+                                                <a href="{{route('admin.perangkat-kelurahan.show',$perangkatKelurahan->id)}}"
+                                                   class="hover:underline"> {{$perangkatKelurahan->name}} </a>
                                             </div>
                                             <div class="text-sm font-normal text-black-500 dark:text-black-400">
-                                                {{$perangkatdesa->email}}
+                                                {{$perangkatKelurahan->email}}
                                             </div>
                                         </div>
                                     </td>
                                     <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-black-500 truncate xl:max-w-xs dark:text-black-400">
-                                        {{$perangkatdesa->jabatan->name}}
+                                        {{$perangkatKelurahan->jabatan->name}}
                                     </td>
                                     <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-black-500 truncate xl:max-w-xs dark:text-black-400">
-                                        {{$perangkatdesa->nip}}
+                                        {{$perangkatKelurahan->nip}}
                                     </td>
                                     <td class="p-4 space-x-2 whitespace-nowrap text-end">
-                                        <button type="button" data-modal-target="edit-modal-{{ $perangkatdesa->id }}"
-                                                data-modal-toggle="edit-modal-{{ $perangkatdesa->id }}"
+                                        <button type="button" data-modal-target="edit-modal-{{ $perangkatKelurahan->id }}"
+                                                data-modal-toggle="edit-modal-{{ $perangkatKelurahan->id }}"
                                                 class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -98,8 +139,8 @@
                                             </svg>
                                             Ubah
                                         </button>
-                                        <button type="button" data-modal-target="delete-modal-{{ $perangkatdesa->id }}"
-                                                data-modal-toggle="delete-modal-{{ $perangkatdesa->id }}"
+                                        <button type="button" data-modal-target="delete-modal-{{ $perangkatKelurahan->id }}"
+                                                data-modal-toggle="delete-modal-{{ $perangkatKelurahan->id }}"
                                                 class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
                                             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -109,8 +150,8 @@
                                             </svg>
                                             Hapus
                                         </button>
-                                        @include('admin.perangkat-kelurahan.edit', ['perangkatdesa' => $perangkatdesa])
-                                        @include('admin.perangkat-kelurahan.delete', ['perangkatdesa' => $perangkatdesa])
+                                        @include('admin.perangkat-kelurahan.edit', ['perangkatKelurahan' => $perangkatKelurahan])
+                                        @include('admin.perangkat-kelurahan.delete', ['perangkatKelurahan' => $perangkatKelurahan])
                                     </td>
                                 </tr>
                             @endforeach
@@ -122,7 +163,7 @@
         </div>
 
         @if(!request()->get('show') == 'all' and !request()->get('query'))
-            {{ $perangkatdesas->onEachSide(0)->links('components.admin.pagination', ['show_all' => route('admin.perangkat-kelurahan.index') . '?show=all']) }}
+            {{ $perangkatKelurahans->onEachSide(0)->links('components.admin.pagination', ['show_all' => route('admin.perangkat-kelurahan.index') . '?show=all']) }}
         @endif
 
     </main>

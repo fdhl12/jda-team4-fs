@@ -101,18 +101,28 @@ class NewsController extends Controller
 
         $news = $news->find($id);
 
-        // Simpan gambar jika ada
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images/berita', 'public');
-        }
-
-        $news->update([
+        $update = [
             'title' => $request->title,
             'description' => $request->description,
-            'image' => $imagePath
-        ]);
+        ];
 
+        // Simpan gambar jika ada
+        if ($request->hasFile('image')) {
+
+            /* delete image*/
+            $storage = Storage::disk('public');
+            if ($news->getRawOriginal('image') and $storage->exists($news->getRawOriginal('image'))) {
+                $storage->delete($news->getRawOriginal('image'));
+            }
+
+            $imagePath = $request->file('image')->store('images/berita', 'public');
+
+            $update = array_merge($update, [
+                'image' => $imagePath
+            ]);
+        }
+
+        $news->update($update);
 
         return redirect()->route('admin.berita')->with('update', "Berita {$request->title} berhasil diubah");
     }

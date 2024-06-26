@@ -41,7 +41,7 @@
                     <label for="alamat" class="block mb-2  font-medium text-black-900 dark:text-white">
                         Deskripsi
                     </label>
-                    <textarea id="deskripsi" name="deskripsi" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Tuliskan Sejarah Kelurahan.">{{ $deskripsi }}</textarea>
+                    <textarea id="description" name="deskripsi" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Tuliskan Sejarah Kelurahan.">{{ $deskripsi }}</textarea>
                 </div>
             </div>
         </div>
@@ -58,3 +58,7 @@
     </form>
 
 @endsection
+
+@push('scripts')
+    <x-admin.ckeditor-js :route="route('admin.demografi.ckeditor', ['_token' => csrf_token()])"/>
+@endpush

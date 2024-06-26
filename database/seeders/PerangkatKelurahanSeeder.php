@@ -15,32 +15,5 @@ class PerangkatKelurahanSeeder extends Seeder
     public function run(): void
     {
         PerangkatKelurahan::factory(10)->create();
-
-        DB::table('perangkat_kelurahans')->insert([
-            [
-                'name' => 'Kang Lurah',
-                'image' => 'https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg',
-                'email' => 'kanglurah@gmail.com',
-                'nip' => '-',
-                'alamat' => 'kebun raya jeruk melon mangga',
-                'jabatan_id' => 1,
-            ],
-            [
-                'name' => 'Kang Sekretaris',
-                'image' => 'https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg',
-                'email' => 'sekre@gmail.com',
-                'nip' => '-',
-                'alamat' => 'kebun raya jeruk melon mangga',
-                'jabatan_id' => 2,
-            ],
-            [
-                'name' => 'Kang Keuangan',
-                'image' => 'https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg',
-                'email' => 'beruang@gmail.com',
-                'nip' => '-',
-                'alamat' => 'kebun raya jeruk melon mangga',
-                'jabatan_id' => 3,
-            ],
-        ]);
     }
 }
