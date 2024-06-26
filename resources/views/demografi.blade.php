@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Demografi')
+@section('title', 'Demografi '. $pengaturan['name'])
 
 @section('content')
 <div class="pt-24">

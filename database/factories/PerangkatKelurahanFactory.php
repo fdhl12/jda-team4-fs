@@ -17,9 +17,13 @@ class PerangkatKelurahanFactory extends Factory
      */
     public function definition(): array
     {
+
+        $image = ['no-image.png', 'perangkat-1.jpeg', 'perangkat-2.jpeg', 'perangkat-3.jpeg'];
+        $image_rand = $image[array_rand($image)];
+
         return [
             'name' => fake()->name(),
-            'image' => 'images/perangkat-kelurahan/no-image.png',
+            'image' => $image_rand,
             'email' => fake()->unique()->safeEmail(),
             'nip' => fake()->numerify,
             'alamat' => fake()->address(),

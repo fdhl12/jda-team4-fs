@@ -14,7 +14,7 @@
                 <div class="w-full mb-4">
                     <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
                 </div>
-                <p class="text-3xl font-medium text-orange-500 text-center mb-10 md:mb-20">
+                <p class="text-3xl font-medium text-blue-900 text-center mb-10 md:mb-20">
                     Foto Foto Terkait {{ $pengaturan['name'] }}
                 </p>
 

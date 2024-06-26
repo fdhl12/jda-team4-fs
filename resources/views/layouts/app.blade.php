@@ -73,6 +73,9 @@
         }
 
     </style>
+
+    @stack('style')
+
 </head>
 <body class="leading-normal tracking-normal " style="font-family: 'Source Sans Pro', sans-serif;">
 
