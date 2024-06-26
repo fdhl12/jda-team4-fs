@@ -18,9 +18,12 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function visimisi()
+    public function visimisi(ProfileKelurahan $profileKelurahan)
     {
-        return view('visimisi');
+        $visimisi = $profileKelurahan->where('type', 'visimisi')->value('data');
+        return view('visimisi', [
+            'visimisi' => $visimisi
+        ]);
     }
 
     public function sejarah(ProfileKelurahan $profileKelurahan)
