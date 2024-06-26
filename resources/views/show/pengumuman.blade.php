@@ -37,12 +37,12 @@
                     @foreach ($announcements as $announcement)
                     <div class="flex py-4 border-t-2">
                         <div class="flex-shrink-0 w-1/3">
-                            <a href="{{route('show.berita',$announcement->slug)}}" class="block rounded-t-lg overflow-hidden">
+                            <a href="{{route('show.pengumuman', $announcement->slug)}}" class="block rounded-t-lg overflow-hidden">
                                 <img class="h-full w-24 object-cover" src="{{asset($announcement->image)}}" alt="announcement Thumbnail">   
                             </a>
                         </div>
                         <div class="ml-4 text-black">
-                            <a href="{{route('show.berita',$announcement->slug)}}" class="block rounded-t-lg overflow-hidden">
+                            <a href="{{route('show.pengumuman', $announcement->slug)}}" class="block rounded-t-lg overflow-hidden">
                             <h3 class="text-xl font-semibold">{{$announcement->title}}</h3>
                             </a>
                             <p class="text-gray-700">{{$announcement->created_at->translatedFormat('l, d F Y H:i')}}</p>

@@ -10,10 +10,13 @@ use Illuminate\Support\Facades\Storage;
 class PerangkatKelurahanController extends Controller
 {
 
-//    public function index()
-//    {
-//        return view('perangkat-kelurahan');
-//    }
+
+    public function indexUser()
+    {
+        $perangkats = PerangkatKelurahan::all();
+        return view('perangkat-kelurahan', compact('perangkats'));
+    }
+
 
     public function index(Request $request)
     {
@@ -33,7 +36,9 @@ class PerangkatKelurahanController extends Controller
 
         $jabatan = Jabatan::all();
 
+
         return view('admin.perangkat-kelurahan.index', compact('perangkatKelurahans', 'jabatan', 'query'));
+
     }
 
     public function create()
@@ -83,7 +88,18 @@ class PerangkatKelurahanController extends Controller
         return view('admin.perangkat-kelurahan.show', compact('perangkatdesa', 'jabatan'));
     }
 
-    public function edit(PerangkatKelurahan $perangkatKelurahan)
+
+    public function showUser($id)
+    {
+        $perangkatdesa = PerangkatKelurahan::findOrFail($id);
+        $perangkats = PerangkatKelurahan::all();
+        $perangkats = PerangkatKelurahan::with('jabatan')->orderBy('created_at', 'desc')->paginate(4);
+
+        $jabatan = $perangkatdesa->jabatan;
+        return view('show.perangkat-kelurahan', compact('perangkatdesa', 'perangkats', 'jabatan'));
+    }
+
+    public function edit(PerangkatKelurahan $PerangkatDesa)
     {
         $jabatans = Jabatan::all();
         return view('admin.perangkat-kelurahan.edit', compact('perangkatdesa', 'jabatans'));

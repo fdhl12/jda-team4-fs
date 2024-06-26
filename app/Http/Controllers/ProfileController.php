@@ -10,9 +10,12 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
 
-    public function tentang()
+    public function tentang(ProfileKelurahan $profileKelurahan)
     {
-        return view('tentang');
+        $tentang = $profileKelurahan->where('type', 'tentang')->value('data');
+        return view('tentang', [
+            'tentang' => $tentang
+        ]);
     }
 
     public function visimisi()
@@ -20,13 +23,20 @@ class ProfileController extends Controller
         return view('visimisi');
     }
 
-    public function sejarah()
+    public function sejarah(ProfileKelurahan $profileKelurahan)
     {
-        return view('sejarah');
+        $sejarah = $profileKelurahan->where('type', 'sejarah')->value('data');
+        return view('sejarah', [
+            'sejarah' => $sejarah
+        ]);
     }
-    public function geografi()
+    public function geografi(ProfileKelurahan $profileKelurahan)
     {
-        return view('geografi');
+        $data = json_decode($profileKelurahan->where('type', 'geografis')->value('data'), true);
+        return view('geografi', [
+            'geografi' => $data
+        ]);
+
     }
 
     public function demografi()

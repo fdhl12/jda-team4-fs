@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="mt-24 mb-auto  bg-white">
+    <div class="mt-24 mb-auto text-black  bg-white">
         <div class="container mx-auto px-4 py-12">
 
             <div class="mb-20 text-center">
@@ -17,32 +17,21 @@
 
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <a href="#" class="flex flex-col items-center p-4 gap-3 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                    <img class="object-cover w-full md:h-auto md:w-24" src="{{ asset('storage/logo.png') }}" alt="">
-                    <div class="flex flex-col justify-between leading-normal">
-                        <h5 class="mb-2 text-lg font-semibold tracking-tight text-black-900 dark:text-white">
-                            BADAN PERMUSYAWARATAN DESA (BPD)
-                        </h5>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                            Jalan Raya Gresik No. 156 Tuban Jalan Raya Gresik No. 156 Tuban Jalan Raya Gresik No. 156 Tuban Jalan Raya Gresik No. 156 Tuban
-                        </p>
-                    </div>
-                </a>
-
-                @for($i = 1; $i < 10; $i++)
-
-                    <a href="#" class="flex flex-col items-center p-4 gap-3 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                        <img class="object-cover w-full md:h-auto md:w-24" src="{{ asset('storage/logo.png') }}" alt="">
+                @foreach ($lembagas as $lembaga)
+                    
+                
+                <a href="{{route('lembaga-kelurahan.show', $lembaga->id)}}" class="flex flex-col items-center p-4 gap-3 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <img class="object-cover w-full md:h-auto md:w-24" src="{{ asset('storage/'.$lembaga->logo) }}" alt="">
                         <div class="flex flex-col justify-between leading-normal">
                             <h5 class="mb-2 text-lg font-semibold tracking-tight text-black-900 dark:text-white">
-                                BADAN PERMUSYAWARATAN DESA (BPD)
+                                {{$lembaga->nama}} ( {{$lembaga->kode}} )
                             </h5>
                             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                Jalan Raya Gresik No. 156 Tuban
+                                {{$lembaga->alamat}}
                             </p>
                         </div>
                     </a>
-                @endfor
+                @endforeach
 
             </div>
 

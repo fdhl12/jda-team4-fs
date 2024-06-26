@@ -36,6 +36,8 @@
 
     <!-- Include Alpine.js -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.2/dist/alpine.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -70,12 +72,9 @@
 
         }
 
-        .active {
-            @apply text-white bg-blue-900;
-        }
     </style>
 </head>
-<body class="leading-normal tracking-normal text-white" style="font-family: 'Source Sans Pro', sans-serif;">
+<body class="leading-normal tracking-normal " style="font-family: 'Source Sans Pro', sans-serif;">
 
 <!--Nav-->
 @include('partials.navbar')

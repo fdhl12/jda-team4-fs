@@ -77,7 +77,7 @@ class NewsController extends Controller
         News::create([
             'title' => $request->title,
             'description' => $request->description,
-            'slug' => Str::slug($request->title),
+            'slug' => Str::slug($request->input('title') . Str::random(20), '-'),
             'image' => $imagePath,
             'user_id' => Auth::id(),
         ]);

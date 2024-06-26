@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="mt-24 mb-auto  bg-white">
+    <div class="mt-24 mb-auto  text-black bg-white">
         <div class="container mx-auto px-4 py-12">
 
             <div class="mb-20 text-center">
@@ -17,20 +17,21 @@
 
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
 
-                @for($i = 1; $i < 10; $i++)
-                    <a href="#" class="flex flex-col items-center border border-gray-200 shadow md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                        <img class="object-cover w-full h-96" src="https://kradenan-palang.desa.id/assets/files/data/website-desa-kradenan-3523182005/agungfc.jpeg" alt="">
-                        <div class="flex flex-col justify-between p-4 leading-normal">
+                @foreach ($perangkats as $perangkat)
+                    
+                <a href="{{route('perangkat-kelurahan.show', $perangkat->id)}}" class="border border-gray-200 shadow md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img class="object-cover w-full h-96" src="{{asset($perangkat->image)}}" alt="">
+                        <div class=" p-4 leading-normal">   
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                AGUNG FAJAR CAHYANA
+                                {{$perangkat->name}}
                             </h5>
                             <p class="mb-3 font-normal text-black-700 dark:text-black-400">
-                                SEKRETARIS DESA
+                                {{$perangkat->jabatan->name}}
                             </p>
                         </div>
                     </a>
-                @endfor
-
+                @endforeach
+                    
             </div>
 
 
