@@ -13,7 +13,7 @@
                         {{$perangkatdesa->name}}
                     </h1>
                     <div class="flex flex-col md:flex-row sm:space-x-reverse p-4">
-                        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg" alt="">
+                        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{asset($perangkatdesa->image)}}" alt="">
                         <table class="w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600 mt-4 md:mt-0 md:ml-4">
                             <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
                                 <tr>

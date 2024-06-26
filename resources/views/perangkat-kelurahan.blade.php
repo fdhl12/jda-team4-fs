@@ -20,7 +20,7 @@
                 @foreach ($perangkats as $perangkat)
                     
                 <a href="{{route('perangkat-kelurahan.show', $perangkat->id)}}" class="border border-gray-200 shadow md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                    <img class="object-cover w-full h-96" src="https://kradenan-palang.desa.id/assets/files/data/website-desa-kradenan-3523182005/agungfc.jpeg" alt="">
+                    <img class="object-cover w-full h-96" src="{{asset($perangkat->image)}}" alt="">
                         <div class=" p-4 leading-normal">   
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 {{$perangkat->name}}
