@@ -14,7 +14,8 @@
                 </div>
                 <p class="text-3xl font-medium text-blue-900 text-center mb-8">Kontak Layanan Seputar Kelurahan Cibeber</p>
                 <div class="flex flex-col md:flex-row items-center md:items-start mt-8">
-                    <div class="md:w-1/2">
+                    {!! $sejarah !!}
+                    {{-- <div class="md:w-1/2">
                         <p class="mt-4 text-lg md:text-xl text-center md:text-left text-gray-700 leading-relaxed">
                             Kelurahan Cibeber, yang terletak di Kecamatan Cimahi Selatan, Kota Cimahi, Jawa Barat, merupakan sebuah daerah yang kaya akan sejarah dan budaya. Kelurahan ini dikenal dengan suasana lingkungan yang asri dan ramah, menjadikannya tempat tinggal yang nyaman bagi warganya. Berbagai fasilitas umum, seperti sekolah, puskesmas, dan pasar tradisional, tersedia untuk memenuhi kebutuhan sehari-hari masyarakat.
                         </p>
@@ -27,7 +28,7 @@
                     </div>
                     <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
                         <img class="h-auto max-w-full rounded-lg" src="{{ asset('images/foto-1.jpeg') }}" alt="">
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>
