@@ -19,7 +19,7 @@ class Announcement extends Model
     protected function image(): Attribute
     {
         return Attribute::make(
-            get: fn ($image) => url('/storage/pengumuman/' . $image),
+            get: fn ($image) => url('/storage/' . $image),
         );
     }
 
