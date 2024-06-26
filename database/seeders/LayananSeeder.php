@@ -15,7 +15,7 @@ class LayananSeeder extends Seeder
     {
         for ($i = 0; $i < 10 ; $i++) {
             Layanan::create([
-                'nama' => fake()->title,
+                'nama' => fake()->city,
                 'telepon' => fake()->phoneNumber,
                 'buka' => '09.00',
                 'tutup' => '18.00',
