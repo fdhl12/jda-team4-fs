@@ -7,13 +7,11 @@
     <div class="mt-24 mb-auto  text-black bg-white">
         <div class="container mx-auto px-4 py-12">
 
-            <div class="mb-20 text-center">
-                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                     <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
-                        Perangkat Kelurahan
-                    </span>
-                </h1>
+            <h2 class="text-5xl font-bold text-blue-950 text-center mb-4" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="0">Perangkat</h2>
+            <div class="w-full mb-4">
+                <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="0"></div>
             </div>
+            <p class="text-3xl font-medium text-orange-500 text-center mb-4" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="0">Perangkat Seputar Kelurahan Cibeber</p>
 
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
 
