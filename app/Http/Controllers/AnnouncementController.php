@@ -10,40 +10,38 @@ use Illuminate\Support\Facades\Storage;
 
 class AnnouncementController extends Controller
 {
-
     public function index(Request $request)
     {
         $query = $request->input('query');
-
         $announcements = Announcement::with('user');
-
+    
         if ($query) {
-            $announcements = $announcements->where('title', 'LIKE', "%{$query}%")->get();
-        } elseif (request()->get('show') == 'all') {
-            $announcements = Announcement::with('user')->latest()->get();
+            $announcements = $announcements->where('title', 'LIKE', "%{$query}%")->paginate(10);
+        } elseif ($request->get('show') == 'all') {
+            $announcements = $announcements->latest()->paginate(10);
         } else {
             $announcements = $announcements->latest()->paginate(10);
         }
-
+    
         return view('admin.pengumuman.index', compact('announcements', 'query'));
     }
-
+    
     public function indexUser(Request $request)
     {
         $query = $request->input('query');
-
         $announcements = Announcement::with('user');
-
+    
         if ($query) {
-            $announcements = $announcements->where('title', 'LIKE', "%{$query}%")->get();
-        } elseif (request()->get('show') == 'all') {
-            $announcements = Announcement::with('user')->latest()->get();
+            $announcements = $announcements->where('title', 'LIKE', "%{$query}%")->paginate(10);
+        } elseif ($request->get('show') == 'all') {
+            $announcements = $announcements->latest()->paginate(10);
         } else {
             $announcements = $announcements->latest()->paginate(10);
         }
-
+    
         return view('pengumuman', compact('announcements', 'query'));
     }
+    
 
     public function create()
     {
@@ -56,18 +54,15 @@ class AnnouncementController extends Controller
         $announcements = Announcement::take(5)->get();
         return view('show.pengumuman', compact('announcement', 'announcements'));
     }
-    
 
     public function store(Request $request)
     {
-        // Validasi data masukan
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Simpan gambar jika ada
         $imagePath = null;
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images/pengumuman', 'public');
@@ -76,7 +71,7 @@ class AnnouncementController extends Controller
         Announcement::create([
             'title' => $request->title,
             'description' => $request->description,
-            'slug' => Str::slug($request->input('title') . Str::random(20), '-'),
+            'slug' => Str::slug($request->input('title') . '-' . Str::random(20), '-'),
             'image' => $imagePath,
             'user_id' => Auth::id(),
         ]);
@@ -84,43 +79,35 @@ class AnnouncementController extends Controller
         return redirect()->route('admin.pengumuman')->with('store', "Pengumuman {$request->title} berhasil dibuat");
     }
 
-    public function edit(Announcement $announcement, $slug)
+    public function edit($id)
     {
-        $announcement = $announcement->find($slug);
-
+        $announcement = Announcement::findOrFail($id);
         return view('admin.pengumuman.edit', compact('announcement'));
     }
 
-    public function update(Request $request, Announcement $announcement, $slug)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
         ]);
 
-        $announcement = $announcement->find($slug);
+        $announcement = Announcement::findOrFail($id);
 
         $update = [
             'title' => $request->title,
-            'slug' => Str::slug($request->input('title') . Str::random(20), '-'),
-            'image' => $imagePath,
+            'slug' => Str::slug($request->input('title') . '-' . Str::random(20), '-'),
             'description' => $request->description,
         ];
 
-        // Simpan gambar jika ada
         if ($request->hasFile('image')) {
-
-            /* delete image*/
             $storage = Storage::disk('public');
-            if ($announcement->getRawOriginal('image') and $storage->exists($announcement->getRawOriginal('image'))) {
+            if ($announcement->getRawOriginal('image') && $storage->exists($announcement->getRawOriginal('image'))) {
                 $storage->delete($announcement->getRawOriginal('image'));
             }
 
             $imagePath = $request->file('image')->store('images/pengumuman', 'public');
-
-            $update = array_merge($update, [
-                'image' => $imagePath
-            ]);
+            $update['image'] = $imagePath;
         }
 
         $announcement->update($update);
@@ -128,21 +115,20 @@ class AnnouncementController extends Controller
         return redirect()->route('admin.pengumuman')->with('update', "Pengumuman {$request->title} berhasil diubah");
     }
 
-    public function destroy(Request $request, Announcement $announcement)
+    public function destroy(Request $request, $id)
     {
+        $announcement = Announcement::findOrFail($id);
 
-        $announcement = $announcement->find($request->post('id'));
-
-        /* delete image*/
         $storage = Storage::disk('public');
-        if ($announcement->getRawOriginal('image') and $storage->exists($announcement->getRawOriginal('image'))) {
+        if ($announcement->getRawOriginal('image') && $storage->exists($announcement->getRawOriginal('image'))) {
             $storage->delete($announcement->getRawOriginal('image'));
         }
 
         $announcement->delete();
 
-        return redirect()->back()->with('destroy', "Pengumuman {$announcement['title']} berhasil dihapus...");
+        return redirect()->back()->with('destroy', "Pengumuman {$announcement->title} berhasil dihapus...");
     }
+
     public function ckeditor()
     {
         if (request()->hasFile('upload')) {

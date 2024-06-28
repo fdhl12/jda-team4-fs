@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="pt-24">
-        <section class="bg-white border-b py-12 text-center">
+        <section class="bg-white border-b py-12 text-center bg-banner-1">
             <div class="container mx-auto px-8"> <!-- Increased px for more space -->
                 <!-- Judul Top Berita -->
                 <h2 class="text-7xl font-bold text-blue-900 mb-8">
