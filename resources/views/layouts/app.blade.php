@@ -71,7 +71,7 @@
             z-index: 0;
 
         }
-
+      
     </style>
 
     @stack('style')

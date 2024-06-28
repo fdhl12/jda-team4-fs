@@ -53,9 +53,10 @@ class AnnouncementController extends Controller
     public function show($slug)
     {
         $announcement = Announcement::where('slug', $slug)->firstOrFail();
-        $announcements = Announcement::all();
+        $announcements = Announcement::take(5)->get();
         return view('show.pengumuman', compact('announcement', 'announcements'));
     }
+    
 
     public function store(Request $request)
     {

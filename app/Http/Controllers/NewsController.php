@@ -10,24 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
-    public function index(Request $request)
-    {
-        $query = $request->input('query');
-
-        if ($query) {
-            $newss = News::where('title', 'LIKE', "%{$query}%")
-                ->orWhere('description', 'LIKE', "%{$query}%")
-                ->orWhereHas('user', function ($q) use ($query) {
-                    $q->Where('name', 'LIKE', "%{$query}%");
-                })
-                ->orderBy('created_at', 'desc')->paginate(6);
-        } else {
-            $newss = News::with('user')->orderBy('created_at', 'desc')->paginate(6);
-        }
-
-        return view('admin.berita.index', compact('newss', 'query'));
-    }
-
+    // Method to display news articles with search functionality for users
     public function indexUser(Request $request)
     {
         $query = $request->input('query');
@@ -46,34 +29,56 @@ class NewsController extends Controller
         return view('berita', compact('newss', 'query'));
     }
 
+    // Method to display all news articles with search functionality for admin
+    public function index(Request $request)
+    {
+        $query = $request->input('query');
+
+        if ($query) {
+            $newss = News::where('title', 'LIKE', "%{$query}%")
+                ->orWhere('description', 'LIKE', "%{$query}%")
+                ->orWhereHas('user', function ($q) use ($query) {
+                    $q->Where('name', 'LIKE', "%{$query}%");
+                })
+                ->orderBy('created_at', 'desc')->paginate(6);
+        } else {
+            $newss = News::with('user')->orderBy('created_at', 'desc')->paginate(6);
+        }
+
+        return view('admin.berita.index', compact('newss', 'query'));
+    }
+
+    // Method to display a specific news article
     public function show($slug)
     {
         $news = News::where('slug', $slug)->firstOrFail();
-        $newss = News::all();
+        $newss = News::take(5)->get();
         return view('show.berita', compact('news', 'newss'));
     }
 
-
+    // Method to show the create news form
     public function create()
     {
         return view('admin.berita.create');
     }
 
+    // Method to store a new news article
     public function store(Request $request)
     {
-        // Validasi data masukan
+        // Validate input data
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Simpan gambar jika ada
+        // Save image if provided
         $imagePath = null;
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images/berita', 'public');
         }
 
+        // Create a new news article
         News::create([
             'title' => $request->title,
             'description' => $request->description,
@@ -85,6 +90,7 @@ class NewsController extends Controller
         return redirect()->route('admin.berita')->with('store', "Berita {$request->title} berhasil dibuat");
     }
 
+    // Method to show the edit news form
     public function edit(News $news, $id)
     {
         $news = $news->find($id);
@@ -92,6 +98,7 @@ class NewsController extends Controller
         return view('admin.berita.edit', compact('news'));
     }
 
+    // Method to update an existing news article
     public function update(Request $request, News $news, $id)
     {
         $request->validate([
@@ -106,20 +113,17 @@ class NewsController extends Controller
             'description' => $request->description,
         ];
 
-        // Simpan gambar jika ada
+        // Save image if provided
         if ($request->hasFile('image')) {
-
-            /* delete image*/
+            // Delete existing image
             $storage = Storage::disk('public');
-            if ($news->getRawOriginal('image') and $storage->exists($news->getRawOriginal('image'))) {
+            if ($news->getRawOriginal('image') && $storage->exists($news->getRawOriginal('image'))) {
                 $storage->delete($news->getRawOriginal('image'));
             }
 
             $imagePath = $request->file('image')->store('images/berita', 'public');
 
-            $update = array_merge($update, [
-                'image' => $imagePath
-            ]);
+            $update = array_merge($update, ['image' => $imagePath]);
         }
 
         $news->update($update);
@@ -127,14 +131,14 @@ class NewsController extends Controller
         return redirect()->route('admin.berita')->with('update', "Berita {$request->title} berhasil diubah");
     }
 
+    // Method to delete a news article
     public function destroy(Request $request, News $news)
     {
-
         $news = $news->find($request->post('id'));
 
-        /* delete image*/
+        // Delete existing image
         $storage = Storage::disk('public');
-        if ($news->getRawOriginal('image') and $storage->exists($news->getRawOriginal('image'))) {
+        if ($news->getRawOriginal('image') && $storage->exists($news->getRawOriginal('image'))) {
             $storage->delete($news->getRawOriginal('image'));
         }
 
@@ -143,6 +147,7 @@ class NewsController extends Controller
         return redirect()->back()->with('destroy', "Berita {$news['title']} berhasil dihapus...");
     }
 
+    // Method for CKEditor image upload
     public function ckeditor()
     {
         if (request()->hasFile('upload')) {
