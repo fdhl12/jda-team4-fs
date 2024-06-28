@@ -10,17 +10,15 @@ use Illuminate\Support\Facades\Storage;
 
 class AnnouncementController extends Controller
 {
-
     public function index(Request $request)
     {
         $query = $request->input('query');
-
         $announcements = Announcement::with('user');
 
         if ($query) {
-            $announcements = $announcements->where('title', 'LIKE', "%{$query}%")->get();
-        } elseif (request()->get('show') == 'all') {
-            $announcements = Announcement::with('user')->latest()->get();
+            $announcements = $announcements->where('title', 'LIKE', "%{$query}%")->paginate(10);
+        } elseif ($request->get('show') == 'all') {
+            $announcements = $announcements->latest()->paginate(10);
         } else {
             $announcements = $announcements->latest()->paginate(10);
         }
@@ -31,19 +29,19 @@ class AnnouncementController extends Controller
     public function indexUser(Request $request)
     {
         $query = $request->input('query');
-
         $announcements = Announcement::with('user');
 
         if ($query) {
-            $announcements = $announcements->where('title', 'LIKE', "%{$query}%")->get();
-        } elseif (request()->get('show') == 'all') {
-            $announcements = Announcement::with('user')->latest()->get();
+            $announcements = $announcements->where('title', 'LIKE', "%{$query}%")->paginate(10);
+        } elseif ($request->get('show') == 'all') {
+            $announcements = $announcements->latest()->paginate(10);
         } else {
             $announcements = $announcements->latest()->paginate(10);
         }
 
         return view('pengumuman', compact('announcements', 'query'));
     }
+
 
     public function create()
     {
@@ -53,20 +51,18 @@ class AnnouncementController extends Controller
     public function show($slug)
     {
         $announcement = Announcement::where('slug', $slug)->firstOrFail();
-        $announcements = Announcement::all();
+        $announcements = Announcement::take(5)->get();
         return view('show.pengumuman', compact('announcement', 'announcements'));
     }
 
     public function store(Request $request, Announcement $announcement)
     {
-        // Validasi data masukan
         $request->validate([
             'title' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'description' => 'required',
         ]);
 
-        // Simpan gambar jika ada
         $imagePath = null;
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images/pengumuman', 'public');
@@ -112,18 +108,13 @@ class AnnouncementController extends Controller
 
         // Simpan gambar jika ada
         if ($request->hasFile('image')) {
-
-            /* delete image*/
             $storage = Storage::disk('public');
-            if ($announcement->getRawOriginal('image') and $storage->exists($announcement->getRawOriginal('image'))) {
+            if ($announcement->getRawOriginal('image') && $storage->exists($announcement->getRawOriginal('image'))) {
                 $storage->delete($announcement->getRawOriginal('image'));
             }
 
             $imagePath = $request->file('image')->store('images/pengumuman', 'public');
-
-            $update = array_merge($update, [
-                'image' => $imagePath
-            ]);
+            $update['image'] = $imagePath;
         }
 
         $announcement->update($update);
@@ -135,7 +126,7 @@ class AnnouncementController extends Controller
     {
         /* delete image*/
         $storage = Storage::disk('public');
-        if ($announcement->getRawOriginal('image') and $storage->exists($announcement->getRawOriginal('image'))) {
+        if ($announcement->getRawOriginal('image') && $storage->exists($announcement->getRawOriginal('image'))) {
             $storage->delete($announcement->getRawOriginal('image'));
         }
 
@@ -143,6 +134,7 @@ class AnnouncementController extends Controller
 
         return redirect()->back()->with('destroy', "Pengumuman {$announcement['title']} berhasil dihapus.");
     }
+
     public function ckeditor()
     {
         if (request()->hasFile('upload')) {

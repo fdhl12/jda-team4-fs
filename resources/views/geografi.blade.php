@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="pt-24">
-        <section class="bg-white border-b py-8">
+        <section class="bg-white border-b py-8 bg-banner-1">
             <div class="container mx-auto px-4">
                 <div class="text-center">
                     <!-- Judul Top Berita -->
@@ -21,8 +21,9 @@
                     <div class="text-center m-auto mb-10" align="center">
                         {!! $geografi["map"] !!}
                     </div>
-
+                    <article class="text-wrap text-3xl text-blue-950 prose m-auto max-w-4xl pb-96">
                     {!! $geografi["deskripsi"] !!}
+                    </article>
                 </article>
             </div>
         </section>
@@ -34,6 +35,7 @@
     <style>
         iframe {
             margin: auto;
+            width: 100%
         }
     </style>
 @endpush

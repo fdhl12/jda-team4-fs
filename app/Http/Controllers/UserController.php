@@ -27,7 +27,7 @@ class UserController extends Controller
         return view('admin.user.index', compact('users', 'query'));
     }
 
-    public function store(Request $request, User $pengguna)
+    public function store(Request $request, User $user)
     {
 
         $validator = Validator::make($request->all(), [
@@ -40,25 +40,25 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $pengguna->create([
+        $user->create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role_id' => '2',
         ]);
 
-        return redirect()->back()->with('store', "Pengguna {$pengguna['name']} Berhasil dibuat");
+        return redirect()->back()->with('store', "Pengguna {$user['name']} Berhasil dibuat");
     }
 
-    public function update(Request $request, User $pengguna)
+    public function update(Request $request, User $user)
     {
 
         // Gunakan policy untuk otorisasi
-        $this->authorize('verif', $pengguna);
+        $this->authorize('verif', $user);
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:100',
-            'email' => 'required|string|email|max:50|unique:users,email,' . $pengguna->id,
+            'email' => 'required|string|email|max:50|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:4',
         ]);
 
@@ -66,26 +66,57 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $pengguna->name = $request->name;
-        $pengguna->email = $request->email;
+        $user->name = $request->name;
+        $user->email = $request->email;
         if ($request->filled('password')) {
-            $pengguna->password = Hash::make($request->password);
+            $user->password = Hash::make($request->password);
         }
-        $pengguna->save();
+        $user->save();
 
         return redirect()->back()->with('update', 'Pengguna berhasil disimpan');
     }
 
-    public function destroy($id)
+    public function destroy(User $user)
     {
-
-        $user = User::where('id', $id)->firstOrFail();
-
         // Gunakan policy untuk otorisasi
         $this->authorize('verif', $user);
 
         $user->delete();
 
         return redirect()->back()->with('destroy', 'Pengguna Berhasil dihapus');
+    }
+
+    public function settings()
+    {
+        return view('admin.pengaturan.user');
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+
+        $user = User::where('id', $id)->firstOrFail();
+
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'current_password' => 'nullable|string|min:8',
+            'password' => 'nullable|string|min:8|confirmed',
+        ]);
+
+        if ($request->filled('current_password')) {
+            if (!Hash::check($request->current_password, $user->password)) {
+                return back()->withErrors(['current_password' => 'Password Lama Anda Salah']);
+            }
+        }
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->update();
+        $user->save();
+
+        return redirect()->back()->with('success', 'User Berhasil Diperbarui');
     }
 }

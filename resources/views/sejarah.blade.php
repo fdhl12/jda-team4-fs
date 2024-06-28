@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="pt-24">
-        <section class="bg-white border-b py-8">
+        <section class="bg-white border-b py-8 bg-banner-1">
             <div class="container mx-auto px-4">
                 <div class="text-center">
                     <!-- Judul Top Berita -->
@@ -17,7 +17,7 @@
                         @yield('title')
                     </p>
                 </div>
-                <article class="text-wrap prose m-auto max-w-4xl">
+                <article class="text-wrap text-3xl text-blue-950 prose m-auto max-w-4xl pb-96">
                     {!! $sejarah !!}
                 </article>
             </div>

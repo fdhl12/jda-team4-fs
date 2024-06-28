@@ -17,9 +17,14 @@ class ProfileKelurahanSeeder extends Seeder
             [
                 'type' => 'tentang',
                 'data' => '
-                <p>Cibeber adalah salah satu kelurahan di Kecamatan Cimahi Selatan, Kota Cimahi, Jawa Barat, Indonesia, dan merupakan kelurahan paling Barat di Kota Cimahi yang berbatasan langsung dengan Kecamatan Batujajar dan Kecamatan Padalarang.</p>
+                    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Kelurahan Cibeber, yang terletak di Kota Cimahi, merupakan salah satu daerah yang sarat dengan keindahan dan kekayaan budaya. Dikelilingi oleh pemandangan alam yang memukau, Cibeber menawarkan udara segar dan suasana yang tenang, ideal untuk mereka yang mencari ketenangan dari hiruk-pikuk perkotaan. Berjalan di sekitar kelurahan ini, Anda akan menemukan berbagai macam pepohonan rindang dan taman-taman kecil yang menambah keasrian lingkungan, menjadikannya tempat yang sempurna untuk berjalan-jalan santai atau bersantai dengan keluarga.</p>
 
-                <p>Di kelurahan ini terdapat universitas yang ternama di Kota Cimahi, yaitu Universitas Jenderal Ahmad Yani (Unjani).</p>
+                    <p><img alt="" src="images/foto-1_1719556235.jpeg" style="height:600px; width:1200px" /></p>
+
+                    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Selain keindahan alamnya, Cibeber juga kaya akan warisan budaya dan sejarah. Berbagai kegiatan adat dan tradisi lokal masih dilestarikan oleh masyarakat setempat, memberikan warna tersendiri bagi kelurahan ini. Pasar-pasar tradisional yang ada di Cibeber menampilkan beragam produk lokal, dari makanan khas hingga kerajinan tangan, mencerminkan keragaman budaya dan kreativitas warga. Kehangatan dan keramahan penduduknya membuat setiap pengunjung merasa diterima dan menjadi bagian dari komunitas.</p>
+
+                    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Dalam segi pembangunan, Cibeber terus berkembang dengan infrastruktur yang semakin modern, namun tetap mempertahankan keasriannya. Fasilitas umum seperti sekolah, puskesmas, dan ruang publik lainnya tersedia untuk memenuhi kebutuhan warga. Pembangunan yang berkelanjutan ini menunjukkan bahwa Cibeber tidak hanya berfokus pada kemajuan fisik, tetapi juga pada peningkatan kualitas hidup masyarakatnya. Dengan perpaduan antara keindahan alam, kekayaan budaya, dan pembangunan yang berkelanjutan, Kelurahan Cibeber menjadi salah satu permata tersembunyi di Kota Cimahi yang patut untuk dijelajahi dan dinikmati.</p>
+
                 ',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -27,18 +32,93 @@ class ProfileKelurahanSeeder extends Seeder
             [
                 'type' => 'visimisi',
                 'data' => '
-                <h2><strong>Visi</strong></h2>
+                    <p><strong>Visi</strong></p>
 
-                <p>Menjadi kelurahan yang inklusif, inovatif, dan berdaya saing di tingkat nasional.</p>
+                    <p>&quot;Mewujudkan Kelurahan Cibeber yang Sejahtera, Berdaya Saing, dan Berkelanjutan melalui Peningkatan Kualitas Hidup Masyarakat serta Pelestarian Lingkungan dan Budaya Lokal.&quot;</p>
 
-                <h2><strong>Misi</strong></h2>
+                    <p><strong>Misi</strong></p>
 
-                <ul>
-                    <li>Mengutamakan pelayanan publik yang berkualitas dan responsif.</li>
-                    <li>Membangun lingkungan yang bersih, hijau, dan berkelanjutan.</li>
-                    <li>Meningkatkan kualitas hidup masyarakat melalui program pendidikan dan kesehatan.</li>
-                    <li>Mendorong partisipasi aktif warga dalam pembangunan dan pengelolaan kelurahan.</li>
-                </ul>
+                    <ul>
+                        <li>
+                        <p><strong>Meningkatkan Kesejahteraan Masyarakat:</strong></p>
+
+                        <ul>
+                            <li>
+                            <p>Mengembangkan program-program pemberdayaan ekonomi masyarakat.</p>
+                            </li>
+                            <li>
+                            <p>Meningkatkan akses terhadap layanan kesehatan dan pendidikan yang berkualitas.</p>
+                            </li>
+                            <li>
+                            <p>Mendorong partisipasi aktif masyarakat dalam kegiatan sosial dan ekonomi.</p>
+                            </li>
+                        </ul>
+                        </li>
+                        <li>
+                        <p><strong>Memperkuat Infrastruktur dan Pelayanan Publik:</strong></p>
+
+                        <ul>
+                            <li>
+                            <p>Mengoptimalkan pembangunan infrastruktur yang berkelanjutan dan ramah lingkungan.</p>
+                            </li>
+                            <li>
+                            <p>Meningkatkan kualitas dan efisiensi pelayanan publik.</p>
+                            </li>
+                            <li>
+                            <p>Mengembangkan fasilitas umum yang mendukung kebutuhan masyarakat.</p>
+                            </li>
+                        </ul>
+                        </li>
+                        <li>
+                        <p><strong>Melestarikan Lingkungan dan Budaya Lokal:</strong></p>
+
+                        <ul>
+                            <li>
+                            <p>Mengimplementasikan program pelestarian lingkungan dan pengelolaan sumber daya alam yang berkelanjutan.</p>
+                            </li>
+                            <li>
+                            <p>Menjaga dan melestarikan tradisi, adat istiadat, dan kebudayaan lokal.</p>
+                            </li>
+                            <li>
+                            <p>Meningkatkan kesadaran masyarakat akan pentingnya pelestarian lingkungan dan budaya.</p>
+                            </li>
+                        </ul>
+                        </li>
+                        <li>
+                        <p><strong>Meningkatkan Tata Kelola Pemerintahan yang Baik:</strong></p>
+
+                        <ul>
+                            <li>
+                            <p>Meningkatkan transparansi, akuntabilitas, dan partisipasi masyarakat dalam proses pemerintahan.</p>
+                            </li>
+                            <li>
+                            <p>Membangun sistem informasi dan komunikasi yang efektif antara pemerintah dan masyarakat.</p>
+                            </li>
+                            <li>
+                            <p>Meningkatkan kapasitas dan kompetensi aparatur kelurahan dalam memberikan pelayanan yang prima.</p>
+                            </li>
+                        </ul>
+                        </li>
+                        <li>
+                        <p><strong>Mendorong Partisipasi dan Kerjasama Antarwarga:</strong></p>
+
+                        <ul>
+                            <li>
+                            <p>Membangun semangat gotong royong dan solidaritas di antara warga.</p>
+                            </li>
+                            <li>
+                            <p>Mendorong kerjasama antara masyarakat, pemerintah, dan pihak swasta dalam pembangunan kelurahan.</p>
+                            </li>
+                            <li>
+                            <p>Mengembangkan forum-forum komunikasi untuk menampung aspirasi dan ide-ide kreatif dari masyarakat.</p>
+                            </li>
+                        </ul>
+                        </li>
+                        <li>
+                        <p>Dengan visi dan misi ini, Kelurahan Cibeber berkomitmen untuk menjadi kelurahan yang maju, sejahtera, dan lestari, di mana masyarakatnya hidup dalam harmoni dengan alam dan budaya lokal, serta memiliki kualitas hidup yang semakin baik.</p>
+                        </li>
+                    </ul>
+
                 ',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -46,15 +126,18 @@ class ProfileKelurahanSeeder extends Seeder
             [
                 'type' => 'sejarah',
                 'data' => '
-                <p>Nama Cimahi berasal dari kata bahasa Sunda&nbsp;<strong>cai mahi</strong>&nbsp;yang berarti &quot;air yang cukup&quot;. Cimahi mulai dikenal ketika pada tahun 1811, Gubernur&nbsp;<strong>Jenderal Herman Willem Daendels</strong>&nbsp;membuat jalan Anyer-Panarukan, dengan dibuatnya pos penjagaan di Alun-Alun Cimahi sekarang.</p>
+                    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Kelurahan Cibeber, yang terletak di Kota Cimahi, memiliki sejarah panjang yang kaya akan nilai budaya dan tradisi. Nama &quot;Cibeber&quot; sendiri berasal dari bahasa Sunda, yaitu &quot;ci&quot; yang berarti air dan &quot;beber&quot; yang berarti membentang luas. Hal ini menggambarkan kelurahan ini sebagai daerah yang dulunya dikenal dengan sumber daya air yang melimpah dan lingkungan alam yang luas serta subur.</p>
 
-                <p>Tahun 1874&ndash;1893, dilaksanakan pembuatan jalan kereta api Bandung-Cianjur sekaligus pembuatan Stasiun Cimahi. Tahun 1886 dibangun pusat pendidikan militer beserta fasilitas lainnya seperti Rumah Sakit Dustira dan rumah tahanan militer. Pada tahun 1935, Cimahi ditetapkan sebagai kecamatan berdasarkan lampiran staad tahun 1935.</p>
+                    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Pada masa kolonial Belanda, wilayah Cibeber dikenal sebagai salah satu daerah perkebunan yang penting. Banyak penduduk setempat yang bekerja di perkebunan tersebut, yang sebagian besar menghasilkan kopi dan teh. Perkebunan ini menjadi salah satu sumber utama ekonomi warga pada masa itu. Selain itu, Cibeber juga menjadi saksi bisu dari berbagai peristiwa bersejarah, termasuk perjuangan kemerdekaan Indonesia, di mana banyak pahlawan lokal yang berjuang untuk kebebasan.</p>
 
-                <p>Pada tahun 1962, dibentuk Kawedanaan Cimahi yang meliputi Kecamatan Cimahi, Padalarang, Batujajar, dan Cipatat.</p>
+                    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Setelah Indonesia merdeka, Cibeber mengalami berbagai perubahan administratif. Pada awalnya, Cibeber merupakan bagian dari wilayah Kecamatan Cimahi Selatan. Seiring dengan perkembangan kota dan peningkatan jumlah penduduk, wilayah ini kemudian ditetapkan sebagai kelurahan tersendiri. Pada tahun-tahun berikutnya, pembangunan infrastruktur seperti jalan, sekolah, dan fasilitas kesehatan semakin gencar dilakukan untuk meningkatkan kualitas hidup masyarakat.</p>
 
-                <p>Cimahi yang berasal dari status Kecamatan yang berada di wilayah Kabupaten Bandung sesuai dengan perkembangan dan kemajuannya maka berdasarkan Undang-undang Republik Indonesia Nomor 5 Tahun 1974 tentang Pemerintahan dan Otonomi Daerah dan Peraturan Pemerintah Nomor 29 Tahun 1975 tentang Pembentukan Kota Administratif, Cimahi dapat ditingkatkan statusnya dari Kecamatan menjadi Kota Administratif yang berada di wilayah Kabupaten Bandung.</p>
+                    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Dalam beberapa dekade terakhir, Cibeber telah mengalami transformasi signifikan dengan hadirnya berbagai program pembangunan yang bertujuan untuk meningkatkan kesejahteraan warga. Meskipun demikian, nilai-nilai budaya dan tradisi lokal tetap dijaga dan dilestarikan oleh masyarakat setempat. Berbagai kegiatan adat, seperti upacara adat Sunda dan festival budaya, masih rutin diselenggarakan dan menjadi bagian tak terpisahkan dari kehidupan sehari-hari warga Cibeber.</p>
 
-                <p>Pada tahun 2001, Kota Cimahi statusnya diangkat menjadi kota otonom berdasarkan Undang Undang Republik Indonesia Nomor 9 Tahun 2001.</p>
+                    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Kini, Kelurahan Cibeber dikenal sebagai daerah yang berkembang pesat namun tetap mempertahankan keasrian dan kekayaan budayanya. Dengan perpaduan antara sejarah yang kaya dan pembangunan yang berkelanjutan, Cibeber terus berusaha untuk menjadi tempat yang lebih baik bagi generasi sekarang dan mendatang.</p>
+
+                    <p>&nbsp;</p>
+
                 ',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -99,872 +182,97 @@ class ProfileKelurahanSeeder extends Seeder
             [
                 'type' => 'demografi',
                 'data' => '
-                <p>Gambaran Demografi merupakan gambaran kependudukan dalam arti luas terhadap perkembangan dan persebarannya. Oleh karena itu jumlah penduduk yang besar merupakan modal dasar yang efektif bagi pembangunan yang berkelanjutan. Jumlah penduduk yang besar dan berkualitas baik dengan pertumbuhan yang teratur akan menjadi dasar dalam mencapai tujuan pembangunan.</p>
+                  <p>Gambaran Demografi merupakan gambaran kependudukan dalam arti luas terhadap perkembangan dan persebarannya. Oleh karena itu jumlah penduduk yang besar merupakan modal dasar yang efektif bagi pembangunan yang berkelanjutan. Jumlah penduduk yang besar dan berkualitas baik dengan pertumbuhan yang teratur akan menjadi dasar dalam mencapai tujuan pembangunan.</p>
 
-                <ol>
-                    <li><strong>Jumlah Penduduk</strong></li>
-                </ol>
+<ol>
+	<li><strong>Jumlah Penduduk</strong></li>
+</ol>
 
-                <p>Berdasarkan Data Administrasi Pemerintahan Desa, jumlah penduduk yang tercatat secara administrasi pada tahun 2023 berjumlah 3.088 jiwa tersebar di 3 (Tiga) RW. Dari jumlah penduduk tersebut, jumlah laki laki sebanyak 1.521 jiwa dan perempuan sebanyak 1.567 Jiwa.</p>
+<p>Berdasarkan Data Administrasi Pemerintahan Desa, jumlah penduduk yang tercatat secara administrasi pada tahun 2023 berjumlah 3.088 jiwa tersebar di 3 (Tiga) RW. Dari jumlah penduduk tersebut, jumlah laki laki sebanyak 1.521 jiwa dan perempuan sebanyak 1.567 Jiwa.</p>
 
-                <p>Tabel. 1&nbsp;Jumlah Penduduk tahun 2023</p>
+<p>Tabel. 1&nbsp;Jumlah Penduduk tahun 2023</p>
 
-                <table border="1" cellspacing="0" style="border-collapse:collapse; width:425px">
-                    <tbody>
-                        <tr>
-                            <td style="background-color:#dbe4f0; border-color:black; height:29.1pt; width:74.7pt">
-                            <p>RW</p>
-                            </td>
-                            <td style="background-color:#dbe4f0; border-color:black; height:29.1pt; width:67.05pt">
-                            <p>JUMLAH</p>
-                            </td>
-                            <td style="background-color:#dbe4f0; border-color:black; height:29.1pt; width:3.0cm">
-                            <p>Laki-laki</p>
+<table align="center">
+	<tbody>
+		<tr>
+			<td>
+			<p>RW</p>
+			</td>
+			<td>
+			<p>JUMLAH</p>
+			</td>
+			<td>
+			<p>Laki-laki</p>
 
-                            <p>(jiwa)</p>
-                            </td>
-                            <td style="background-color:#dbe4f0; border-color:black; height:29.1pt; width:92.15pt">
-                            <p>Perempuan</p>
+			<p>(jiwa)</p>
+			</td>
+			<td>
+			<p>Perempuan</p>
 
-                            <p>(jiwa)</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:17.95pt; vertical-align:top; width:74.7pt">
-                            <p>01</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:67.05pt">
-                            <p>1.076</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:3.0cm">
-                            <p>522</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:92.15pt">
-                            <p>554</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:17.95pt; vertical-align:top; width:74.7pt">
-                            <p>02</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:67.05pt">
-                            <p>857</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:3.0cm">
-                            <p>427</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:92.15pt">
-                            <p>430</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:17.95pt; vertical-align:top; width:74.7pt">
-                            <p>03</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:67.05pt">
-                            <p>1.155</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:3.0cm">
-                            <p>572</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:92.15pt">
-                            <p>583</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:17.95pt; vertical-align:top; width:74.7pt">
-                            <p>Jumlah</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:67.05pt">
-                            <p>3.088</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:3.0cm">
-                            <p>1521</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:92.15pt">
-                            <p>1567</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+			<p>(jiwa)</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>01</p>
+			</td>
+			<td>
+			<p>1.076</p>
+			</td>
+			<td>
+			<p>522</p>
+			</td>
+			<td>
+			<p>554</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>02</p>
+			</td>
+			<td>
+			<p>857</p>
+			</td>
+			<td>
+			<p>427</p>
+			</td>
+			<td>
+			<p>430</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>03</p>
+			</td>
+			<td>
+			<p>1.155</p>
+			</td>
+			<td>
+			<p>572</p>
+			</td>
+			<td>
+			<p>583</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>Jumlah</p>
+			</td>
+			<td>
+			<p>3.088</p>
+			</td>
+			<td>
+			<p>1521</p>
+			</td>
+			<td>
+			<p>1567</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
 
-                <p><em>Sumber : Sistem Informasi Desa </em><a href="https://sid.kradenan.desa.id/"><em>https://sid.kradenan.desa.id/</em></a></p>
+<p><em>Sumber : Sistem Informasi Desa </em><a href="https://sid.kradenan.desa.id/"><em>https://sid.kradenan.desa.id/</em></a></p>
 
-                <ol>
-                    <li>Jumlah Penduduk Menurut Wilayah dan Gender</li>
-                </ol>
-
-                <p>Guna melakukan kebijakan yang berprespektif gender maka sangat diperlukan pengetahuan mengenai persebaran penduduk berdasarkan jenis kelamin. Kebijakan pada persebaran penduduk yang seimbang antara laki- laki dan perempuan sudah seharusnya berbeda dengan persebaran yang didominasi salah satunya, dengan demikian kebijakan yang diambil lebih efektif. Guna melakukan kebijakan yang berprespektif gender maka sangat diperlukan pengetahuan mengenai persebaran penduduk berdasarkan jenis kelamin.</p>
-
-                <p>Berikut Jumlah penduduk Desa Kradenan menurut jenis kelamin per RW tercantum dalam tabel sebagai berikut :</p>
-
-                <p>Tabel. 2&nbsp;Jumlah Penduduk Desa Kradenan Menurut Jenis Kelamin per Rw Tahun 2023&nbsp;(dalam jiwa)</p>
-
-                <table border="1" cellspacing="0" style="border-collapse:collapse; width:539px">
-                    <tbody>
-                        <tr>
-                            <td style="background-color:#d9d9d9; border-color:black; height:28.4pt; width:42.55pt">
-                            <p>NO</p>
-                            </td>
-                            <td style="background-color:#d9d9d9; border-color:black; height:28.4pt; width:3.0cm">
-                            <p>RW</p>
-                            </td>
-                            <td style="background-color:#d9d9d9; border-color:black; height:28.4pt; width:97.6pt">
-                            <p>laki-laki (Jiwa)</p>
-                            </td>
-                            <td style="background-color:#d9d9d9; border-color:black; height:28.4pt; width:93.75pt">
-                            <p>Perempuan (Jiwa)</p>
-                            </td>
-                            <td style="background-color:#d9d9d9; border-color:black; height:28.4pt; width:3.0cm">
-                            <p>Jumlah</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:17.35pt; vertical-align:top; width:42.55pt">
-                            <p>1</p>
-                            </td>
-                            <td style="height:17.35pt; vertical-align:top; width:3.0cm">
-                            <p>RW. 001</p>
-                            </td>
-                            <td style="height:17.35pt; vertical-align:top; width:97.6pt">
-                            <p>522</p>
-                            </td>
-                            <td style="height:17.35pt; vertical-align:top; width:93.75pt">
-                            <p>554</p>
-                            </td>
-                            <td style="height:17.35pt; vertical-align:top; width:3.0cm">
-                            <p>1.076</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.65pt; vertical-align:top; width:42.55pt">
-                            <p>2</p>
-                            </td>
-                            <td style="height:14.65pt; vertical-align:top; width:3.0cm">
-                            <p>RW. 002</p>
-                            </td>
-                            <td style="height:14.65pt; vertical-align:top; width:97.6pt">
-                            <p>427</p>
-                            </td>
-                            <td style="height:14.65pt; vertical-align:top; width:93.75pt">
-                            <p>430</p>
-                            </td>
-                            <td style="height:14.65pt; vertical-align:top; width:3.0cm">
-                            <p>857</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:17.25pt; vertical-align:top; width:42.55pt">
-                            <p>3</p>
-                            </td>
-                            <td style="height:17.25pt; vertical-align:top; width:3.0cm">
-                            <p>RW. 003</p>
-                            </td>
-                            <td style="height:17.25pt; vertical-align:top; width:97.6pt">
-                            <p>572</p>
-                            </td>
-                            <td style="height:17.25pt; vertical-align:top; width:93.75pt">
-                            <p>583</p>
-                            </td>
-                            <td style="height:17.25pt; vertical-align:top; width:3.0cm">
-                            <p>1.155</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" style="border-color:black; height:17.25pt; vertical-align:top; width:127.6pt">
-                            <p>Jumlah</p>
-                            </td>
-                            <td style="height:17.25pt; vertical-align:top; width:97.6pt">
-                            <p>1.521</p>
-                            </td>
-                            <td style="height:17.25pt; vertical-align:top; width:93.75pt">
-                            <p>1.567</p>
-                            </td>
-                            <td style="height:17.25pt; vertical-align:top; width:3.0cm">
-                            <p>3.088</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p><em>Sumber : Sistem Informasi Desa </em><a href="https://sid.kradenan.desa.id/data-wilayah">https://sid.kradenan.desa.id/</a></p>
-
-                <ol>
-                    <li>Jumlah Penduduk Menurut Umur</li>
-                </ol>
-
-                <p>Guna menentukan kebijakan pembangunan secara tepat diperlukan pula data kependudukan berdasarkan kelompok umur. Persebaran penduduk menurut umur sangat diperlukan untuk mengambil kebijakan yang berkaitan dengan banyak sektor seperti tenaga kerja, pendidikan, dan lain-lain. Dengan mengetahui sebaran penduduk kelompok umur dominan disuatu wilayah maka dapat dilakukan kebijakan yang lebih tepat dan efisien untuk pengembangan wilayah tersebut. Jumlah penduduk Desa Kradenan berdasarkan kelompok umur tahun 2023 pada tercantum dalam tabel sebagai&nbsp; berikut :</p>
-
-                <p>Tabel. 3&nbsp;Jumlah penduduk Desa Kradenan&nbsp;Berdasarkan kelompok umur tahun 2022</p>
-
-                <table border="1" cellspacing="0" style="border-collapse:collapse; width:522px">
-                    <tbody>
-                        <tr>
-                            <td style="background-color:#ededed; border-color:black; height:36.7pt; width:43.0pt">
-                            <p>&nbsp;</p>
-
-                            <p><strong>No</strong></p>
-                            </td>
-                            <td style="background-color:#ededed; border-color:black; height:36.7pt; width:124.25pt">
-                            <p>&nbsp;</p>
-
-                            <p><strong>Umur (Rentang)</strong></p>
-                            </td>
-                            <td style="background-color:#ededed; border-color:black; height:36.7pt; width:66.65pt">
-                            <p>&nbsp;</p>
-
-                            <p><strong>Jumlah</strong></p>
-                            </td>
-                            <td style="background-color:#ededed; border-color:black; height:36.7pt; width:78.55pt">
-                            <p>&nbsp;</p>
-
-                            <p><strong>Laki-laki</strong></p>
-                            </td>
-                            <td style="background-color:#ededed; border-color:black; height:36.7pt; width:78.9pt">
-                            <p>&nbsp;</p>
-
-                            <p><strong>Perempuan</strong></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:15.0pt; vertical-align:top; width:43.0pt">
-                            <p>1</p>
-                            </td>
-                            <td style="height:15.0pt; vertical-align:top; width:124.25pt">
-                            <p>0 S/D 1 TAHUN</p>
-                            </td>
-                            <td style="height:15.0pt; vertical-align:top; width:66.65pt">
-                            <p>41</p>
-                            </td>
-                            <td style="height:15.0pt; vertical-align:top; width:78.55pt">
-                            <p>21</p>
-                            </td>
-                            <td style="height:15.0pt; vertical-align:top; width:78.9pt">
-                            <p>20</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>2</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>2 S/D 4 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>127</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>67</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>60</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>3</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>5 S/D 9 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>231</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>113</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>118</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>4</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>10 S/D 14 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>242</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>130</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>112</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>5</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>15 S/D 19 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>240</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>127</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>113</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>6</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>20 S/D 24 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>252</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>112</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>140</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>7</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>25 S/D 29 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>224</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>119</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>105</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>8</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>30 S/D 34 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>211</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>102</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>109</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>9</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>35 S/D 39 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>234</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>121</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>113</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>10</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>40 S/D 44 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>263</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>124</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>139</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>11</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>45 S/D 49 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>257</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>139</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>118</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.05pt; vertical-align:top; width:43.0pt">
-                            <p>12</p>
-                            </td>
-                            <td style="height:14.05pt; vertical-align:top; width:124.25pt">
-                            <p>50 S/D 54 TAHUN</p>
-                            </td>
-                            <td style="height:14.05pt; vertical-align:top; width:66.65pt">
-                            <p>207</p>
-                            </td>
-                            <td style="height:14.05pt; vertical-align:top; width:78.55pt">
-                            <p>102</p>
-                            </td>
-                            <td style="height:14.05pt; vertical-align:top; width:78.9pt">
-                            <p>105</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.1pt; vertical-align:top; width:43.0pt">
-                            <p>13</p>
-                            </td>
-                            <td style="height:14.1pt; vertical-align:top; width:124.25pt">
-                            <p>55 S/D 59 TAHUN</p>
-                            </td>
-                            <td style="height:14.1pt; vertical-align:top; width:66.65pt">
-                            <p>182</p>
-                            </td>
-                            <td style="height:14.1pt; vertical-align:top; width:78.55pt">
-                            <p>85</p>
-                            </td>
-                            <td style="height:14.1pt; vertical-align:top; width:78.9pt">
-                            <p>97</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>14</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>60 S/D 64 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>125</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>59</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>66</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>15</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>65 S/D 69 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>116</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>55</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>61</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>16</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>70 S/D 74 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>74</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>24</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>50</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>17</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>DI ATAS 75 TAHUN</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>62</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>21</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>41</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:14.15pt; vertical-align:top; width:43.0pt">
-                            <p>&nbsp;</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:124.25pt">
-                            <p>JUMLAH</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:66.65pt">
-                            <p>3088</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.55pt">
-                            <p>1521</p>
-                            </td>
-                            <td style="height:14.15pt; vertical-align:top; width:78.9pt">
-                            <p>156</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p>Sumber : Sistem Informasi Desa https://sid.kradenan.desa.id/</p>
-
-                <p>&nbsp;</p>
-
-                <p>&nbsp;</p>
-
-                <ol>
-                    <li>Jumlah Penduduk Menurut Pendidikan</li>
-                </ol>
-
-                <p>Jumlah penduduk berdasarkan pendidikan dapat digunakan untuk mengetahui seberapa banyak penduduk usia sekolah yang sudah memanfaatkan fasilitas pendidikan. Jumlah penduduk Desa Kradenan berdasarkan pendidikan tahun 2023 tercantum dalam table berikut :</p>
-
-                <p>Tabel. 4&nbsp;Jumlah Penduduk Desa Kradenan Berdasarkan Pendidikan</p>
-
-                <table border="1" cellspacing="0" style="border-collapse:collapse; width:605px">
-                    <tbody>
-                        <tr>
-                            <td style="background-color:#ededed; border-color:black; height:38.85pt; width:35.45pt">
-                            <p>&nbsp;</p>
-
-                            <p><strong>No</strong></p>
-                            </td>
-                            <td style="background-color:#ededed; border-color:black; height:38.85pt; width:205.55pt">
-                            <p>&nbsp;</p>
-
-                            <p><strong>Pendidikan Dalam KK</strong></p>
-                            </td>
-                            <td style="background-color:#ededed; border-color:black; height:38.85pt; width:2.0cm">
-                            <p>&nbsp;</p>
-
-                            <p><strong>Jumlah</strong></p>
-                            </td>
-                            <td style="background-color:#ededed; border-color:black; height:38.85pt; width:77.75pt">
-                            <p>&nbsp;</p>
-
-                            <p><strong>Laki-laki</strong></p>
-                            </td>
-                            <td style="background-color:#ededed; border-color:black; height:38.85pt; width:78.15pt">
-                            <p>&nbsp;</p>
-
-                            <p><strong>Perempuan</strong></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:12.85pt; vertical-align:top; width:35.45pt">
-                            <p>1</p>
-                            </td>
-                            <td style="height:12.85pt; vertical-align:top; width:205.55pt">
-                            <p>TIDAK / BELUM SEKOLAH</p>
-                            </td>
-                            <td style="height:12.85pt; vertical-align:top; width:2.0cm">
-                            <p>542</p>
-                            </td>
-                            <td style="height:12.85pt; vertical-align:top; width:77.75pt">
-                            <p>267</p>
-                            </td>
-                            <td style="height:12.85pt; vertical-align:top; width:78.15pt">
-                            <p>275</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:12.65pt; vertical-align:top; width:35.45pt">
-                            <p>2</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:205.55pt">
-                            <p>BELUM TAMAT SD/SEDERAJAT</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:2.0cm">
-                            <p>318</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:77.75pt">
-                            <p>156</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:78.15pt">
-                            <p>162</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:12.55pt; vertical-align:top; width:35.45pt">
-                            <p>3</p>
-                            </td>
-                            <td style="height:12.55pt; vertical-align:top; width:205.55pt">
-                            <p>TAMAT SD / SEDERAJAT</p>
-                            </td>
-                            <td style="height:12.55pt; vertical-align:top; width:2.0cm">
-                            <p>914</p>
-                            </td>
-                            <td style="height:12.55pt; vertical-align:top; width:77.75pt">
-                            <p>462</p>
-                            </td>
-                            <td style="height:12.55pt; vertical-align:top; width:78.15pt">
-                            <p>452</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:12.65pt; vertical-align:top; width:35.45pt">
-                            <p>4</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:205.55pt">
-                            <p>SLTP/SEDERAJAT</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:2.0cm">
-                            <p>597</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:77.75pt">
-                            <p>283</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:78.15pt">
-                            <p>314</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:12.65pt; vertical-align:top; width:35.45pt">
-                            <p>5</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:205.55pt">
-                            <p>SLTA / SEDERAJAT</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:2.0cm">
-                            <p>576</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:77.75pt">
-                            <p>294</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:78.15pt">
-                            <p>282</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:12.65pt; vertical-align:top; width:35.45pt">
-                            <p>6</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:205.55pt">
-                            <p>DIPLOMA I / II</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:2.0cm">
-                            <p>8</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:77.75pt">
-                            <p>4</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:78.15pt">
-                            <p>4</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:12.65pt; vertical-align:top; width:35.45pt">
-                            <p>7</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:205.55pt">
-                            <p>AKADEMI/ DIPLOMA III/S. MUDA</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:2.0cm">
-                            <p>21</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:77.75pt">
-                            <p>10</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:78.15pt">
-                            <p>11</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:12.55pt; vertical-align:top; width:35.45pt">
-                            <p>8</p>
-                            </td>
-                            <td style="height:12.55pt; vertical-align:top; width:205.55pt">
-                            <p>DIPLOMA IV/ STRATA I</p>
-                            </td>
-                            <td style="height:12.55pt; vertical-align:top; width:2.0cm">
-                            <p>111</p>
-                            </td>
-                            <td style="height:12.55pt; vertical-align:top; width:77.75pt">
-                            <p>44</p>
-                            </td>
-                            <td style="height:12.55pt; vertical-align:top; width:78.15pt">
-                            <p>67</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:12.65pt; vertical-align:top; width:35.45pt">
-                            <p>9</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:205.55pt">
-                            <p>STRATA II</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:2.0cm">
-                            <p>1</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:77.75pt">
-                            <p>1</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:78.15pt">
-                            <p>0</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:12.65pt; vertical-align:top; width:35.45pt">
-                            <p>10</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:205.55pt">
-                            <p>STRATA III</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:2.0cm">
-                            <p>0</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:77.75pt">
-                            <p>0</p>
-                            </td>
-                            <td style="height:12.65pt; vertical-align:top; width:78.15pt">
-                            <p>0</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:12.4pt; vertical-align:top; width:35.45pt">
-                            <p>&nbsp;</p>
-                            </td>
-                            <td style="height:12.4pt; vertical-align:top; width:205.55pt">
-                            <p>TOTAL</p>
-                            </td>
-                            <td style="height:12.4pt; vertical-align:top; width:2.0cm">
-                            <p>3088</p>
-                            </td>
-                            <td style="height:12.4pt; vertical-align:top; width:77.75pt">
-                            <p>1521</p>
-                            </td>
-                            <td style="height:12.4pt; vertical-align:top; width:78.15pt">
-                            <p>1567</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sumber : Sistem Informasi Desa <a href="https://sid.kradenan.desa.id/">https://sid.kradenan.desa.id/</a></p>
-
-                <p>Salah satu faktor penting yang tidak dapat diabaikan dalam kerangka pembangunan daerah adalah menyangkut kualitas sumber daya manusia (SDM) yang berkaitan erat dengan kualitas tenaga kerja yang tersedia untuk mengisi kesempatan kerja. Kualitas tenaga kerja disuatu wilayah sangat ditentukan oleh tingkat pendidikan. Artinya semakin tinggi pendidikan yang ditamatkan penduduk suatu wilayah maka semakin baik kualitas tenaga kerjanya.</p>
-
-                <ol>
-                    <li><strong>Jumlah Keluarga</strong>
-
-                    <ol>
-                        <li><strong>Jumlah Keluarga Menurut Wilayah</strong></li>
-                    </ol>
-                    </li>
-                </ol>
-
-                <p>Berdasarkan data monografi semester I tahun 2023, jumlah keluarga atau KK&nbsp;&nbsp; tercantum dalam tabel sebagai berikut :</p>
-
-                <p>Tabel. 5&nbsp;Jumlah Keluarga atau KK (Kepala Keluarga) Desa Kradenan Semester I Tahun 2023</p>
-
-                <table border="1" cellspacing="0" style="border-collapse:collapse; width:482px">
-                    <tbody>
-                        <tr>
-                            <td style="background-color:#dbe4f0; border-color:black; height:29.1pt; width:77.95pt">
-                            <p>RW</p>
-                            </td>
-                            <td style="background-color:#dbe4f0; border-color:black; height:29.1pt; width:59.25pt">
-                            <p>KK</p>
-                            </td>
-                            <td style="background-color:#dbe4f0; border-color:black; height:29.1pt; width:103.75pt">
-                            <p>KK (laki-laki)</p>
-                            </td>
-                            <td style="background-color:#dbe4f0; border-color:black; height:29.1pt; width:120.5pt">
-                            <p>KK</p>
-
-                            <p>(perempuan)</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:17.95pt; vertical-align:top; width:77.95pt">
-                            <p>01</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:59.25pt">
-                            <p>331</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:103.75pt">
-                            <p>275</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:120.5pt">
-                            <p>56</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:17.95pt; vertical-align:top; width:77.95pt">
-                            <p>02</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:59.25pt">
-                            <p>264</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:103.75pt">
-                            <p>216</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:120.5pt">
-                            <p>48</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:17.95pt; vertical-align:top; width:77.95pt">
-                            <p>03</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:59.25pt">
-                            <p>381</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:103.75pt">
-                            <p>305</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:120.5pt">
-                            <p>76</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-color:black; height:17.95pt; vertical-align:top; width:77.95pt">
-                            <p>Jumlah</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:59.25pt">
-                            <p>976</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:103.75pt">
-                            <p>796</p>
-                            </td>
-                            <td style="height:17.95pt; vertical-align:top; width:120.5pt">
-                            <p>180</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p>Sumber : Sistem Informasi Desa <a href="https://sid.kradenan.desa.id/">https://sid.kradenan.desa.id/</a></p>
-
-                <p>Dilihat dari tabel diatas jumlah keluarga yang paling banyak terdapat di RW 03 (381 KK) dan terendah terdapat di RW 02 (264 KK)</p>
                 ',
                 'created_at' => now(),
                 'updated_at' => now(),
