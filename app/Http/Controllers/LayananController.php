@@ -54,14 +54,13 @@ class LayananController extends Controller
             'alamat' => ['nullable'],
         ]);
 
-        $layanan = $layanan->find($request->id);
         $layanan->update($request->all(['nama', 'telepon', 'buka', 'tutup', 'alamat']));
+
         return redirect()->back()->with('update', 'Layanan berhasil diubah');
     }
 
-    public function destroy(Request $request, Layanan $layanan)
+    public function destroy(Layanan $layanan)
     {
-        $layanan = $layanan->find($request->id);
         $layanan->delete();
         return redirect()->back()->with('destroy', "Layanan {$layanan['nama']} berhasil dihapus.");
     }

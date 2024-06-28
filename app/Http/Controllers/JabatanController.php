@@ -9,42 +9,10 @@ class JabatanController extends Controller
 {
     public function index()
     {
-
-        $jabatans = Jabatan::all();
+        $jabatans = Jabatan::latest()->get();
         return view('admin.jabatan.index', compact('jabatans'));
     }
 
-    public function show($id)
-    {
-        $jabatan = Jabatan::with(['jabatan'])->findOrFail($id);
-
-        return view('jabatan', compact('jabatan'));
-    }
-
-    // public function indexAdmin(Request $request)
-    // {
-    //     $query = $request->input('query');
-
-    //     if ($query) {
-    //         $jabatans = Jabatan::where('name', 'LIKE', "%{$query}%")->get();
-    //     } else {
-    //         $jabatans = Jabatan::all();
-    //     }
-    //     return view('admin.jabatan.index', compact('jabatans', 'query'));
-    // }
-
-    public function showAdmin($id)
-    {
-
-        $jabatan = Jabatan::with('perangkat_desas.user')->findOrFail($id);
-        $perangkat_desas = $jabatan->perangkat_desas;
-
-        return view('admin.show.jabatan', compact('jabatan', 'perangkat_desas'));
-    }
-    public function create()
-    {
-        return view('admin.create.jabatan');
-    }
     public function store(Request $request)
     {
         // Validasi data masukan
@@ -59,24 +27,14 @@ class JabatanController extends Controller
         return redirect()->route('admin.jabatan.index')->with('update', 'Jabatan berhasil dibuat');
     }
 
-    public function edit($id)
-    {
-        $jabatan = Jabatan::findOrFail($id);
-
-        // Mengirim data ke view untuk ditampilkan dalam form pengeditan
-        return view('admin.edit.jabatan', compact('jabatan'));
-    }
-
-    public function update(Request $request, $id)
+    public function update(Request $request, Jabatan $jabatan)
     {
         // Validasi data yang dikirim oleh form
         $request->validate([
             'name' => 'required|string|max:55',
         ]);
 
-        $jabatan = Jabatan::findOrFail($id);
-
-        $jabatan->update($request->all());
+        $jabatan->update($request->all(['name']));
 
         return redirect()->route('admin.jabatan.index')->with('store', 'Jabatan berhasil diubah');
     }

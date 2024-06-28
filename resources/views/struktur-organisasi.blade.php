@@ -16,7 +16,7 @@
             </div>
 
             <div class="mb-10">
-                <img class="mx-auto " src="{{ $strukturOrganisasi }}" alt="@yield('title')">
+                <img class="mx-auto " src="{{ asset('storage/'. $strukturOrganisasi) }}" alt="@yield('title')">
             </div>
 
 

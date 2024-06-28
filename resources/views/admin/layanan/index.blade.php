@@ -18,6 +18,14 @@
         </x-admin.alert-success>
     @endif
 
+    @if ($errors->any())
+        @foreach ($errors->all() as $key => $error)
+            <x-admin.alert-danger :key="$key">
+                {{ $error }}
+            </x-admin.alert-danger>
+        @endforeach
+    @endif
+
     <main class="bg-white dark:bg-gray-800 p-5 m-3 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
 
         <div class="w-full mb-3">
@@ -111,7 +119,7 @@
                                         {{ $layanan->telepon }}
                                     </td>
                                     <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-black-500 truncate xl:max-w-xs dark:text-black-400">
-                                        {{ $layanan->buka }} / {{ $layanan->tutup }}
+                                        {{ $layanan->buka }} - {{ $layanan->tutup }}
                                     </td>
                                     <td class="p-4 space-x-2 whitespace-nowrap text-end">
 

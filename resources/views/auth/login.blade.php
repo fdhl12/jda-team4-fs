@@ -1,6 +1,7 @@
 @extends('layouts.app-admin')
 
-@section('title', 'Masuk')
+@section('title', 'Masuk - '. $pengaturan['name'])
+@section('robots', 'noindex, nofollow')
 
 @section('auth')
 
@@ -9,18 +10,18 @@
             <a href="{{ route('home') }}" class="flex items-center mb-6 text-2xl font-bold text-black
             -900 dark:text-white">
                 <img class="w-16 h-16 mr-2" src="{{ asset($pengaturan['logo']) }}" alt="logo">
-                {{ config('app.name', 'Laravel') }}
+                {{ $pengaturan['name'] }}
             </a>
             <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-black
                     -900 md:text-2xl dark:text-white">
-                        Form @yield('title')
+                        Form Masuk
                     </h1>
 
                     @if ($errors->any())
-                        @foreach ($errors->all() as $error)
-                            <x-admin.alert-danger title="!">
+                        @foreach ($errors->all() as $key => $error)
+                            <x-admin.alert-danger :key="$key">
                                 {{ $error }}
                             </x-admin.alert-danger>
                         @endforeach

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ProfileKelurahan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class StrukturOrganisasiController extends Controller
 {
@@ -26,18 +27,22 @@ class StrukturOrganisasiController extends Controller
     public function update(Request $request, ProfileKelurahan $profileKelurahan)
     {
         $request->validate([
-            'struktur_organisasi' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'struktur_organisasi' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         /* check if struktur_organisasi has changed */
         if ($request->hasFile('struktur_organisasi'))
         {
-            $struktur_organisasi = $request->file('struktur_organisasi');
 
+            /* delete old file */
+            $old_struktur_organisasi = $profileKelurahan->where('type', 'struktur_organisasi')->value('data');
+            Storage::disk('public')->delete($old_struktur_organisasi);
+
+            $struktur_organisasi = $request->file('struktur_organisasi');
             $struktur_organisasi_path = $struktur_organisasi->storePubliclyAs('/', 'struktur-organisasi.'. $struktur_organisasi->getClientOriginalExtension(), 'public');
 
             $update = [
-                ['type' => 'struktur_organisasi', 'data' => 'storage/'. $struktur_organisasi_path],
+                ['type' => 'struktur_organisasi', 'data' => $struktur_organisasi_path],
             ];
 
             $profileKelurahan->query()->upsert($update, 'type');

@@ -13,8 +13,8 @@ class UserPolicy
     {
     }
 
-    public function verif(User $authUser, User $user)
+    public function verif(User $user)
     {
-        return $authUser->role_id === '1' || $authUser->id === $user->id;
+        return $user->role_id == '1' ? true : false;
     }
 }

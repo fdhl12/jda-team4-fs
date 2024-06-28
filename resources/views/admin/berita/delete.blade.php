@@ -17,10 +17,9 @@
                     <b>{{ $news['title'] }}</b> ?
                 </h3>
 
-                <form id="delete" action="{{ route('admin.berita.destroy') }}" method="POST">
+                <form id="delete" action="{{ route('admin.berita.destroy', $news['id']) }}" method="POST">
                     @csrf
                     @method('delete')
-                    <input type="hidden" name="id" value="{{ $news['id'] }}">
                     <button class="text-white font-semibold bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-base inline-flex items-center px-3 py-2.5 text-center mr-2 dark:focus:ring-red-800">
                         Ya
                     </button>

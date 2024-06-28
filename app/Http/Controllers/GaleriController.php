@@ -38,31 +38,34 @@ class GaleriController extends Controller
     {
 
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'description' => 'nullable',
         ]);
 
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images/galeri', 'public');
-        }
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            foreach ($images as $image)
+            {
+                $imagePath = $image->store('images/galeri', 'public');
 
-        $galeri->create([
-            'image' => $imagePath,
-            'description' => $request->description,
-            'user_id' => Auth::id(),
-        ]);
+                $galeri->create([
+                    'image' => $imagePath,
+                    'description' => $request->description,
+                    'user_id' => Auth::id(),
+                ]);
+            }
+        }
 
         return redirect()->back()->with('store', 'Gambar berhasil ditambah');
     }
 
-    public function update(Request $request, Galeri $galeri, $id)
+    public function update(Request $request, Galeri $galeri)
     {
         $request->validate([
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'description' => 'nullable',
         ]);
 
-        $galeri = $galeri->find($id);
         $update = [
             'description' => $request->description,
         ];
@@ -86,10 +89,8 @@ class GaleriController extends Controller
         return redirect()->back()->with('update', 'Gambar berhasil diubah');
     }
 
-    public function destroy(Request $request, Galeri $galeri, $id)
+    public function destroy(Galeri $galeri)
     {
-
-        $galeri = $galeri->find($id);
 
         /* delete image*/
         $storage = Storage::disk('public');

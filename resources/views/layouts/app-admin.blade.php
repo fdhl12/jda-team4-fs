@@ -18,6 +18,10 @@
         @endif
     </title>
 
+    @hasSection('robots')
+        <meta name="robots" content="@yield('robots')">
+    @endif
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">

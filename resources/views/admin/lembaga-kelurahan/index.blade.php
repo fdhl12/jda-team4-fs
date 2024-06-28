@@ -18,6 +18,14 @@
         </x-admin.alert-success>
     @endif
 
+    @if ($errors->any())
+        @foreach ($errors->all() as $key => $error)
+            <x-admin.alert-danger :key="$key">
+                {{ $error }}
+            </x-admin.alert-danger>
+        @endforeach
+    @endif
+
     <main class="bg-white dark:bg-gray-800 p-5 m-3 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
 
         <div class="w-full mb-3">
@@ -97,7 +105,7 @@
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200 dark:bg-blue-800 dark:divide-gray-700">
 
-                            @forelse($lembagaDesa as $lembaga)
+                            @forelse($lembagaKelurahan as $lembaga)
 
                                 <tr class="hover:bg-blue-100 dark:hover:bg-blue-700">
                                     <td class="flex items-center p-4 mr-12 space-x-3 whitespace-nowrap">
@@ -172,7 +180,7 @@
         </div>
 
         @if(!request()->get('show') == 'all' and !request()->get('query'))
-            {{ $lembagaDesa->onEachSide(0)->links('components.admin.pagination', ['show_all' => route('admin.lembaga-kelurahan.index') . '?show=all']) }}
+            {{ $lembagaKelurahan->onEachSide(0)->links('components.admin.pagination', ['show_all' => route('admin.lembaga-kelurahan.index') . '?show=all']) }}
         @endif
 
     </main>

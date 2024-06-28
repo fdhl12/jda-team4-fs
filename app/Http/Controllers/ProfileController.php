@@ -103,35 +103,4 @@ class ProfileController extends Controller
 
         return redirect()->back()->with('update', 'Profil Berhasil Disimpan');
     }
-
-    /**
-     * Proses Geografis
-     * ================
-     */
-
-    public function indexGeografis(ProfileKelurahan $profileKelurahan)
-    {
-
-        $data = json_decode($profileKelurahan->where('type', 'geografis')->value('data'), true);
-
-        return view('admin.geografis.index', [
-            'map' => $data['map'],
-            'deskripsi' => $data['deskripsi']
-        ]);
-    }
-
-    public function updateGeografis(ProfileKelurahan $profileKelurahan, Request $request)
-    {
-        $request->validate([
-            'map' => 'required',
-            'deskripsi' => 'required',
-        ]);
-
-        $profileKelurahan->where('type', 'geografis')->update([
-            'data' => json_encode($request->all(['map', 'deskripsi']))
-        ]);
-
-        return redirect()->back()->with('update', 'Geografis Berhasil Disimpan');
-    }
-
 }

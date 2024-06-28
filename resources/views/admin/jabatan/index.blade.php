@@ -18,6 +18,14 @@
         </x-admin.alert-success>
     @endif
 
+    @if ($errors->any())
+        @foreach ($errors->all() as $key => $error)
+            <x-admin.alert-danger :key="$key">
+                {{ $error }}
+            </x-admin.alert-danger>
+        @endforeach
+    @endif
+
     <div class="bg-white dark:bg-gray-800 px-5 m-3 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
 
         <div class="border-b border-gray-200 dark:border-gray-700">
@@ -28,7 +36,7 @@
                             <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                         </svg>
 
-                        Perangkat
+                        <span class="ms-1">Perangkat</span>
                     </a>
                 </li>
                 <li class="me-2">
@@ -36,7 +44,7 @@
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 0 0-2 2v4m5-6h8M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m0 0h3a2 2 0 0 1 2 2v4m0 0v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6m18 0s-4 2-9 2-9-2-9-2m9-2h.01"/>
                         </svg>
-                        Jabatan
+                        <span class="ms-1">Jabatan</span>
                     </a>
                 </li>
             </ul>

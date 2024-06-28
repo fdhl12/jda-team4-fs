@@ -14,139 +14,78 @@ class UserController extends Controller
     {
         $query = $request->input('query');
 
-
         if ($query) {
             $users = User::where('name', 'LIKE', "%{$query}%")
                 ->orWhere('email', 'LIKE', "%{$query}%")
                 ->paginate(10);
+        } elseif ($request->get('show') == 'all') {
+            $users = User::latest()->get();
         } else {
-            $users = User::orderBy('created_at', 'desc')->paginate(10);
+            $users = User::orderBy('created_at', 'desc')->paginate(2);
         }
 
         return view('admin.user.index', compact('users', 'query'));
     }
 
-    public function show($id)
-    {
-
-
-        $user = User::where('id', $id)->firstOrFail();
-        return view('admin.user', compact('user'));
-    }
-    public function edit($id)
-    {
-        $user = User::findOrFail($id);
-
-        // Gunakan policy untuk otorisasi
-
-        return view('admin.edit.user', compact('user'));
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        $user = User::where('id', $id)->firstOrFail();
-
-        // Gunakan policy untuk otorisasi
-        // dd($request->all());
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:100',
-            'email' => 'required|string|email|max:50|unique:users,email,' . $user->id,
-            'password' => 'nullable|string|min:8|confirmed',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-        if ($request->filled('password')) {
-            $user->password = Hash::make($request->password);
-        }
-        $user->save();
-
-        return redirect()->route('admin.user.index', $user->id)->with('success', 'User updated successfully');
-    }
-    public function destroy($id)
-    {
-        $user = User::where('id', $id)->firstOrFail();
-
-        // Gunakan policy untuk otorisasi
-        $this->authorize('verif', $user);
-
-        $user->delete();
-        return redirect()->route('admin.user.index')->with('success', 'Content deleted successfully.');
-    }
-
-    public function store(Request $request)
+    public function store(Request $request, User $pengguna)
     {
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:100',
             'email' => 'required|string|email|max:50|unique:users',
-            'password' => 'required|string|min:1|confirmed',
+            'password' => 'required|string|min:4',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $user = User::create([
+        $pengguna->create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role_id' => '2',
         ]);
 
-        return redirect()->route('admin.user.index');
+        return redirect()->back()->with('store', "Pengguna {$pengguna['name']} Berhasil dibuat");
     }
 
-    // Login function
-    public function login(Request $request)
+    public function update(Request $request, User $pengguna)
     {
+
+        // Gunakan policy untuk otorisasi
+        $this->authorize('verif', $pengguna);
+
         $validator = Validator::make($request->all(), [
-            'email' => 'required|string|email',
-            'password' => 'required|string|min:8',
+            'name' => 'required|string|max:100',
+            'email' => 'required|string|email|max:50|unique:users,email,' . $pengguna->id,
+            'password' => 'nullable|string|min:4',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            if (Auth::user()->role_id === '1') {
-                return redirect()->route('admin.dashboard');
-            }
-
-            return redirect()->intended('/');
+        $pengguna->name = $request->name;
+        $pengguna->email = $request->email;
+        if ($request->filled('password')) {
+            $pengguna->password = Hash::make($request->password);
         }
+        $pengguna->save();
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        return redirect()->back()->with('update', 'Pengguna berhasil disimpan');
     }
 
-    public function settings($id)
+    public function destroy($id)
     {
+
         $user = User::where('id', $id)->firstOrFail();
-        return view('settings', compact('user'));
-    }
 
+        // Gunakan policy untuk otorisasi
+        $this->authorize('verif', $user);
 
+        $user->delete();
 
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect('/login');
+        return redirect()->back()->with('destroy', 'Pengguna Berhasil dihapus');
     }
 }

@@ -49,22 +49,21 @@
 </footer>
 
 
-<!-- Alpine.js -->
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2" defer></script>
+<!-- Get patch fixes within a minor version -->
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js"></script>
 
 <script>
      AOS.init();
-    
 </script>
 <script>
-  
+
     var header = document.getElementById("header");
     var navcontent = document.getElementById("nav-content");
     var navaction = document.getElementById("navAction");
     var brandname = document.getElementById("brandname");
     var toToggle = document.querySelectorAll(".toggleColour");
 
-   
+
 </script>
 <script>
     /*Toggle dropdown list*/
@@ -138,4 +137,3 @@
     });
 
 </script>
-
