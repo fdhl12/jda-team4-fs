@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Table')
+@section('title', 'Perangkar - ' .$perangkatdesa['name'] .' | ' .$pengaturan['name'] )
 
 @section('content')
 
@@ -13,7 +13,7 @@
                         {{$perangkatdesa->name}}
                     </h1>
                     <div class="flex flex-col md:flex-row sm:space-x-reverse p-4">
-                        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{asset($perangkatdesa->image)}}" alt="">
+                        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{asset('storage/'.$perangkatdesa->image)}}" alt="">
                         <table class="w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600 mt-4 md:mt-0 md:ml-4">
                             <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
                                 <tr>
@@ -79,7 +79,7 @@
                         <div class="flex py-4 border-t-2">
                             <div class="flex-shrink-0 w-1/3">
                                 <a href="{{route('perangkat-kelurahan.show',$perangkat->id)}}" class="block rounded-t-sm overflow-hidden">
-                                    <img class="h-full w-24 object-cover" src="{{asset($perangkat->image)}}" alt="perangkat Thumbnail">   
+                                    <img class="h-full w-24 object-cover" src="{{asset('storage/'.$perangkat->image)}}" alt="perangkat Thumbnail">   
                                 </a>
                             </div>
                             <div class="ml-4 text-black">

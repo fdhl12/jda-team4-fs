@@ -1,57 +1,64 @@
 @extends('layouts.app')
 
-@section('title', 'Table')
+@section('title', $pengaturan['name'])
 
 @section('content')
 
-<div class="md:px-48 bg-white p-4">
+<div class="md:px-20 bg-white p-4">
     <div class="pt-24 flex justify-center">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <section class="border border-b py-8 md:col-span-2">
-                <div class="mx-auto px-4">
-                    <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-blue-900">
-                        {{ $news->title }}
-                    </h1>
-                    <div>
-                        <article class="text-black text-2xl">
-                            <div class="flex items-center mb-4">
-                                <div class="font-medium dark:text-white">
-                                    <p class="text-black font-bold text-2xl">{{ $news->user->name }} <time datetime="{{ $news->created_at }}" class="block text-2xl text-orange-700 font-bold dark:text-gray-400">{{ $news->created_at->translatedFormat('l, d F Y H:i') }}</time></p>
-                                </div>
-                            </div>
-                            <div class="py-6">
-                                <img class="m-auto w-full h-auto object-cover" src="{{ asset($news->image) }}" alt="News Image">
-                                <p class="mb-3 text-gray-500 dark:text-gray-400 first-line:uppercase first-line:tracking-widest first-letter:text-7xl first-letter:font-bold first-letter:text-gray-900 dark:first-letter:text-gray-100 first-letter:me-3 first-letter:float-start">{!! $news->description !!}</p>
-                            </div>
-                        </article>
+                <article class="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <header class="px-6 py-4">
+                        <h1 class="text-5xl font-bold text-blue-950 mb-2 text-center pb-8">
+                            {{ $news->title }}
+                        </h1>
+                        <div class="flex items-center text-xl text-orange-500">
+                            <span class="font-semibold mr-2">{{ $news->user->name }}</span>
+                            <time datetime="{{ $news->created_at }}">
+                                {{ $news->created_at->translatedFormat('l, d F Y H:i') }}
+                            </time>
+                        </div>
+                    </header>
+                    
+                    <img class="w-full h-auto object-cover pb-8" src="{{ asset($news->image) }}" alt="News Image">
+                    
+                    <div class="px-6 py-4 text-2xl">
+                        <p class="text-black  leading-relaxed break-words">
+                            {!! $news->description !!}
+                        </p>
                     </div>
-                </div>
+                    
+                </article>
             </section>
     
             <aside class="border border-b py-8">
                 <div class="mx-auto px-4">
-                    <h2 class="w-full my-2 text-3xl font-bold leading-tight text-center text-blue-900">
+                    <h2 class="w-full my-2 text-4xl font-bold leading-tight text-center text-blue-900 pb-5">
                         Berita Terbaru
                     </h2>
                     <div class="space-y-4">
                         @foreach ($newss as $item)
-                            <div class="flex py-4 border-t-2">
-                                <div class="flex-shrink-0 w-1/3">
-                                    <a href="{{ route('show.berita', $item->slug) }}" class="block rounded-t-lg overflow-hidden">
-                                        <img class="h-full w-24 object-cover" src="{{ asset($item->image) }}" alt="News Thumbnail">
+                            <div class="flex py-4 border-t-2 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-300">
+                                <div class="flex-shrink-0 w-2/5">
+                                    <a href="{{ route('show.berita', $item->slug) }}" class="block rounded-t-lg overflow-hidden transition duration-300 ease-in-out transform hover:scale-110">
+                                        <img class="h-full w-full object-cover" src="{{ asset($item->image) }}" alt="News Thumbnail">
                                     </a>
                                 </div>
                                 <div class="ml-4 text-black">
-                                    <a href="{{ route('show.berita', $item->slug) }}" class="block rounded-t-lg overflow-hidden">
+                                    <a href="{{ route('show.berita', $item->slug) }}" class="block rounded-t-lg overflow-hidden transition duration-300 ease-in-out transform hover:text-blue-500">
                                         <h3 class="text-xl font-semibold">{{ $item->title }}</h3>
                                     </a>
-                                    <p class="text-gray-700">{{ $item->created_at->translatedFormat('l, d F Y H:i') }}</p>
+                                    <p class="text-orange-700 ">{{ $item->created_at->translatedFormat('l, d F Y H:i') }}</p>
                                 </div>
                             </div>
+                        
                         @endforeach
                     </div>
                 </div>
             </aside>
+            
+            
         </div>
     </div>
     
