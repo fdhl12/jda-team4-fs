@@ -65,11 +65,11 @@
                 ])
 
             </div>
-            
+
         </section>
 
         <section id="kontak" class="bg-gray-300 py-16 bg-banner-1">
-            
+
             <div class="container mx-auto px-4">
                 <h2 class="text-5xl font-bold text-blue-900 text-center mb-8" data-aos="zoom-in" data-aos-duration="500"
                     data-aos-delay="0">
@@ -99,10 +99,10 @@
                         </div>
                     @endforeach
                 </div>
-                
+
                  <!-- Tombol Selengkapnya -->
                  @include('components.button-2', [
-                    'route' => route('pengumuman'),
+                    'route' => route('layanan'),
                     'label' => 'Selengkapnya'
                 ])
             </div>
@@ -118,7 +118,7 @@
                 </div>
                 <p class="text-3xl font-medium text-orange-500 text-center mb-4" data-aos="zoom-in"
                     data-aos-duration="500" data-aos-delay="0">Berita Seputar {{ $pengaturan['name'] }}</p>
-        
+
                 <!-- Loop Berita -->
                 <div class="w-full flex flex-wrap justify-center my-12">
                     @foreach ($newss as $news)
@@ -132,7 +132,7 @@
                         ])
                     @endforeach
                 </div>
-        
+
                 <!-- Tombol Selengkapnya -->
                 @include('components.button-1', [
                     'route' => route('berita'),
@@ -170,9 +170,9 @@
                         </div>
                     @endforeach
                 </div>
-                
-                
-        
+
+
+
 
                  <!-- Tombol Selengkapnya -->
                  @include('components.button-2', [
