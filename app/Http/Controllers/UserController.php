@@ -131,11 +131,40 @@ class UserController extends Controller
         ]);
     }
 
-    public function settings($id)
+    public function settings()
+    {
+        return view('admin.pengaturan.user');
+    }
+
+    public function updateUser(Request $request, $id)
     {
         $user = User::where('id', $id)->firstOrFail();
-        return view('settings', compact('user'));
+
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'current_password' => 'nullable|string|min:8',
+            'password' => 'nullable|string|min:8|confirmed',
+        ]);
+
+        if ($request->filled('current_password')) {
+            if (!Hash::check($request->current_password, $user->password)) {
+                return back()->withErrors(['current_password' => 'Password Lama Anda Salah']);
+            }
+        }
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->update();
+        $user->save();
+
+        return redirect()->back()->with('success', 'User Berhasil Diperbarui');
     }
+
+
 
 
 

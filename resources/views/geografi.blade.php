@@ -34,6 +34,7 @@
     <style>
         iframe {
             margin: auto;
+            width: 100%
         }
     </style>
 @endpush

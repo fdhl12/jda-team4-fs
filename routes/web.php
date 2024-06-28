@@ -57,7 +57,14 @@ Route::get('/struktur-organisasi', [StrukturOrganisasiController::class, 'index'
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
 
+
+
     Route::get('/', [BerandaController::class, 'index'])->name('beranda');
+    Route::get('/pengaturan-pengguna', [UserController::class, 'settings'])->name('pengaturan.pengguna');
+    // Simpan perubahan data pengguna
+    Route::put('/pengaturan-pengguna/update/{id}', [UserController::class, 'updateUser'])->name('pengaturan.pengguna.update');
+    Route::post('/pengaturan-pengguna/update/{id}', [UserController::class, 'uploadPhoto'])->name('pengaturan.uploadPhoto');
+
 
     /* berita & pengumuman */
     Route::controller(NewsController::class)->group(function () {
@@ -88,63 +95,65 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
         Route::delete('/galeri/destroy/{id}', 'destroy')->name('galeri.destroy');
     });
 
-    /* informasi kelurahan */
-    Route::controller(ProfileController::class)->group(function () {
-        Route::get('/profile-kelurahan', 'indexProfile')->name('profile-kelurahan');
-        Route::patch('/profile-kelurahan', 'updateProfile')->name('profile-kelurahan.update');
+    Route::middleware(['role:super admin'])->group(function () {
+        /* informasi kelurahan */
+        Route::controller(ProfileController::class)->group(function () {
+            Route::get('/profile-kelurahan', 'indexProfile')->name('profile-kelurahan');
+            Route::patch('/profile-kelurahan', 'updateProfile')->name('profile-kelurahan.update');
 
-        Route::get('/geografis', 'indexGeografis')->name('geografis');
-        Route::patch('/geografis', 'updateGeografis')->name('geografis.update');
-    });
+            Route::get('/geografis', 'indexGeografis')->name('geografis');
+            Route::patch('/geografis', 'updateGeografis')->name('geografis.update');
+        });
 
-    /* demografi */
-    Route::controller(DemografiController::class)->group(function () {
-        Route::get('/demografi', 'admin')->name('demografi.index');
-        Route::patch('/demografi', 'update')->name('demografi.update');
-        Route::post('/demografi/ckeditor', 'ckeditor')->name('demografi.ckeditor');
-    });
+        /* demografi */
+        Route::controller(DemografiController::class)->group(function () {
+            Route::get('/demografi', 'admin')->name('demografi.index');
+            Route::patch('/demografi', 'update')->name('demografi.update');
+            Route::post('/demografi/ckeditor', 'ckeditor')->name('demografi.ckeditor');
+        });
 
-    /**
-     * pemerintahan
-     */
+        /**
+         * pemerintahan
+         */
 
-    /* struktur-organisasi */
-    Route::controller(StrukturOrganisasiController::class)->group(function () {
-        Route::get('/struktur-organisasi', 'admin')->name('struktur-organisasi.index');
-        Route::patch('/struktur-organisasi', 'update')->name('struktur-organisasi.update');
-    });
+        /* struktur-organisasi */
+        Route::controller(StrukturOrganisasiController::class)->group(function () {
+            Route::get('/struktur-organisasi', 'admin')->name('struktur-organisasi.index');
+            Route::patch('/struktur-organisasi', 'update')->name('struktur-organisasi.update');
+        });
 
-    /* perangkat kelurahan */
-    Route::resource('/perangkat-kelurahan', PerangkatKelurahanController::class);
+        /* perangkat kelurahan */
+        Route::resource('/perangkat-kelurahan', PerangkatKelurahanController::class);
 
 
-    /* lembaga kelurahan */
-    Route::controller(LembagaKelurahanController::class)->group(function () {
-        Route::get('/lembaga-kelurahan', 'index')->name('lembaga-kelurahan.index');
-        Route::post('/lembaga-kelurahan', 'store')->name('lembaga-kelurahan.store');
-        Route::patch('/lembaga-kelurahan/{id}', 'update')->name('lembaga-kelurahan.update');
-        Route::delete('/lembaga-kelurahan/{id}', 'destroy')->name('lembaga-kelurahan.destroy');
-    });
+        /* lembaga kelurahan */
+        Route::controller(LembagaKelurahanController::class)->group(function () {
+            Route::get('/lembaga-kelurahan', 'index')->name('lembaga-kelurahan.index');
+            Route::post('/lembaga-kelurahan', 'store')->name('lembaga-kelurahan.store');
+            Route::patch('/lembaga-kelurahan/{id}', 'update')->name('lembaga-kelurahan.update');
+            Route::delete('/lembaga-kelurahan/{id}', 'destroy')->name('lembaga-kelurahan.destroy');
+        });
 
-    /* jabatan */
-    Route::resource('/jabatan', JabatanController::class);
+        /* jabatan */
+        Route::resource('/jabatan', JabatanController::class);
 
-    /* layanan */
-    Route::controller(LayananController::class)->group(function () {
-        Route::get('/layanan', 'admin')->name('layanan.index');
-        Route::post('/layanan', 'store')->name('layanan.store');
-        Route::patch('/layanan/{id}', 'update')->name('layanan.update');
-        Route::delete('/layanan/{id}', 'destroy')->name('layanan.destroy');
-    });
+        /* layanan */
+        Route::controller(LayananController::class)->group(function () {
+            Route::get('/layanan', 'admin')->name('layanan.index');
+            Route::post('/layanan', 'store')->name('layanan.store');
+            Route::patch('/layanan/{id}', 'update')->name('layanan.update');
+            Route::delete('/layanan/{id}', 'destroy')->name('layanan.destroy');
+        });
 
-    /**
-     * user
-     */
-    Route::resource('/user', UserController::class);
+        /**
+         * user
+         */
+        Route::resource('/user', UserController::class);
 
-    /* pengaturan */
-    Route::controller(PengaturanController::class)->group(function () {
-        Route::get('/pengaturan', 'index')->name('pengaturan.index');
-        Route::patch('/pengaturan', 'update')->name('pengaturan.update');
+        /* pengaturan */
+        Route::controller(PengaturanController::class)->group(function () {
+            Route::get('/pengaturan', 'index')->name('pengaturan.index');
+            Route::patch('/pengaturan', 'update')->name('pengaturan.update');
+        });
     });
 });
