@@ -8,15 +8,11 @@
 
         <section class="bg-white border-b py-8 bg-banner-1 pb-20">
             <div class="container mx-auto px-1 relative">
-                <h2 class="text-5xl font-bold text-blue-950 text-center mb-4">
-                    @yield('title')
-                </h2>
+                <h2 class="text-5xl font-bold text-blue-950 text-center mb-4" data-aos="zoom-in" data-aos-duration="500">Galeri</h2>
                 <div class="w-full mb-4">
-                    <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+                    <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t" data-aos="zoom-in" data-aos-duration="500"></div>
                 </div>
-                <p class="text-3xl font-medium text-orange-500 text-center mb-10 md:mb-20">
-                    Foto Foto Terkait {{ $pengaturan['name'] }}
-                </p>
+                <p class="text-3xl font-medium text-orange-500 text-center mb-4" data-aos="zoom-in" data-aos-duration="500">Kumpulan Galeri Kelurahan Cibeber</p>
 
                 <!-- Slider Cards -->
                 <div x-data="{ slide: 0 }" class="w-full max-w-screen-2xl mx-auto">

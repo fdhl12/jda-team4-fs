@@ -6,7 +6,7 @@
 
     <div class="pt-24">
 
-        <section class="bg-white border-b py-8 bg-banner-1">
+        <section id="pengumuman" class="bg-white border-b py-8 bg-banner-1">
             <div class="container mx-auto flex flex-wrap justify-center pt-4 pb-12">
                 <h2 data-aos="zoom-in" data-aos-duration="500" class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
                     Pengumuman
@@ -17,25 +17,34 @@
                 <div class="w-full text-center mb-4">
                     <p class="text-3xl font-medium text-orange-500" data-aos="zoom-in" data-aos-duration="500">Pengumuman Seputar Kelurahan Cibeber</p>
                 </div>
-                {{-- Fitur Search --}}
-                @foreach ($announcements->chunk(3) as $announcementChunk)
-                <div class="w-full flex flex-wrap justify-center mb-6">
-                    @foreach ($announcementChunk as $announcement)
-                       <!-- Include the card component and pass the $announcement variable correctly -->
-                        @include('components.card', [
-                            'link' => route('show.pengumuman', $announcement->slug),
-                            'image' => $announcement->image,
-                            'title' => $announcement->title,
-                            'date' => $announcement->created_at->translatedFormat('l, d F Y'),
-                            'description' => Str::limit(strip_tags($announcement->description), 100)
-                        ])
+                
+                  <!-- Include the search form component with a route parameter -->
+                 @include('components.search', ['route' => route('pengumuman','#berita')])
+                
+                @if($announcements->isEmpty())
+                    <div class="w-full text-center">
+                        <p class="text-xl text-gray-600">Tidak ada pengumuman yang ditemukan.</p>
+                    </div>
+                @else
+                    @foreach ($announcements->chunk(3) as $announcementChunk)
+                    <div class="w-full flex flex-wrap justify-center mb-6">
+                        @foreach ($announcementChunk as $announcement)
+                            @include('components.card', [
+                                'link' => route('show.pengumuman', $announcement->slug),
+                                'image' => $announcement->image,
+                                'title' => $announcement->title,
+                                'date' => $announcement->created_at->translatedFormat('l, d F Y'),
+                                'description' => Str::limit(strip_tags($announcement->description), 100)
+                            ])
+                        @endforeach
+                    </div>
                     @endforeach
+                @endif
+    
+                <!-- Navigasi Halaman -->
+                <div class="w-full flex justify-center">
+                    {{ $announcements->appends(['query' => $query])->onEachSide(0)->links('components.pagination') }}
                 </div>
-                @endforeach
-            
-                <!-- Navigasi Slider -->
-                {{ $announcements->onEachSide(0)->links('components.pagination') }}
-            
             </div>
         </section>
         
