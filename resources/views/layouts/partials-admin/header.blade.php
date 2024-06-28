@@ -10,9 +10,9 @@
                     </svg>
                 </button>
                 <a href="{{ route('admin.beranda') }}" class="flex ms-2 md:me-24">
-                    <img src="{{ asset($pengaturan['logo']) }}" class="h-8 me-3" alt="{{ config('app.name', 'Laravel') }} Logo" />
+                    <img src="{{ asset($pengaturan['logo']) }}" class="h-8 me-3" alt="{{ $pengaturan['name'] }} Logo" />
                     <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ $pengaturan['name'] }}
                     </span>
                 </a>
             </div>
@@ -46,6 +46,9 @@
                             </p>
                         </div>
                         <ul class="py-1" role="none">
+                            <li class="block px-4 py-2 text-sm font-medium hover:bg-gray-100 dark:text-black-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
+                                <a href="{{route('admin.pengaturan.pengguna')}}">Pengaturan</a>
+                            </li>
                             <li>
                                 <a href="javascript:;" class="block px-4 py-2 text-sm font-medium hover:bg-gray-100 dark:text-black-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     {{ __('Keluar') }}
@@ -56,6 +59,7 @@
                                 </form>
 
                             </li>
+                            
                         </ul>
                     </div>
                 </div>

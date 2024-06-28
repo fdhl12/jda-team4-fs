@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminMiddleware
+class RoleMiddleware
 {
 
     /**
@@ -16,11 +16,12 @@ class AdminMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next,  $name)
     {
-        if (Auth::check() && Auth::user()->role_id === '1') {
+
+        if (Auth::check() && Auth::user()->role->name === $name) {
             return $next($request);
         }
-        return redirect('/')->with('error', 'You do not have access to this page.');
+        return redirect('/admin')->with('error', 'You do not have access to this page.');
     }
 }
