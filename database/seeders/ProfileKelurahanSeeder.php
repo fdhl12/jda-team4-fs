@@ -279,7 +279,7 @@ class ProfileKelurahanSeeder extends Seeder
             ],
             [
                 'type' => 'struktur_organisasi',
-                'data' => 'struktur-organisasi.png',
+                'data' => 'struktur-organisasi.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
