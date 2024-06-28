@@ -10,6 +10,14 @@
         </x-admin.alert-success>
     @endif
 
+    @if ($errors->any())
+        @foreach ($errors->all() as $key => $error)
+            <x-admin.alert-danger :key="$key">
+                {{ $error }}
+            </x-admin.alert-danger>
+        @endforeach
+    @endif
+
     <div class="bg-white dark:bg-gray-800 pt-5 pb-1 px-5 m-3 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
         <x-admin.breadcrumbs :data="[
             'Beranda' => route('admin.beranda'),
@@ -27,7 +35,7 @@
         @include('admin.profile-kelurahan.kontak')
         @include('admin.profile-kelurahan.sosial-media')
 
-        <div class="bg-white dark:bg-gray-800 p-5 m-3 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
+        <div class="sticky bottom-0 bg-white dark:bg-gray-800 p-5 m-3 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
             <div class="col-span-6">
                 <button
                     class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg  px-2.5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"

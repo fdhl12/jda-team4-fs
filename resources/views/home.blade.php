@@ -4,12 +4,11 @@
 
 @section('content')
     <div class="gradient">
-        <video autoplay muted loop poster="images/foto-1.jpeg" id="bgvid">
-            <source src="videos/profile.mp4" type="video/mp4">
+        <video autoplay muted loop poster="{{ asset('storage/' . $pengaturan['cover']) }}" id="bgvid">
+            <source src="{{ asset('storage/' . $pengaturan['video']) }}" type="video/mp4">
             <!-- Sisipkan sumber video sesuai format -->
             Your browser does not support the video tag.
         </video>
-
 
         <div class="flex justify-center items-end h-screen pb-10">
             <div class="container max-w-8xl px-6 mx-auto text-center">
@@ -19,12 +18,12 @@
                          data-aos-duration="500" data-aos-delay="0">
                         <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col items-center">
                             <p class="drop-shadow-xl uppercase text-3xl tracking-loose font-extrabold text-white">
-                                Website {{ $pengaturan['name'] }}</p>
+                                {{ $pengaturan['judul'] }}</p>
                             <h1 class="drop-shadow-xl my-4 text-4xl md:text-7xl font-extrabold leading-tight text-white">
-                                Portal Layanan Publik Kota Cimahi
+                                {{ $pengaturan['sub_judul'] }}
                             </h1>
                             <p class="drop-shadow-xl leading-normal text-xl md:text-2xl mb-8 font-extrabold text-white">
-                                #CimahiCampernik #KotaHijau #KotaTentara
+                                {{ $pengaturan['tagar'] }}
                             </p>
 
                         </div>

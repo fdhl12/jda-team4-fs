@@ -1,6 +1,6 @@
 <!-- Add Modal -->
 <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full" id="create-modal">
-    <div class="relative w-full h-full max-w-2xl px-4 md:h-auto">
+    <div class="relative w-full h-full max-w-xl px-4 md:h-auto">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-800">
             <!-- Modal header -->
@@ -20,17 +20,27 @@
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6">
 
-                            <label class="block mb-2  font-medium text-black-900 dark:text-white" for="image">
+                            <label class="block mb-2  font-medium text-black-900 dark:text-white" for="images">
                                 Pilih Gambar
                             </label>
-                            <input class="block w-full  text-black-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-black-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file" name="image">
+                            <input class="block w-full  text-black-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-black-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="images" type="file" name="images[]" required multiple>
+                            @error('images')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                {{ $errors->first('images') }}
+                            </p>
+                            @enderror
 
                         </div>
                         <div class="col-span-6">
                             <label for="description" class="block mb-2  font-medium text-black-900 dark:text-white">
                                 Deskripsi
                             </label>
-                            <textarea id="description" name="description" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Keterangan Gambar."></textarea>
+                            <textarea id="description" name="description" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Keterangan Gambar.">{{ old('description') }}</textarea>
+                            @error('description')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                {{ $errors->first('description') }}
+                            </p>
+                            @enderror
                         </div>
                     </div>
                 </div>

@@ -99,12 +99,6 @@ class PerangkatKelurahanController extends Controller
         return view('show.perangkat-kelurahan', compact('perangkatdesa', 'perangkats', 'jabatan'));
     }
 
-    public function edit(PerangkatKelurahan $PerangkatDesa)
-    {
-        $jabatans = Jabatan::all();
-        return view('admin.perangkat-kelurahan.edit', compact('perangkatdesa', 'jabatans'));
-    }
-
     public function update(Request $request, PerangkatKelurahan $perangkatKelurahan)
     {
         $request->validate([

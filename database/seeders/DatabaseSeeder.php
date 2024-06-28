@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
             ProfileKelurahanSeeder::class,
             PengaturanSeeder::class,
             GaleriSeeder::class,
-            LayananSeeder::class
+            LayananSeeder::class,
+            LembagaKelurahanSeeder::class
         ]);
     }
 }

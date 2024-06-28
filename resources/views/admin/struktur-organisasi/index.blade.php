@@ -4,6 +4,20 @@
 
 @section('content')
 
+    @if(session('update'))
+        <x-admin.alert-success>
+            {{ session('update') }}
+        </x-admin.alert-success>
+    @endif
+
+    @if ($errors->any())
+        @foreach ($errors->all() as $key => $error)
+            <x-admin.alert-danger :key="$key">
+                {{ $error }}
+            </x-admin.alert-danger>
+        @endforeach
+    @endif
+
     <div class="bg-white dark:bg-gray-800 pt-5 pb-1 px-5 m-3 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
         <x-admin.breadcrumbs :data="[
             'Beranda' => route('admin.beranda'),
@@ -34,9 +48,14 @@
                             Simpan
                         </button>
                     </div>
+                    @error('struktur_organisasi')
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                        {{ $errors->first('struktur_organisasi') }}
+                    </p>
+                    @enderror
                 </div>
                 <div class="col-span-6">
-                    <img class="mb-4 max-h-full sm:mb-0 xl:mb-4 2xl:mb-0" src="{{ asset($strukturOrganisasi) }}" alt="Logo">
+                    <img class="mb-4 max-h-full sm:mb-0 xl:mb-4 2xl:mb-0" src="{{ asset('storage/'.$strukturOrganisasi) }}" alt="Logo">
                 </div>
             </div>
 

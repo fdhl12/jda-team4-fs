@@ -10,6 +10,14 @@
         </x-admin.alert-success>
     @endif
 
+    @if ($errors->any())
+        @foreach ($errors->all() as $key => $error)
+            <x-admin.alert-danger :key="$key">
+                {{ $error }}
+            </x-admin.alert-danger>
+        @endforeach
+    @endif
+
     <form action="{{ route('admin.geografis.update') }}" method="POST">
 
         @csrf
@@ -35,18 +43,28 @@
                     <label for="map" class="block mb-2  font-medium text-black-900 dark:text-white">
                         iFrame Peta
                     </label>
-                    <input type="text" name="map" id="map" class="shadow-sm bg-gray-50 border border-gray-300 text-black-900 sm: rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="<iframe..." required value="{{ $map }}">
+                    <input type="text" name="map" id="map" class="shadow-sm bg-gray-50 border border-gray-300 text-black-900 sm: rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="<iframe..." required value="{{ old('map') ?: $map }}">
+                    @error('map')
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                        {{ $errors->first('map') }}
+                    </p>
+                    @enderror
                 </div>
                 <div class="col-span-6">
                     <label for="alamat" class="block mb-2  font-medium text-black-900 dark:text-white">
                         Deskripsi
                     </label>
                     <textarea id="description" name="deskripsi" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Tuliskan Sejarah Kelurahan.">{{ $deskripsi }}</textarea>
+                    @error('deskripsi')
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                        {{ $errors->first('deskripsi') }}
+                    </p>
+                    @enderror
                 </div>
             </div>
         </div>
 
-        <div class="bg-white dark:bg-gray-800 p-5 m-3 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
+        <div class="sticky bottom-0 bg-white dark:bg-gray-800 p-5 m-3 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
 
             <div class="col-span-6">
                 <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg  px-2.5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit">

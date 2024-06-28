@@ -14,7 +14,7 @@
             <p class="text-3xl font-medium text-orange-500 text-center mb-10" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="0">Struktur Kelurahan Cibeber</p>
 
             <div class="mb-10">
-                <img class="mx-auto " src="{{ $strukturOrganisasi }}" alt="@yield('title')">
+                <img class="mx-auto " src="{{ asset('storage/'. $strukturOrganisasi) }}" alt="@yield('title')">
             </div>
 
 

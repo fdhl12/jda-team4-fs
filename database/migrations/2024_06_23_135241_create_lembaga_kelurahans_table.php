@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('kode');
-            $table->string('hukum');
-            $table->string('alamat');
+            $table->string('hukum')->nullable();
+            $table->string('alamat')->nullable();
             $table->string('logo')->nullable();
             $table->timestamps();
         });

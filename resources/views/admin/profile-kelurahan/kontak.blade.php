@@ -11,15 +11,30 @@
     <div class="grid grid-cols-6 gap-6">
         <div class="col-span-6 sm:col-span-3">
             <label for="email" class="block mb-2  font-medium text-black-900 dark:text-white">Email</label>
-            <input type="text" name="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-black-900 sm: rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="contoh@gmail.com" value="{{ $kontak['email'] }}" required>
+            <input type="text" name="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-black-900 sm: rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="contoh@gmail.com" value="{{ old('email') ?: $kontak['email'] }}" required>
+            @error('email')
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                {{ $errors->first('email') }}
+            </p>
+            @enderror
         </div>
         <div class="col-span-6 sm:col-span-3">
             <label for="no_telp" class="block mb-2  font-medium text-black-900 dark:text-white">No Telp</label>
-            <input type="text" name="no_telp" id="no_telp" class="shadow-sm bg-gray-50 border border-gray-300 text-black-900 sm: rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="021-000-xxx" value="{{ $kontak['no_telp'] }}" required>
+            <input type="text" name="no_telp" id="no_telp" class="shadow-sm bg-gray-50 border border-gray-300 text-black-900 sm: rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="021-000-xxx" value="{{ old('no_telp') ?: $kontak['no_telp'] }}" required>
+            @error('no_telp')
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                {{ $errors->first('no_telp') }}
+            </p>
+            @enderror
         </div>
         <div class="col-span-6">
             <label for="alamat" class="block mb-2  font-medium text-black-900 dark:text-white">Alamat</label>
-            <textarea id="alamat" name="alamat" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Masukan Alamat Kelurahan">{{ $kontak['alamat'] }}</textarea>
+            <textarea id="alamat" name="alamat" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Masukan Alamat Kelurahan">{{ old('alamat') ?: $kontak['alamat'] }}</textarea>
+            @error('alamat')
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                {{ $errors->first('alamat') }}
+            </p>
+            @enderror
         </div>
     </div>
 

@@ -40,17 +40,23 @@
                     </p>
                     @enderror
                 </div>
-                <div class="col-span-6">
-
-                    <label class="block mb-2  font-medium text-black-900 dark:text-white" for="image">
-                        Gambar
-                    </label>
-                    <input class="block w-full  text-black-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-black-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file" name="image" value="{{ old('image') }}">
-                    @error('image')
-                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
-                        {{ $errors->first('image') }}
-                    </p>
-                    @enderror
+                <div class="col-span-6 flex align-middle items-center space-x-4">
+                    <div class="flex-grow">
+                        <label class="block mb-2  font-medium text-black-900 dark:text-white" for="image">
+                            Gambar
+                        </label>
+                        <input class="block w-full  text-black-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-black-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file" name="image" value="{{ old('image') }}">
+                        @error('image')
+                        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                            {{ $errors->first('image') }}
+                        </p>
+                        @enderror
+                    </div>
+                    @if($news->image)
+                        <div>
+                            <img class="h-16" src="{{ $news->image }}" alt="Gambar">
+                        </div>
+                    @endif
                 </div>
                 <div class="col-span-6">
                     <label for="description" class="block mb-2  font-medium text-black-900 dark:text-white">

@@ -19,15 +19,30 @@
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6 sm:col-span-3">
                             <label for="nama" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-                            <input type="text" name="nama" id="nama" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nama" autofocus required>
+                            <input type="text" name="nama" id="nama" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nama" value="{{ old('nama') }}" required>
+                            @error('nama')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                {{ $errors->first('nama') }}
+                            </p>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="kode" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode</label>
-                            <input type="text" name="kode" id="kode" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Kode" autofocus required>
+                            <input type="text" name="kode" id="kode" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Kode" value="{{ old('kode') }}" required>
+                            @error('kode')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                {{ $errors->first('kode') }}
+                            </p>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="hukum" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dasar Hukum</label>
-                            <input type="text" name="hukum" id="hukum" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Dasar Hukum" autofocus required>
+                            <input type="text" name="hukum" id="hukum" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Dasar Hukum" value="{{ old('hukum') }}">
+                            @error('hukum')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                {{ $errors->first('hukum') }}
+                            </p>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
 
@@ -35,13 +50,22 @@
                                 Logo
                             </label>
                             <input class="block w-full  text-black-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-black-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="logo" type="file" name="logo">
-
+                            @error('logo')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                {{ $errors->first('logo') }}
+                            </p>
+                            @enderror
                         </div>
                         <div class="col-span-6">
                             <label for="alamat" class="block mb-2  font-medium text-black-900 dark:text-white">
                                 Alamat
                             </label>
-                            <textarea id="alamat" name="alamat" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Alamat"></textarea>
+                            <textarea id="alamat" name="alamat" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Alamat">{{ old('alamat') }}</textarea>
+                            @error('alamat')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                {{ $errors->first('alamat') }}
+                            </p>
+                            @enderror
                         </div>
                     </div>
                 </div>

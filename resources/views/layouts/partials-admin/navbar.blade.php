@@ -85,7 +85,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.geografis') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
+                                <a href="{{ route('admin.geografis.index') }}" class="flex items-center w-full p-2 text-black font-medium transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-blue-700
                                 @if(request()->routeIs('admin.geografis*')) bg-blue-100 dark:bg-blue-700 @endif
                                 ">
                                     Geografis

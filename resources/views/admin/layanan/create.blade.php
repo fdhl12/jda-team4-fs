@@ -19,25 +19,50 @@
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6 sm:col-span-3">
                             <label for="nama" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-                            <input type="text" name="nama" id="nama" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nama" autofocus required>
+                            <input type="text" name="nama" id="nama" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nama" value="{{ old('nama') }}" required>
+                            @error('nama')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                {{ $errors->first('nama') }}
+                            </p>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="telepon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telepon</label>
-                            <input type="text" name="telepon" id="telepon" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Telepon" autofocus required>
+                            <input type="text" name="telepon" id="telepon" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Telepon" value="{{ old('telepon') }}" required>
+                            @error('telepon')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                {{ $errors->first('telepon') }}
+                            </p>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="buka" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jam Buka</label>
-                            <input type="text" name="buka" id="buka" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Jam Buka" autofocus required>
+                            <input type="text" name="buka" id="buka" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Jam Buka" value="{{ old('buka') }}">
+                            @error('buka')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                {{ $errors->first('buka') }}
+                            </p>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="tutup" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jam Tutup</label>
-                            <input type="text" name="tutup" id="tutup" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Jam Tutup" autofocus required>
+                            <input type="text" name="tutup" id="tutup" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Jam Tutup" value="{{ old('tutup') }}">
+                            @error('tutup')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                {{ $errors->first('tutup') }}
+                            </p>
+                            @enderror
                         </div>
                         <div class="col-span-6">
                             <label for="alamat" class="block mb-2  font-medium text-black-900 dark:text-white">
                                 Alamat
                             </label>
-                            <textarea id="alamat" name="alamat" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Alamat"></textarea>
+                            <textarea id="alamat" name="alamat" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Alamat">{{ old('alamat') }}</textarea>
+                            @error('alamat')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                {{ $errors->first('alamat') }}
+                            </p>
+                            @enderror
                         </div>
                     </div>
                 </div>

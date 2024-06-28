@@ -14,7 +14,7 @@ class AnnouncementController extends Controller
     {
         $query = $request->input('query');
         $announcements = Announcement::with('user');
-    
+
         if ($query) {
             $announcements = $announcements->where('title', 'LIKE', "%{$query}%")->paginate(10);
         } elseif ($request->get('show') == 'all') {
@@ -22,15 +22,15 @@ class AnnouncementController extends Controller
         } else {
             $announcements = $announcements->latest()->paginate(10);
         }
-    
+
         return view('admin.pengumuman.index', compact('announcements', 'query'));
     }
-    
+
     public function indexUser(Request $request)
     {
         $query = $request->input('query');
         $announcements = Announcement::with('user');
-    
+
         if ($query) {
             $announcements = $announcements->where('title', 'LIKE', "%{$query}%")->paginate(10);
         } elseif ($request->get('show') == 'all') {
@@ -38,10 +38,10 @@ class AnnouncementController extends Controller
         } else {
             $announcements = $announcements->latest()->paginate(10);
         }
-    
+
         return view('pengumuman', compact('announcements', 'query'));
     }
-    
+
 
     public function create()
     {
@@ -55,12 +55,12 @@ class AnnouncementController extends Controller
         return view('show.pengumuman', compact('announcement', 'announcements'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Announcement $announcement)
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'description' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $imagePath = null;
@@ -68,38 +68,45 @@ class AnnouncementController extends Controller
             $imagePath = $request->file('image')->store('images/pengumuman', 'public');
         }
 
-        Announcement::create([
+        $announcement = $announcement->create([
             'title' => $request->title,
             'description' => $request->description,
-            'slug' => Str::slug($request->input('title') . '-' . Str::random(20), '-'),
+            'slug' => Str::slug($request->input('title') .'-'. Str::random(5), '-'),
             'image' => $imagePath,
             'user_id' => Auth::id(),
         ]);
 
-        return redirect()->route('admin.pengumuman')->with('store', "Pengumuman {$request->title} berhasil dibuat");
+        return redirect()->route('admin.pengumuman')->with('store', "Pengumuman {$announcement->title} berhasil dibuat");
     }
 
-    public function edit($id)
+    public function edit(Announcement $announcement)
     {
-        $announcement = Announcement::findOrFail($id);
         return view('admin.pengumuman.edit', compact('announcement'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Announcement $announcement)
     {
+
         $request->validate([
             'title' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required',
         ]);
 
-        $announcement = Announcement::findOrFail($id);
-
         $update = [
-            'title' => $request->title,
-            'slug' => Str::slug($request->input('title') . '-' . Str::random(20), '-'),
             'description' => $request->description,
         ];
 
+        /* when title is changed */
+        if ($request->title != $announcement->title)
+        {
+            $update = array_merge($update, [
+                'title' => $request->title,
+                'slug' => Str::slug($request->input('title')  .'-'. Str::random(5), '-'),
+            ]);
+        }
+
+        // Simpan gambar jika ada
         if ($request->hasFile('image')) {
             $storage = Storage::disk('public');
             if ($announcement->getRawOriginal('image') && $storage->exists($announcement->getRawOriginal('image'))) {
@@ -115,10 +122,9 @@ class AnnouncementController extends Controller
         return redirect()->route('admin.pengumuman')->with('update', "Pengumuman {$request->title} berhasil diubah");
     }
 
-    public function destroy(Request $request, $id)
+    public function destroy(Announcement $announcement)
     {
-        $announcement = Announcement::findOrFail($id);
-
+        /* delete image*/
         $storage = Storage::disk('public');
         if ($announcement->getRawOriginal('image') && $storage->exists($announcement->getRawOriginal('image'))) {
             $storage->delete($announcement->getRawOriginal('image'));
@@ -126,7 +132,7 @@ class AnnouncementController extends Controller
 
         $announcement->delete();
 
-        return redirect()->back()->with('destroy', "Pengumuman {$announcement->title} berhasil dihapus...");
+        return redirect()->back()->with('destroy', "Pengumuman {$announcement['title']} berhasil dihapus.");
     }
 
     public function ckeditor()

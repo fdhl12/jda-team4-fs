@@ -10,6 +10,11 @@
     <div class="grid grid-cols-6 gap-6">
         <div class="col-span-6">
             <textarea id="sejarah" name="sejarah" rows="4" class="block p-2.5 w-full  text-black-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Tuliskan Sejarah Kelurahan.">{{ $sejarah }}</textarea>
+            @error('sejarah')
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                {{ $errors->first('sejarah') }}
+            </p>
+            @enderror
         </div>
     </div>
 

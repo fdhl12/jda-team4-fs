@@ -90,30 +90,32 @@ class NewsController extends Controller
         return redirect()->route('admin.berita')->with('store', "Berita {$request->title} berhasil dibuat");
     }
 
-    // Method to show the edit news form
-    public function edit(News $news, $id)
+    public function edit(News $news)
     {
-        $news = $news->find($id);
-
         return view('admin.berita.edit', compact('news'));
     }
 
-    // Method to update an existing news article
-    public function update(Request $request, News $news, $id)
+    public function update(Request $request, News $news)
     {
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
         ]);
 
-        $news = $news->find($id);
-
         $update = [
-            'title' => $request->title,
             'description' => $request->description,
         ];
 
-        // Save image if provided
+        /* when title is changed */
+        if ($request->title != $news->title)
+        {
+            $update = array_merge($update, [
+                'title' => $request->title,
+                'slug' => Str::slug($request->input('title')  .'-'. Str::random(5), '-'),
+            ]);
+        }
+
+        // Simpan gambar jika ada
         if ($request->hasFile('image')) {
             // Delete existing image
             $storage = Storage::disk('public');
@@ -131,12 +133,10 @@ class NewsController extends Controller
         return redirect()->route('admin.berita')->with('update', "Berita {$request->title} berhasil diubah");
     }
 
-    // Method to delete a news article
-    public function destroy(Request $request, News $news)
+    public function destroy(News $news)
     {
-        $news = $news->find($request->post('id'));
 
-        // Delete existing image
+        /* delete image*/
         $storage = Storage::disk('public');
         if ($news->getRawOriginal('image') && $storage->exists($news->getRawOriginal('image'))) {
             $storage->delete($news->getRawOriginal('image'));

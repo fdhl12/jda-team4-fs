@@ -50,6 +50,36 @@ class PengaturanSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'type' => 'cover',
+                'data' => 'cover.jpeg',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'type' => 'video',
+                'data' => 'video.mp4',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'type' => 'judul',
+                'data' => 'WEBSITE KELURAHAN CIBEBER',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'type' => 'sub_judul',
+                'data' => 'Portal Layanan Publik Kota Cimahi',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'type' => 'tagar',
+                'data' => '#CimahiCampernik #KotaHijau #KotaTentara',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }
