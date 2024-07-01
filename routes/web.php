@@ -1,25 +1,31 @@
 <?php
-use App\Http\Controllers\AnnouncementController;
-use App\Http\Controllers\BerandaController;
-use App\Http\Controllers\DemografiController;
-use App\Http\Controllers\GaleriController;
-use App\Http\Controllers\GeografisController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\JabatanController;
-use App\Http\Controllers\LayananController;
-use App\Http\Controllers\LembagaKelurahanController;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\PengaturanController;
-use App\Http\Controllers\PerangkatKelurahanController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\StrukturOrganisasiController;
-use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\UserController;
+use App\Console\Commands\GenerateSitemap;
+use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DemografiController;
+use App\Http\Controllers\GeografisController;
+use App\Http\Controllers\PengaturanController;
+use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\LembagaKelurahanController;
+use App\Http\Controllers\PerangkatKelurahanController;
+use App\Http\Controllers\StrukturOrganisasiController;
 
 Auth::routes([
     'register' => false,
 ]);
+Artisan::command('sitemap:generate', function () {
+    $this->call(GenerateSitemap::class);
+});
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -158,5 +164,4 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
      * user
      */
     Route::resource('/user', UserController::class);
-
 });
