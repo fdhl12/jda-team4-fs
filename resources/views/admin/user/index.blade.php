@@ -39,11 +39,11 @@
                 <h1 class="text-xl font-semibold text-black-900 sm:text-2xl dark:text-white">@yield('title')</h1>
             </div>
 
-            <div class="sm:flex">
+            <div class="flex gap-3">
 
-                <div class="flex items-center mr-auto space-x-2 sm:space-x-3">
+                <div class="flex items-center mr-auto sm:space-x-3">
                     <button type="button" data-modal-target="add-modal" data-modal-toggle="add-modal"
-                            class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                            class="inline-flex items-center justify-center px-3 py-2  font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -55,7 +55,7 @@
                 </div>
 
                 <div
-                    class="items-center hidden mb-3 sm:flex sm:divide-x sm:divide-gray-100 sm:mb-0 dark:divide-gray-700">
+                    class="flex divide-x divide-gray-100 dark:divide-gray-700">
                     <form class="flex items-center max-w-sm mx-auto" action="{{ route('admin.user.index') }}"
                           method="GET">
                         <label for="search" class="sr-only">Search</label>
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                         <button type="submit"
-                                class="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                class="p-2.5 ms-2  font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                  viewBox="0 0 20 20">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -118,11 +118,11 @@
                                                   stroke-width="2"
                                                   d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                         </svg>
-                                        <div class="text-sm font-normal text-black-500 dark:text-black-400">
+                                        <div class=" font-normal text-black-500 dark:text-black-400">
                                             <div class="text-base font-semibold text-black-900 dark:text-white">
                                                 {{$user->name}}
                                             </div>
-                                            <div class="text-sm font-normal text-black-500 dark:text-black-400">
+                                            <div class=" font-normal text-black-500 dark:text-black-400">
                                                 {{$user->email}}
                                             </div>
                                         </div>
@@ -137,7 +137,7 @@
                                         @if($user->id !== auth()->user()->id || $user->role_id !== 1)
                                             <button type="button" data-modal-target="edit-modal-{{$user->id}}"
                                                     data-modal-toggle="edit-modal-{{$user->id}}"
-                                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                                    class="inline-flex items-center px-3 py-2  font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                                 <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -151,7 +151,7 @@
 
                                             <button type="button" data-modal-target="delete-modal-{{$user->id}}"
                                                     data-modal-toggle="delete-modal-{{$user->id}}"
-                                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                                                    class="inline-flex items-center px-3 py-2  font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
                                                 <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd"

@@ -10,7 +10,8 @@
         <div class="w-full mb-4">
             <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t animate-fade-in-down delay-150"></div>
         </div>
-        <p class="text-4xl font-medium text-orange-500 text-center mb-10 animate-fade-in-down delay-300">Lembaga Terkait Kelurahan Cibeber</p>
+        <p class="text-4xl font-medium text-orange-500 text-center mb-10 animate-fade-in-down delay-300">Lembaga Terkait
+            {{ $pengaturan['name'] }}</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($lembagas as $lembaga)
@@ -32,7 +33,7 @@
                 </a>
             @endforeach
         </div>
-        
+
     </div>
 </section>
 

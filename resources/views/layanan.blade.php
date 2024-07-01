@@ -8,17 +8,15 @@
         <section class="bg-white border-b py-12 text-center bg-banner-1">
             <div class="container mx-auto px-8"> <!-- Increased px for more space -->
                 <!-- Judul Top Berita -->
-                <h2 class="text-7xl font-bold text-blue-900 mb-8">
-                    Layanan Publik
+                <h2 class="text-5xl font-bold text-blue-900 mb-8" data-aos="zoom-in" data-aos-duration="500">
+                    Layanan
                 </h2> <!-- Larger text size and increased margin-bottom -->
-                <div class="w-full mb-8">
-                    <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-                </div>
-                <p class="text-3xl font-medium text-blue-900 mb-8">
+                <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t mb-4" data-aos="zoom-in" data-aos-duration="500"></div>
+                <p class="text-3xl font-medium text-orange-500 text-center mb-8" data-aos="zoom-in" data-aos-duration="500">
                     @yield('title')
                 </p> <!-- Larger text size -->
 
-                <article>
+                <article data-aos="zoom-in" data-aos-duration="500">
 
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-lg text-left rtl:text-right text-blue-500 dark:text-blue-400">

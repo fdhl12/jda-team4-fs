@@ -2,7 +2,7 @@
     <nav role="navigation" aria-label="{{ __('Pagination Navigation') }}" class="items-center w-full p-4 bg-white border-t border-black-200 sm:flex sm:justify-between dark:bg-blue-800 dark:border-black-700">
         <div class="flex justify-between flex-1 sm:hidden">
             @if ($paginator->onFirstPage())
-                <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-black-500 bg-white border border-black-300 cursor-default leading-5 rounded-md dark:text-black-600 dark:bg-black-800 dark:border-black-600">
+                <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-400 bg-white border border-black-300 cursor-default leading-5 rounded-md dark:text-black-600 dark:bg-black-800 dark:border-black-600">
                     {!! __('pagination.previous') !!}
                 </span>
             @else
@@ -16,7 +16,7 @@
                     {!! __('pagination.next') !!}
                 </a>
             @else
-                <span class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-black-500 bg-white border border-black-300 cursor-default leading-5 rounded-md dark:text-black-600 dark:bg-black-800 dark:border-black-600">
+                <span class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-400 bg-white border border-black-300 cursor-default leading-5 rounded-md dark:text-black-600 dark:bg-black-800 dark:border-black-600">
                     {!! __('pagination.next') !!}
                 </span>
             @endif

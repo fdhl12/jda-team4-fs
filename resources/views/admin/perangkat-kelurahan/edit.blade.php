@@ -86,18 +86,25 @@
                             </p>
                             @enderror
                         </div>
-                        <div class="col-span-6">
-                            <label class="block font-medium text-black-900 dark:text-white" for="image">
-                                Foto
-                            </label>
-                            <input
-                                class="block w-full  text-black-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-black-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                id="image" type="file" name="image">
-                            @error('image')
-                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
-                                {{ $errors->first('image') }}
-                            </p>
-                            @enderror
+                        <div class="col-span-6 flex justify-between gap-3 items-center">
+                            <div class="flex-grow">
+                                <label class="block font-medium text-black-900 dark:text-white" for="image">
+                                    Foto
+                                </label>
+                                <input
+                                    class="block w-full  text-black-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-black-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                    id="image" type="file" name="image">
+                                @error('image')
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                    {{ $errors->first('image') }}
+                                </p>
+                                @enderror
+                            </div>
+                            @if($perangkatKelurahan->image)
+                                <div class="w-16">
+                                    <img src="{{ asset('storage/'.$perangkatKelurahan->image) }}" alt="Image">
+                                </div>
+                            @endif
                         </div>
                         <div class="col-span-6">
                             <label for="alamat"

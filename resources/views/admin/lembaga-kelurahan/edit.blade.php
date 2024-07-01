@@ -45,13 +45,8 @@
                             </p>
                             @enderror
                         </div>
-                        <div class="col-span-6 sm:col-span-3 sm:flex justify-between gap-3 items-end">
-                            @if($lembaga->logo)
-                                <div class="w-10 h-10">
-                                    <img src="{{ asset('storage/'.$lembaga->logo) }}" alt="Logo">
-                                </div>
-                            @endif
-                            <div>
+                        <div class="col-span-6 sm:col-span-3 flex justify-between gap-3 items-center">
+                            <div class="flex-grow">
                                 <label class="block mb-2  font-medium text-black-900 dark:text-white" for="logo">
                                     Logo
                                 </label>
@@ -62,6 +57,11 @@
                                 </p>
                                 @enderror
                             </div>
+                            @if($lembaga->logo)
+                                <div class="w-16">
+                                    <img src="{{ asset('storage/'.$lembaga->logo) }}" alt="Logo">
+                                </div>
+                            @endif
                         </div>
                         <div class="col-span-6">
                             <label for="alamat" class="block mb-2  font-medium text-black-900 dark:text-white">

@@ -64,7 +64,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 xl:grid-cols-2 xl:gap-4 mb-3">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-3 xl:gap-4 mb-3">
                 <div class="col-span-1">
                     <label for="cover" class="block mb-2  font-medium text-black-900 dark:text-white">
                         Cover

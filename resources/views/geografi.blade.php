@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Geografi '. $pengaturan['name'])
+@section('title', 'Geografis '. $pengaturan['name'])
 
 @section('content')
 
@@ -9,14 +9,14 @@
             <div class="container mx-auto px-4">
                 <div class="text-center">
                     <!-- Judul Top Berita -->
-                    <h2 class="text-5xl font-bold text-blue-900 mb-4">Geografi</h2>
-                    <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t mb-4"></div>
-                    <p class="text-3xl font-medium text-blue-900 mb-8">
+                    <h2 class="text-5xl font-bold text-blue-900 mb-4" data-aos="zoom-in" data-aos-duration="500">Geografis</h2>
+                    <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t mb-4" data-aos="zoom-in" data-aos-duration="500"></div>
+                    <p class="text-3xl font-medium text-orange-500 text-center mb-4" data-aos="zoom-in" data-aos-duration="500">
                         @yield('title')
                     </p>
                 </div>
 
-                <article class="text-wrap prose m-auto max-w-4xl">
+                <article class="text-wrap prose m-auto max-w-4xl" data-aos="zoom-in" data-aos-duration="500">
                     <!-- Google Maps Embed -->
                     <div class="text-center m-auto mb-10" align="center">
                         {!! $geografi["map"] !!}

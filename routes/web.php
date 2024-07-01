@@ -35,7 +35,7 @@ Route::controller(ProfileController::class)->group(function () {
     Route::get('/tentang', 'tentang')->name('tentang');
     Route::get('/visimisi', 'visimisi')->name('visimisi');
     Route::get('/sejarah', 'sejarah')->name('sejarah');
-    Route::get('/geografi', 'geografi')->name('geografi');
+    Route::get('/geografis', 'geografi')->name('geografi');
     Route::get('/kontak', 'kontak')->name('kontak');
 });
 
