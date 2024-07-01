@@ -12,7 +12,7 @@
                         <h1 class="text-5xl font-bold text-blue-950 mb-2 text-center pb-8">
                             {{ $news->title }}
                         </h1>
-                        <div class="flex items-center text-xl text-orange-500">
+                        <div class="flex flex-col md:flex-row items-center text-xl text-orange-500">
                             <span class="font-semibold mr-2">{{ $news->user->name }}</span>
                             <time datetime="{{ $news->created_at }}">
                                 {{ $news->created_at->translatedFormat('l, d F Y H:i') }}

@@ -15,8 +15,8 @@
                 <p class="text-3xl font-medium text-orange-500 text-center mb-4" data-aos="zoom-in" data-aos-duration="500">Kumpulan Galeri {{ $pengaturan['name'] }}</p>
 
                 <!-- Slider Cards -->
-                <div x-data="{ slide: 0 }" class="w-full max-w-screen-2xl mx-auto">
-                    <div class="grid gap-12 grid-cols-1" x-ref="slides" x-init="slides = $refs.slides.children.length">
+                <div class="w-full max-w-screen-2xl mx-auto">
+                    <div class="grid gap-12 grid-cols-1">
 
                         <div x-show="slide === 0" class="max-w-full mx-auto mb-3">
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -24,7 +24,7 @@
                                 @foreach($galeris as $galeri)
                                     <div class="relative overflow-hidden hover:scale-105 transform transition duration-300">
                                         <a href="{{ asset('storage/'.$galeri->image)  }}" data-fancybox="gallery" data-caption="{{ $galeri->description }}">
-                                            <img class="object-cover object-center w-[30rem] h-full" src="{{ asset('storage/'. $galeri->image) }}"
+                                            <img class="object-cover object-center w-[30rem] max-h-60" src="{{ asset('storage/'. $galeri->image) }}"
                                                  alt="{{ $galeri->description }}">
                                         </a>
                                     </div>

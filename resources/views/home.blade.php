@@ -163,7 +163,7 @@
                                data-caption="{{ $galeri->description }}"
                                data-options='{"type": "image", "image": {"zoom": {"fit": "contain", "startScale": 1.5}}}'
                                style="display: block;">
-                                <img class="object-cover object-center w-full h-full"
+                                <img class="object-cover object-center w-full max-h-60"
                                      src="{{ asset('storage/'.$galeri->image) }}"
                                      alt="{{ $galeri->description }}">
                             </a>
