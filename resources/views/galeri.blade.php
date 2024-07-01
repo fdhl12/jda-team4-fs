@@ -12,7 +12,7 @@
                 <div class="w-full mb-4">
                     <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t" data-aos="zoom-in" data-aos-duration="500"></div>
                 </div>
-                <p class="text-3xl font-medium text-orange-500 text-center mb-4" data-aos="zoom-in" data-aos-duration="500">Kumpulan Galeri Kelurahan Cibeber</p>
+                <p class="text-3xl font-medium text-orange-500 text-center mb-4" data-aos="zoom-in" data-aos-duration="500">Kumpulan Galeri {{ $pengaturan['name'] }}</p>
 
                 <!-- Slider Cards -->
                 <div x-data="{ slide: 0 }" class="w-full max-w-screen-2xl mx-auto">
@@ -44,5 +44,3 @@
         </section>
     </div>
 @endsection
-
-

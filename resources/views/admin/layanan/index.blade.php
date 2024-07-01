@@ -39,11 +39,11 @@
                 <h1 class="text-xl font-semibold text-black-900 sm:text-2xl dark:text-white">@yield('title')</h1>
             </div>
 
-            <div class="sm:flex">
+            <div class="flex gap-3">
 
                 <div class="flex items-center mr-auto space-x-2 sm:space-x-3">
                     <button type="button" data-modal-target="create-modal" data-modal-toggle="create-modal"
-                            class="inline-flex items-center justify-center w-1/2 px-3 py-2  font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                            class="inline-flex items-center justify-center px-3 py-2  font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -55,7 +55,7 @@
                 </div>
 
                 <div
-                    class="items-center hidden mb-3 sm:flex sm:divide-x sm:divide-gray-100 sm:mb-0 dark:divide-gray-700">
+                    class="flex divide-x divide-gray-100 :divide-gray-700">
                     <form class="flex items-center max-w-sm mx-auto" action="{{ route('admin.layanan.index') }}"
                           method="GET">
                         <label for="search" class="sr-only">Search</label>

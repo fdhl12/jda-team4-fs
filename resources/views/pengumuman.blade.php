@@ -15,12 +15,13 @@
                     <div data-aos="zoom-in" data-aos-duration="500" class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
                 </div>
                 <div class="w-full text-center mb-4">
-                    <p class="text-3xl font-medium text-orange-500" data-aos="zoom-in" data-aos-duration="500">Pengumuman Seputar Kelurahan Cibeber</p>
+                    <p class="text-3xl font-medium text-orange-500" data-aos="zoom-in" data-aos-duration="500">Pengumuman Seputar
+                        {{ $pengaturan['name'] }}</p>
                 </div>
-                
+
                   <!-- Include the search form component with a route parameter -->
-                 @include('components.search', ['route' => route('pengumuman','#berita')])
-                
+                 @include('components.search', ['route' => route('pengumuman','#pengumuman'), 'type' => 'pengumuman'])
+
                 @if($announcements->isEmpty())
                     <div class="w-full text-center">
                         <p class="text-xl text-gray-600">Tidak ada pengumuman yang ditemukan.</p>
@@ -40,17 +41,16 @@
                     </div>
                     @endforeach
                 @endif
-    
+
                 <!-- Navigasi Halaman -->
                 <div class="w-full flex justify-center">
                     {{ $announcements->appends(['query' => $query])->onEachSide(0)->links('components.pagination') }}
                 </div>
             </div>
         </section>
-        
-      
-        
-        
+
+
+
+
     </div>
 @endsection
-   

@@ -11,7 +11,9 @@
             <div class="w-full mb-4">
                 <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="0"></div>
             </div>
-            <p class="text-3xl font-medium text-orange-500 text-center mb-10" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="0">Perangkat Seputar Kelurahan Cibeber</p>
+            <p class="text-3xl font-medium text-orange-500 text-center mb-10" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="0">
+                Perangkat {{ $pengaturan['name'] }}
+            </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 @foreach ($perangkats as $perangkat)
@@ -32,7 +34,7 @@
                 </div>
                 @endforeach
             </div>
-            
+
 
 
         </div>

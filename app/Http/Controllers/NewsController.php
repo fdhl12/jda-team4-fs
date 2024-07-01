@@ -35,14 +35,16 @@ class NewsController extends Controller
         $query = $request->input('query');
 
         if ($query) {
-            $newss = News::where('title', 'LIKE', "%{$query}%")
+            $newss = News::with('user')->where('title', 'LIKE', "%{$query}%")
                 ->orWhere('description', 'LIKE', "%{$query}%")
                 ->orWhereHas('user', function ($q) use ($query) {
                     $q->Where('name', 'LIKE', "%{$query}%");
                 })
-                ->orderBy('created_at', 'desc')->paginate(6);
+                ->orderBy('created_at', 'desc')->paginate(10);
+        } elseif ($request->get('show') == 'all'){
+            $newss = News::with('user')->latest()->get();
         } else {
-            $newss = News::with('user')->orderBy('created_at', 'desc')->paginate(6);
+            $newss = News::with('user')->orderBy('created_at', 'desc')->paginate(10);
         }
 
         return view('admin.berita.index', compact('newss', 'query'));
