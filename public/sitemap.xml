@@ -1,8 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-        <loc>http://localhost/asdasdas</loc>
-        <lastmod>2024-07-01T09:59:45+07:00</lastmod>
+        <loc>http://localhost/perangkat-kelurahan</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/lembaga-kelurahan</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/struktur-organisasi</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/tentang</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/visimisi</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/sejarah</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/geografis</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/demografis</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/galeri</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/layanan</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/berita/wulan-yuliana-aryani</loc>
+        <lastmod>2024-06-28T15:24:56+07:00</lastmod>
 
             </url>
     <url>
