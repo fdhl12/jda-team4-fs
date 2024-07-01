@@ -19,7 +19,7 @@ class ProfileKelurahanSeeder extends Seeder
                 'data' => '
                     <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Kelurahan Cibeber, yang terletak di Kota Cimahi, merupakan salah satu daerah yang sarat dengan keindahan dan kekayaan budaya. Dikelilingi oleh pemandangan alam yang memukau, Cibeber menawarkan udara segar dan suasana yang tenang, ideal untuk mereka yang mencari ketenangan dari hiruk-pikuk perkotaan. Berjalan di sekitar kelurahan ini, Anda akan menemukan berbagai macam pepohonan rindang dan taman-taman kecil yang menambah keasrian lingkungan, menjadikannya tempat yang sempurna untuk berjalan-jalan santai atau bersantai dengan keluarga.</p>
 
-                    <p><img alt="" src="images/foto-1_1719556235.jpeg" style="height:600px; width:1200px" /></p>
+                    <p><img alt="" src="images/foto-1_1719556235.jpeg" width="100%"/></p>
 
                     <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Selain keindahan alamnya, Cibeber juga kaya akan warisan budaya dan sejarah. Berbagai kegiatan adat dan tradisi lokal masih dilestarikan oleh masyarakat setempat, memberikan warna tersendiri bagi kelurahan ini. Pasar-pasar tradisional yang ada di Cibeber menampilkan beragam produk lokal, dari makanan khas hingga kerajinan tangan, mencerminkan keragaman budaya dan kreativitas warga. Kehangatan dan keramahan penduduknya membuat setiap pengunjung merasa diterima dan menjadi bagian dari komunitas.</p>
 

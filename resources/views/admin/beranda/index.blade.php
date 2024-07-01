@@ -15,8 +15,8 @@
         </div>
     </div>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-6 md:gap-6 pt-5">
-        <div class="text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-5">
+        <div class="text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 p-4 xl:p-8 dark:bg-gray-800 dark:text-white">
             <div class="flex items-baseline gap-2">
                 <span class="text-2xl font-extrabold text-blue-500">{{ $totalBerita }}</span>
                 <h3 class="mb-4 text-2xl">Berita</h3>
@@ -27,7 +27,7 @@
             </a>
         </div>
 
-        <div class="text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
+        <div class="text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 p-4 xl:p-8 dark:bg-gray-800 dark:text-white">
             <div class="flex items-baseline gap-2">
                 <span class="text-2xl font-extrabold text-blue-500">{{ $totalPengumuman }}</span>
                 <h3 class="mb-4 text-2xl">Pengumuman</h3>
@@ -38,7 +38,7 @@
             </a>
         </div>
 
-        <div class="text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
+        <div class="text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 p-4 xl:p-8 dark:bg-gray-800 dark:text-white">
             <div class="flex items-baseline gap-2">
                 <span class="text-2xl font-extrabold text-blue-500">{{ $totalGaleri }}</span>
                 <h3 class="mb-4 text-2xl">Galeri</h3>
