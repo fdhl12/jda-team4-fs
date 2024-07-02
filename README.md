@@ -72,7 +72,7 @@ Setelah menginstal dan menjalankan aplikasi, buka browser dan akses `http://loca
 ## Login Sebagai Admin
 
 -   Url login for management
-    `http://localhost:[8000]`
+    `http://localhost:8000/login`
 -   email
     `kangadmin@gmail.com`
 -   password
