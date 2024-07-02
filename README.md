@@ -71,18 +71,12 @@ Setelah menginstal dan menjalankan aplikasi, buka browser dan akses `http://loca
 
 ## Login Sebagai Admin
 
-    ~url-login-for-management
-    ```bash
-    http://localhost:8000/login
-    ```
-    ~email
-    ```bash
-    kangadmin@gmail.com
-    ```
-    ~password
-    ```bash
-    password
-    ```
+-   Url login for management
+    `http://localhost:[8000]`
+-   email
+    `kangadmin@gmail.com`
+-   password
+    `password`
 
 ## Lisensi
 
@@ -93,3 +87,5 @@ Proyek ini dilisensikan di bawah lisensi [Nama Lisensi]. Lihat file `LICENSE` un
 Jika Anda memiliki pertanyaan atau saran, silakan hubungi saya di [example@email.com].
 
 ---
+
+`
