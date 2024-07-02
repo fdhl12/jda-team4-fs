@@ -21,38 +21,48 @@ Proyek ini adalah tempat informasi dan beberapa Layanan yang disediakan Keluraha
 
 1. Clone repositori ini
     ```bash
-    [git clone https://github.com/fdhl12/jda-team4-fs.git]
+    $ git clone https://github.com/fdhl12/jda-team4-fs.git
     ```
 2. Masuk ke direktori proyek
     ```bash
-    [cd jda-team4-fs]
+    $ cd jda-team4-fs
     ```
 3. Instal dependensi
     ```bash
-    [npm install]
-    [composer install]
+    $ npm install
+    ```
+    ```bash
+    $ composer install
     ```
 4. Konfigurasi database di `.env` atau `config` file
     ```bash
-    [cp .env.example .env]
+    $ cp .env.example .env
+    ```
+    - Ubah isi file .env
+    ```bash
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
     DB_DATABASE=kelurahancibeber
     DB_USERNAME=root
     DB_PASSWORD=(yourpassword)
-    [php artisan storage:link]
-    [php artisan key:generate]
+    ```
+    - Jalankan perintah di terminal
+    ```bash
+    $ php artisan storage:link
+    ```
+    ```bash
+    $ php artisan key:generate
     ```
 5. Jalankan migrasi database
    perintah migrasi :
     ```bash
-    [php artisan migrate --seed ]
+    $ php artisan migrate --seed
     ```
 6. Jalankan aplikasi
     ```bash
-    [php artisan serve]
-    [npm run dev]
+    $ php artisan serve
+    $ npm run dev
     ```
 
 ## Penggunaan
@@ -61,10 +71,17 @@ Setelah menginstal dan menjalankan aplikasi, buka browser dan akses `http://loca
 
 ## Login Sebagai Admin
 
-     ```bash
-    [http://localhost:8000/login] ~url-login-for-management
-    [kangadmin@gmail.com] ~email
-    [password]  ~password
+    ~url-login-for-management
+    ```bash
+    http://localhost:8000/login
+    ```
+    ~email
+    ```bash
+    kangadmin@gmail.com
+    ```
+    ~password
+    ```bash
+    password
     ```
 
 ## Lisensi
