@@ -87,7 +87,9 @@
                                 @forelse($newss as $news)
                                     <tr class="hover:bg-blue-100 dark:hover:bg-blue-700">
                                         <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-black-500 truncate xl:max-w-xs dark:text-black-400">
-                                            {{ $news['title'] }}
+                                            <a target="_blank" class="hover:text-blue-600" href="{{ url('berita/'.$news['slug']) }}">
+                                                {{ $news['title'] }}
+                                            </a>
                                         </td>
                                         <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-black-500 truncate xl:max-w-xs dark:text-black-400">
                                             {{ $news->created_at->translatedFormat('l, d F Y') }}

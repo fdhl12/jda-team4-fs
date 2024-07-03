@@ -39,6 +39,9 @@
                     <a href="{{ $profile['sosial_media']['instagram'] }}"
                        class="text-gray-300 hover:text-blue-500 transition-colors duration-300"><i
                             class="fab fa-instagram-square fa-lg"></i></a>
+                    <a href="{{ $profile['sosial_media']['youtube'] }}"
+                       class="text-gray-300 hover:text-blue-500 transition-colors duration-300"><i
+                            class="fab fa-youtube fa-lg"></i></a>
                 </div>
             </div>
         </div>
@@ -53,90 +56,13 @@
 <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js"></script>
 
 <script>
-     AOS.init();
+     AOS.init({once: true});
 </script>
 <script>
-
-    var header = document.getElementById("header");
-    var navcontent = document.getElementById("nav-content");
-    var navaction = document.getElementById("navAction");
-    var brandname = document.getElementById("brandname");
-    var toToggle = document.querySelectorAll(".toggleColour");
-
-
-</script>
-<script>
-    /*Toggle dropdown list*/
-    /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
-
-    var navMenuDiv = document.getElementById("nav-content");
-    var navMenu = document.getElementById("nav-toggle");
-
-    document.onclick = check;
-
-    function check(e) {
-        var target = (e && e.target) || (event && event.srcElement);
-
-        //Nav Menu
-        if (!checkParent(target, navMenuDiv)) {
-            // click NOT on the menu
-            if (checkParent(target, navMenu)) {
-                // click on the link
-                if (navMenuDiv.classList.contains("hidden")) {
-                    navMenuDiv.classList.remove("hidden");
-                } else {
-                    navMenuDiv.classList.add("hidden");
-                }
-            } else {
-                // click both outside link and outside menu, hide menu
-                navMenuDiv.classList.add("hidden");
-            }
-        }
-    }
-
-    function checkParent(t, elm) {
-        while (t.parentNode) {
-            if (t == elm) {
-                return true;
-            }
-            t = t.parentNode;
-        }
-        return false;
-    }
-</script>
-<script>
-    function contactForm() {
-        return {
-            name: '',
-            email: '',
-            message: '',
-            showSuccessMessage: false,
-            showErrorMessage: false,
-            handleSubmit() {
-                // Reset messages
-                this.showSuccessMessage = false;
-                this.showErrorMessage = false;
-
-                // Simulate form submission
-                setTimeout(() => {
-                    if (this.name && this.email && this.message) {
-                        // Simulate successful form submission
-                        this.showSuccessMessage = true;
-                    } else {
-                        // Simulate error in form submission
-                        this.showErrorMessage = true;
-                    }
-                }, 1000);
-            }
-        }
-    }
-
     var scroll = new SmoothScroll('.smooth-scroll', {
         speed: 9000,
         speedAsDuration: true
     });
-
-
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <link

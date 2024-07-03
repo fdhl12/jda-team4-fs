@@ -112,7 +112,7 @@
                 @else
                     <!-- Display news articles -->
                     @foreach ($newss->chunk(3) as $newsChunk)
-                        <div class="w-full flex flex-wrap justify-center mb-6">
+                        <div class="w-full grid grid-cols-1 md:grid-cols-3 justify-center mb-6">
                             @foreach ($newsChunk as $news)
                                 <!-- Include the card component and pass the $news variable -->
                                 @include('components.card', [

@@ -12,7 +12,7 @@
                         <h1 class="text-5xl font-bold text-blue-950 mb-2 text-center pb-8">
                             {{ $announcement->title }}
                         </h1>
-                        <div class="flex items-center text-xl text-orange-500">
+                        <div class="flex flex-col md:flex-row items-center text-xl text-orange-500">
                             <span class="font-semibold mr-2">{{ $announcement->user->name }}</span>
                             <time datetime="{{ $announcement->created_at }}">
                                 {{ $announcement->created_at->translatedFormat('l, d F Y H:i') }}
@@ -50,7 +50,7 @@
                                     <div class="ml-4 text-black">
                                         <a href="{{ route('show.pengumuman', $item->slug) }}"
                                            class="block rounded-t-lg overflow-hidden transition duration-300 ease-in-out transform hover:text-blue-500">
-                                            <h3 class="text-2xl font-semibold">{{ $item->title }}</h3>
+                                            <h3 class="text-xl font-semibold">{{ $item->title }}</h3>
                                         </a>
                                         <p class="text-orange-700 ">{{ $item->created_at->translatedFormat('l, d F Y H:i') }}</p>
                                     </div>

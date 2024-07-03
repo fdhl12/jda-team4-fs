@@ -16,14 +16,21 @@ class NewsSeeder extends Seeder
     public function run(): void
     {
 
-        for ($i = 0; $i < 12 ; $i++) {
+        for ($i = 0; $i < 12; $i++) {
 
-            $title = fake()->name;
+            $title = [
+                'Kelurahan Cibeber Berhasil Menjadi Juara Ke-2 Lomba Kelurahan dan Desa Tingkat Provinsi Jawa Barat',
+                'Kelurahan Cibeber Menjadi Juara Satu Cimahi Motekar Award 2022',
+                'Kelurahan Cibeber Mewakili Kota Cimahi dalam Lomba Desa dan Kelurahan Tikngkat Provinsi Jawa Barat Tahun 2023 dan Masuk 5 Besar',
+                'Masyarakat Desak Pemkot Segera Perbaiki Jalan Rusak di Cibeber'
+            ];
+            $title_rand = $title[array_rand($title)];
             $image = ['berita-1.jpg', 'berita-2.jpg', 'berita-3.jpg'];
             $image_rand = $image[array_rand($image)];
 
             $berita = [
-                '<p>CIMAHI.- Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana (DP3AP2KB) Kota Cimahi menggelar sosialisasi pencegahan kekerasan terhadap perempuan dan anak di Aula Gedung A Kantor Pemkot Cimahi Jalan Raden Demang Hardjakusumah Kota Cimahi. Kegiatan digelar untuk mencegah terjadinya kekerasan terhadap perempuan dan anak yang harus didukung semua kalangan.</p>
+'
+<p>CIMAHI.- Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana (DP3AP2KB) Kota Cimahi menggelar sosialisasi pencegahan kekerasan terhadap perempuan dan anak di Aula Gedung A Kantor Pemkot Cimahi Jalan Raden Demang Hardjakusumah Kota Cimahi. Kegiatan digelar untuk mencegah terjadinya kekerasan terhadap perempuan dan anak yang harus didukung semua kalangan.</p>
 
 <p>Kegiatan diikuti 75 orang perwakilan para Pengurus posyandu se Kota Cimahi yang melaksanakan konseling kekerasan terhadap Perempuan dan anak. Hadir sebagai narsumber Agung Yunus Andianto, SH dan Mauritz Marx Williams, SH, MH dari Kejaksaan Negeri Kota Cimahi dan Euis Hotimah Dikdik, S.Pd selaku Ketua Puspaga Kota Cimahi.</p>
 
@@ -35,7 +42,8 @@ class NewsSeeder extends Seeder
 
 <p>Dikdik berharap dengan adanya sosialisasi pencegahan kekerasan terhadap perempuan dan anak dapat meningkatkan pengetahuan, pemahaman dan peran kader Posyandu. &quot;Mereka sebagai mitra pemerintah dalam menangani permasalahan perempuan dan anak yang terjadi di lingkungannya. Mari kita berkoordinasi melaksanakan pencegahan kekerasan terhadap perempuan dan anak. Sehingga Kota Cimahi menjadi kota yang aman, nyaman dan menjadi kota yang ramah untuk perempuan dan anak,&quot; tandasnya.**</p>
 ',
-                '<p>CIMAHI - Permintaan surat keterangan Data Terpadu Kesejahteraan Sosial (DTKS) di Kota Cimahi, Jawa Barat meningkat drastis seiring dibukanya Penerimaan Peserta Didik Baru (PPDB) 2024. Warga ramai-ramai mendaftar hingga mencetak surat keterangan terdaftar dalam DTKS.</p>
+'
+<p>CIMAHI - Permintaan surat keterangan Data Terpadu Kesejahteraan Sosial (DTKS) di Kota Cimahi, Jawa Barat meningkat drastis seiring dibukanya Penerimaan Peserta Didik Baru (PPDB) 2024. Warga ramai-ramai mendaftar hingga mencetak surat keterangan terdaftar dalam DTKS.</p>
 
 <p>&quot;Memang kalau masuk PPDB seperti sekarang pengajuan untuk masuk DTKS dan pencetakan surat keterangan DTKS selalu mengalami kenaikan,&quot; kata Kepala Seksi Pengolahan dan Analisa Data Dinas Sosial (Dinsos) Kota Cimahi Ratri Susanti, Selasa (28/5/2024).</p>
 
@@ -61,30 +69,52 @@ class NewsSeeder extends Seeder
 
 <p>&quot;Data tersebut hingga bulan Mei 2024, dan biasanya naik turun tergantung dari data masuk,&quot; katanya.</p>
 ',
-                'CIMAHI.- Pj. Wali Kota Cimahi Dicky Saromi melakukan peletakan batu pertama pembangunan Sistem Pengelolaan air Limbah Domestik Terpusat (SPALD-T) di RW 01 Kelurahan Melong Kecamatan Cimahi Selatan Kota Cimahi. Sebanyak 50 kepala keluarga disekitarnya mendapat manfaat dari pembangunan tersebut untuk peningkatan kualitas sanitasi lingkungan.
+'
+<p>
+CIMAHI.- Pj. Wali Kota Cimahi Dicky Saromi melakukan peletakan batu pertama pembangunan Sistem Pengelolaan air Limbah Domestik Terpusat (SPALD-T) di RW 01 Kelurahan Melong Kecamatan Cimahi Selatan Kota Cimahi. Sebanyak 50 kepala keluarga disekitarnya mendapat manfaat dari pembangunan tersebut untuk peningkatan kualitas sanitasi lingkungan.
 
+</p>
+<p>
 Kegiatan merupakan program bantuan BRI peduli dan Forum ITB Angkatan Tahun 1984. Dana pembangunan SPALD-T berasal dari dana Tanggung Jawab Sosial dan Lingkungan (TJSL) Bank BRI sebesar Rp 500 juta rupiah.
+
+</p>
+<p>
 Sekretaris Daerah Kota Cimahi Dikdik S. Nugrahawan dalam laporannya menyampaikan tujuan dari pembangunan SPALD yaitu meningkatkan kolaborasi multi pihak sebagai mitra pembangunan khususnya dalam penyediaan sarana sanitasi.
 
+</p>
+<p>
 "Keberadaan SPALD dapat meningkatkan kualitas hidup masyarakat di kawasan padat penduduk serta menurunkan faktor risiko stunting," katanya.
 
+</p>
+<p>
 Pj. Wali Kota Cimahi Dicky Saromi dalam sambutannya sangat mengapresiasi pentahelix collaboration yang terwujud dalam menangani sanitasi di Kota Cimahi. "Bantuan ini sangat mendukung tujuan Cimahi dalam mewujudkan new zero stunting dan bebas kawasan kumuh," ungkapnya.
 
+</p>
+<p>
 Dicky menyebutkan bahwa tahun 2024, pemerintah menargetkan angka stunting nasional dari 21,6% harus turun menjadi 14%.
 
+</p>
+<p>
 "Sanitasi yang baik membawa lingkungan yang baik, terutama bagi generasi penerus kita yaitu anak-anak kita agar terbebas dari stunting," ucapnya.
 
+</p>
+<p>
 Komisaris BRI Nurmaria Sarosa menyebutkan, dana CSR BRI dimanfaatkan untuk membantu meningkatkan kesejahtahteraan masyarakat. "Dari BRI program CSR, kami manfaatkan untuk masyakyat. InsyaAllah program ini akan kami teruskan karena kita masih butuh banyak perbaikan di bidang sanitasi" tuturnya.
 
-Senada Nurmaria, Ketua forum ITB\'84 VH. Gadjahmada juga menyebutkan bahwa Forum ITB \'84 mempunyai kepedulian terhadap kebutuhan masyarakat "Kami berupaya mengembalikan apa yang sudah kami terima, ada teman-teman yang punya kebutuhan, ada teman-teman yang bisa memberikan bantuan.  Sinergi di antara kami semoga bisa membantu dan kembali kepada masyarakat,\" tuturnya.**'
+</p>
+<p>
+Senada Nurmaria, Ketua forum ITB\'84 VH. Gadjahmada juga menyebutkan bahwa Forum ITB \'84 mempunyai kepedulian terhadap kebutuhan masyarakat "Kami berupaya mengembalikan apa yang sudah kami terima, ada teman-teman yang punya kebutuhan, ada teman-teman yang bisa memberikan bantuan.  Sinergi di antara kami semoga bisa membantu dan kembali kepada masyarakat,\" tuturnya.**
+
+</p>
+'
             ];
             $berita_rand = $berita[array_rand($berita)];
 
             News::create([
-                'title' => $title,
+                'title' => $title_rand,
                 'description' => $berita_rand,
                 'image' => $image_rand,
-                'slug' => Str::slug($title),
+                'slug' => Str::slug($title_rand) . '-' . Str::random(4),
                 'user_id' => 1,
             ]);
         }

@@ -45,7 +45,7 @@
                    data-aos-duration="500" data-aos-delay="0">Informasi Terkait {{ $pengaturan['name'] }}</p>
 
                   <!-- Loop Pengumuman -->
-                <div class="w-full flex flex-wrap justify-center my-12">
+                <div class="w-full grid grid-cols-1 md:grid-cols-3 justify-center my-12">
                     @foreach ($announcements as $announcement)
                         <!-- Include the card component and pass the $announcement variables -->
                         @include('components.card', [
@@ -120,7 +120,7 @@
                     data-aos-duration="500" data-aos-delay="0">Berita Seputar {{ $pengaturan['name'] }}</p>
 
                 <!-- Loop Berita -->
-                <div class="w-full flex flex-wrap justify-center my-12">
+                <div class="w-full grid grid-cols-1 md:grid-cols-3 justify-center my-12">
                     @foreach ($newss as $news)
                         <!-- Include the card component and pass the $news variables -->
                         @include('components.card', [
@@ -163,7 +163,7 @@
                                data-caption="{{ $galeri->description }}"
                                data-options='{"type": "image", "image": {"zoom": {"fit": "contain", "startScale": 1.5}}}'
                                style="display: block;">
-                                <img class="object-cover object-center w-full h-full"
+                                <img class="object-cover object-center w-full max-h-60"
                                      src="{{ asset('storage/'.$galeri->image) }}"
                                      alt="{{ $galeri->description }}">
                             </a>
