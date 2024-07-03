@@ -29,10 +29,23 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
+
         $sitemap = Sitemap::create();
+        $sitemap->add('/perangkat-kelurahan');
+        $sitemap->add('/lembaga-kelurahan');
+        $sitemap->add('/struktur-organisasi');
+        $sitemap->add('/tentang');
+        $sitemap->add('/visimisi');
+        $sitemap->add('/sejarah');
+        $sitemap->add('/geografis');
+        $sitemap->add('/demografis');
+        $sitemap->add('/galeri');
+        $sitemap->add('/layanan');
+
+
         News::all()->each(function (News $news) use ($sitemap) {
             $sitemap->add(
-                Url::create("/news/{$news->slug}")
+                Url::create("berita")
                     ->setPriority(0.9)
                     ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
                     ->setLastModificationDate($news->updated_at)
@@ -42,13 +55,14 @@ class GenerateSitemap extends Command
         // Menambahkan Announcements ke sitemap
         Announcement::all()->each(function (Announcement $announcement) use ($sitemap) {
             $sitemap->add(
-                Url::create("/announcements/{$announcement->slug}")
+                Url::create("pengumuman")
                     ->setPriority(0.8)
                     ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
                     ->setLastModificationDate($announcement->updated_at)
                     ->setUrl("/pengumuman/{$announcement->slug}")
             );
         });
+
         $sitemap->writeToFile(public_path('sitemap.xml'));
 
         $this->info('Sitemap generated successfully.');
