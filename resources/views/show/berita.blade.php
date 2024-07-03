@@ -49,7 +49,7 @@
                                     <div class="ml-4 text-black">
                                         <a href="{{ route('show.berita', $item->slug) }}"
                                            class="block rounded-t-lg overflow-hidden transition duration-300 ease-in-out transform hover:text-blue-500">
-                                            <h3 class="text-2xl font-semibold">{{ $item->title }}</h3>
+                                            <h3 class="text-xl font-semibold">{{ $item->title }}</h3>
                                         </a>
                                         <p class="text-orange-700 ">{{ $item->created_at->translatedFormat('l, d F Y H:i') }}</p>
                                     </div>

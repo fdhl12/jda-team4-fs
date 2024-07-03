@@ -270,9 +270,6 @@ class ProfileKelurahanSeeder extends Seeder
 		</tr>
 	</tbody>
 </table>
-
-<p><em>Sumber : Sistem Informasi Desa </em><a href="https://sid.kradenan.desa.id/"><em>https://sid.kradenan.desa.id/</em></a></p>
-
                 ',
                 'created_at' => now(),
                 'updated_at' => now(),

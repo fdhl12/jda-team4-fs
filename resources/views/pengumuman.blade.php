@@ -28,7 +28,7 @@
                     </div>
                 @else
                     @foreach ($announcements->chunk(3) as $announcementChunk)
-                    <div class="w-full flex flex-wrap justify-center mb-6">
+                    <div class="w-full grid grid-cols-1 md:grid-cols-3 justify-center mb-6">
                         @foreach ($announcementChunk as $announcement)
                             @include('components.card', [
                                 'link' => route('show.pengumuman', $announcement->slug),

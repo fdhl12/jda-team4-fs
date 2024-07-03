@@ -1,10 +1,10 @@
 <!-- resources/views/components/card.blade.php -->
 
-<div class="max-w-full sm:max-w-sm md:max-w-md bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 mb-6 mx-2 sm:mx-3 md:mx-4
+<div class="max-w-full bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 mb-6 mx-2 sm:mx-3 md:mx-4
     transform transition-all duration-300 ease-in-out
     hover:scale-105 hover:shadow-xl
-    animate-fade-in-up" 
-    data-aos="zoom-in" 
+    animate-fade-in-up"
+    data-aos="zoom-in"
     data-aos-duration="500">
     <div class="overflow-hidden">
         <a href="{{ $link }}" class="block rounded-t-lg overflow-hidden">
