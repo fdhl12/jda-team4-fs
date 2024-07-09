@@ -40,15 +40,15 @@ class LoginController extends Controller
         $this->middleware('auth')->only('logout');
         $this->middleware('guest')->except('logout');
 
-        foreach (Pengaturan::all() as $read)
-        {
+        foreach (Pengaturan::all() as $read) {
             $pengaturan[$read['type']] = $read['data'];
         }
 
         view()->share('pengaturan', $pengaturan);
     }
 
-    protected function loggedOut() {
+    protected function loggedOut()
+    {
         return redirect()->route('login');
     }
 }
